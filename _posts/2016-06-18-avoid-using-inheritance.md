@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Avoid Creating Unnecessary Class Hierarchies"
-date: 2016-06-10
+title: "Avoid Using Inheritance"
+date: 2016-06-18
 ---
 
 A huge problem of software development is that the code becomes over-complicated and hard to maintain. I see that the ***overuse of class inheritance*** is one of its biggest reasons. Unfortunately developers have an affection to create class hierarchies and abstract classes.
