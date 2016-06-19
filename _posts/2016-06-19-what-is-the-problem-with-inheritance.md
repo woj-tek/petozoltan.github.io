@@ -65,7 +65,7 @@ Moreover, it does not fullfill the specification. (Remember: "It is generic." or
 
 **Implementation**: There it is, but not in the terms of fullfilling the requirements since there are none.
 
-**Testing**: The developers usually the only the sub-classes, which involves more or less the code from the parent classes too. But the parent classes - especially the abstract ones - are not tested at all. They are not tested like any other classes with a well defined and enclosed functionality.
+**Testing**: The developers usually test only the sub-classes, which involves more or less the code from the parent classes too. But the parent classes - especially the abstract ones - are not tested at all. They are not tested like any other classes with a well defined and enclosed functionality.
 
 ### Related posts
 
