@@ -168,3 +168,7 @@ We want to avoid any kind of dependencies because they multiply the complexity o
 #### Occam's razor
 
 Do not create code which is not necessary. Maintaining masses of unnecessary code needs a lot of efforts.
+
+## Related posts
+
+* [What Is The Problem With Inheritance?](./2016/06/19/what-is-the-problem-with-inheritance.html)
