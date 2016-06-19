@@ -171,4 +171,4 @@ Do not create code which is not necessary. Maintaining masses of unnecessary cod
 
 ## Related posts
 
-* [What Is The Problem With Inheritance?](./2016/06/19/what-is-the-problem-with-inheritance.html)
+* [What Is The Problem With Inheritance?](http://petozoltan.github.io/2016/06/19/what-is-the-problem-with-inheritance.html)
