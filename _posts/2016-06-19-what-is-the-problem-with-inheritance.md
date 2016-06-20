@@ -9,6 +9,23 @@ I almost always find very hard and annoying to maintain the class hierarchies we
 
 Imagine that you are a programmer and you have a task to implement a certain feature. What do you expect?
 
+<table>
+<tr>
+<td>
+Bla bla
+</td>
+<td>
+#### Mark1
+
+*Mark2.*
+
+Mark4
+
+> Mark3
+</td>
+</tr>
+</table>
+
 | Specification: | The feature is carefully found out and discussed by one or more business analysts. |
 | Design: | Prior to the coding the solution is well planned by technical people like architects or by the developers themselves. At least verbally but possibly in written documents. | 
 | Implementation: | The feature is not only implemented well by a good programmer, but it also fulfills the requirements. | 
