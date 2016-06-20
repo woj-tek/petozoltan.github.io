@@ -21,7 +21,7 @@ Usually these steps happen in a serious software company.
 
 ### Framework development
 
-When you create class hiearchies to use them in the future, and to use them by other developers, then you really create a ***framework***. Especially the presence of abstract classes show that you have to *"put your classes under this hierarchy"* and if you do you will be fine. That is what i call a *"framework"*.
+When you create class hiearchies to use them in the future, and to use them by other developers, then you really create a ***framework***. Especially the presence of abstract classes show that others have to *"put their classes under this hierarchy"* and if they do they will be fine. That is what i call a *"framework"*.
 
 So imagine now that you have to implement a framework. Wouldn't you expect the same conditions as in the feature development?
 
