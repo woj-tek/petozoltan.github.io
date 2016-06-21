@@ -30,20 +30,20 @@ The class hierarchy is very wrong if the child classes:
 * do not use input parameters of the inherited methods,
 * must override already implemented methods.
 
-#### Do not create parent class if you have to call 'super' or pass 'this'
-
-If you 
-
-* have to call 'super' but not in a constructor, or 
-* have to pass 'this' from parent to child or opposite, 
-
-then parent and child just simply call each other as independent classes. No need for inheritance between them.
-
 #### Do not create class hierarchy if you got warnings
 
 This is similar to the previous case, because you might get warnings about unused parameters, empty blocks, etc.
 
-Of course, you should turn on warnings to see them.
+Of course, you should *turn on warnings* to see them.
+
+#### Do not create parent class if you have to call `super` or pass `this`
+
+If you 
+
+* have to call `super` but not in a constructor, or 
+* have to pass `this` from parent to child or opposite, 
+
+then parent and child just simply call each other as independent classes. No need for inheritance between them.
 
 #### Do not create parent class if you find that it must be modified when a child class is added or modified
 
@@ -119,13 +119,13 @@ If they differ only in data then use proper method parameters.
 
 If only values are different it is no reason for a class. Classes are for procedural differences.
 
-#### Create separate interface for the similar classes instead of a common abstract parent class
+#### Create separate interface for the parent and child classes instead of inheritance
 
-For example the parent has the A public interface (a set of public methods) and it has the B set of abstract methods. The children practically have the B interface. So the hierarchy can be simple refactored into a service/subservices or runner/runnables architecture.
+For example the parent has the public interface A (a set of public methods) and it has the set B of abstract methods. The children practically have the interface B. So the hierarchy can be simple refactored into a service/subservices or runner/runnables architecture.
 
 #### Do not create abstract framework on the top of a framework
 
-#### Do not create wrappers or override methods with slightly different working. Instead, use the underlying framework correctly as it is.
+Do not create wrappers or override methods with slightly different working. Instead, use the underlying framework correctly as it is.
 
 #### Never create parent class for test classes
 
