@@ -32,9 +32,7 @@ The class hierarchy is very wrong if the child classes:
 
 #### Do not create class hierarchy if you got warnings
 
-This is similar to the previous case, because you might get warnings about unused parameters, empty blocks, etc.
-
-Of course, you should *turn on warnings* to see them.
+This is similar to the previous case, because you might get warnings about unused parameters, empty blocks, etc. Of course, you should *turn on warnings* to see them.
 
 #### Do not create parent class if you have to call `super` or pass `this`
 
@@ -121,7 +119,7 @@ If only values are different it is no reason for a class. Classes are for proced
 
 #### Create separate interface for the parent and child classes instead of inheritance
 
-For example the parent has the public interface A (a set of public methods) and it has the set B of abstract methods. The children practically have the interface B. So the hierarchy can be simple refactored into a service/subservices or runner/runnables architecture.
+For example the parent has the public interface *A* (a set of public methods) and it has the set *B* of abstract methods. The children practically have the interface *B*, a different interface than *A*. So the hierarchy can be simple refactored into a service/subservices or runner/runnables architecture.
 
 #### Do not create abstract framework on the top of a framework
 
