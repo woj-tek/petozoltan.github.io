@@ -3,7 +3,7 @@ layout: post
 title: "What Is The Problem With Inheritance?"
 date: 2016-06-19
 ---
-I almost always find very hard and annoying to maintain the class hierarchies we write. And I am constantly thinking on the reasons, why. Inheritance is one of the basic principles of object oriented programming, so it may sound strange that there is a problem with it. Of course, inheritance is good but the way we use it may not be good. Let me explain it through an example.
+I often find very hard and annoying to maintain the class hierarchies we write. And I am constantly thinking on the reasons, why. Inheritance is one of the basic principles of object oriented programming, so it may sound strange that there is a problem with it. Of course, inheritance is good but the way we use it may not be good. Let me explain it through an example.
 
 ### Feature development
 
@@ -36,7 +36,7 @@ Yes, you would.
 
 And now let's see how and why programmers create class hierarchies and abstract classes in reality. They work on a certain feature and create classes for it. During the coding they might say:
 
-> "Oh, it is so generic, I extract it to a parent class."
+> "It is so generic, I extract it to a parent class."
 
 Or, even more often they discover the similarities between some classes and they say:
 
