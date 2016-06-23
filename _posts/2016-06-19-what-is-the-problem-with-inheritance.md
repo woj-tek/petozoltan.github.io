@@ -69,7 +69,7 @@ Specification:
 
 : The intention of such frameworks is always this one:
 
-> "It will be good for the next developer / modification / sub-class / etc."
+: > "It will be good for the next developer / modification / sub-class / etc."
 
 : But unfortunately it will not.
 
