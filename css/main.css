@@ -2,6 +2,9 @@ body {
 	font-size: 90%;
 	background: beige;
 }
+.index_title { 
+	text-align: center;
+}
 .default_content {
     margin: 1em auto;
     width: 55%;
