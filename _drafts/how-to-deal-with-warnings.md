@@ -1,4 +1,4 @@
-In every software project's life there is a moment when the team decides to install a Sonar server and to do something with warnings in order to increase code quality. ***And then all of the teams will fail.*** This is a typical scenario:
+In every software project's life there is a moment when the team decides to install a Sonar server and to do something with warnings in order to increase code quality. ***But all of the teams will fail.*** This is a typical scenario:
 
 * We work on the software for a long time, until the first or second "big release".
 * One or two years after the project start we install the Sonar server.
@@ -25,7 +25,7 @@ Unfortunately the default setting of IDEs is that warnings are turned off, sugge
 
 ### Understand what warnings are
 
-It seems that *warnings are still the stepchildren of software development*. Something annoying that can be ignored. The root problem is that we do not understand what warnings are.
+It seems that warnings are still the stepchildren of software development. Something annoying that can be ignored. The root problem is that we do not understand what warnings are.
  
 Warnings point to real problems in our source code. ***Warnings are potential bugs.*** Actually they *are* bugs, because most of the bugs are caused by incorrect code parts, which could be detected via warnings. Moreover, warnings point to deeper structural problems in the code, which are not simple to fix. Probably that is why we do not like them. (For example, unused parameters are usually a sign of bad class hierarchy.)
 
@@ -38,10 +38,9 @@ And I do not have to mention that warnings should not be fixed via `SuppressWarn
 
 I have heard this buzzword many times: "We will turn on the Sonar", suggesting that after this everything will be fine. But it will not, since Sonar will not fix the warnings only show them. 
 
-What does exactly Sonar server do? 
+What does Sonar server exactly do? 
 
 * It executes some static code checkers, and displays their results. The code checkers are usually these ones: *CheckStyle*, *FundBugs* and *PMD*.
-
 * It executes the code checkers on the code which is already committed into the version control system.
 
 These static code checkers are also available as pluging for our IDEs. So I simply suggest to install them locally at the developers and execute them prior to the commits at least on the new or modified code parts. So we will not commit "Sonar warnings" any more!
@@ -51,7 +50,7 @@ These static code checkers are also available as pluging for our IDEs. So I simp
 
 We have a strict rule that the code base committed to the repository must contain 0 compilation errors. We also require that the count of failing unit test is also 0, so if there are any, they must be fixed immediately. We should deal with warnings on the same way.
 
-A simple "psychologycal" reason is that nobody will notice if the warning count changes from 16482 to 16492, but it is easy to detect a change from 0 to any number.
+A simple "psychologycal" reason is that nobody will notice if the warning count changes from *16482* to *16492*, but it is easy to detect a change from 0 to any number.
 
 I suggest to apply this approach even when we start to check warnings in the middle of the project, when we have tens of thousands:
 
@@ -61,3 +60,5 @@ I suggest to apply this approach even when we start to check warnings in the mid
   1. Turn on warnings only for this. 
   1. Fix the warnings immediately.
 1. Repeat step 2.
+
+With this approach we do not have fix all warnings, we can stop if we are already satisfied with the status. But even in this case *all* warnings must be fixed for the new and modified code parts!
