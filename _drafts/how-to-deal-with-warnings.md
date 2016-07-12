@@ -1,3 +1,8 @@
+---
+layout: post
+title: "How To Deal With Warnings?"
+date: 2016-07-13
+---
 In every software project there is a moment when the team decides to install a Sonar server and to do something with warnings in order to increase code quality. ***But all of the teams will fail.*** This is a typical scenario:
 
 * We work on the software for a long time, until the first or second "big release".
@@ -31,7 +36,7 @@ Warnings point to real problems in our source code. *Warnings are potential bugs
 
 There is no fundamental difference between warnings and errors! They differ only in the arbitrary level what we assign to them. You can set it in your IDE.
 
-![](petozoltan.github.io/warning-levels.png)
+![](https://petozoltan.github.io/warning-levels.png)
 
 And I do not have to mention that warnings should not be fixed via `SuppressWarnings`...
 
