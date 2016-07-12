@@ -75,3 +75,9 @@ If you want to get started with kramdown, have a look at the installation
 page to see how you can install it on your system.  
 Then look through the documentation for finding information about how to actually use kramdown and its parsers/converters. The quick reference provides a overview of the syntax –  
 if you need a more detailed description of the superset of Markdown which kramdown supports the syntax page is the place to go! 
+
+## KRISTÓF
+
+> vonal
+>>>>>>>>>>>>>>>>>>>>>>>> 3000 vonal
+~~helló~~
