@@ -31,7 +31,7 @@ Warnings point to real problems in our source code. *Warnings are potential bugs
 
 There is no fundamental difference between warnings and errors! They differ only in the arbitrary level what we assign to them. You can set it in your IDE.
 
-![petozoltan.github.io/warning-levels.png]
+![](petozoltan.github.io/warning-levels.png)
 
 And I do not have to mention that warnings should not be fixed via `SuppressWarnings`...
 
