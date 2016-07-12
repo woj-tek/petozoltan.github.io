@@ -55,10 +55,9 @@ A simple "psychologycal" reason is that nobody will notice if the warning count 
 I suggest to apply this approach even when we start to check warnings in the middle of the project, when we have tens of thousands:
 
 1. Turn off all warnings for all modules at first.
-1. Clear warnings or modules one-by-one:
-  1. Decide to clear one warning level or one warning type or one code module. 
-  1. Turn on warnings only for this. 
-  1. Fix the warnings immediately.
+1. Decide to clear one warning level or one warning type or one code module. 
+1. Turn on warnings only for this. 
+1. Fix the warnings immediately.
 1. Repeat step 2.
 
 With this approach we do not have fix all warnings, we can stop if we are already satisfied with the status. But even in this case *all* warnings must be fixed for the new and modified code parts!
