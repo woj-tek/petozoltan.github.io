@@ -72,3 +72,9 @@ PDCA Cycle:
 * *Do:* Assign resources and execute the plan.
 * *Check:* Check the results, measure the numbers.
 * *Act:* Review the whole thing, whether it yields the desired results. If not, change it.
+
+### Ignore warnings?
+
+As I see the software industry simply does not need the code quality above a certain level. Customers, stakeholders and decision makers do not want more *clean code* or less warnings. Maybe these things seem to be unnecessary or too expensive.
+
+In this case it can be a valid solution that we simply ignore all warnings in the code. But then we should not bother to install Sonar as well.
