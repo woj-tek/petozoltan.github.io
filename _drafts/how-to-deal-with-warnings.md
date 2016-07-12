@@ -50,7 +50,7 @@ These static code checkers are also available as pluging for our IDEs. So I simp
 
 We have a strict rule that the code base committed to the repository must contain 0 compilation errors. We also require that the count of failing unit test is also 0, so if there are any, they must be fixed immediately. We should deal with warnings on the same way.
 
-A simple "psychologycal" reason is that nobody will notice if the warning count changes from *16482* to *16492*, but it is easy to detect a change from *0* to any number.
+A simple "psychologycal" reason is that nobody will notice if the warning count changes from 16482 to 16492, but it is easy to detect a change from 0 to any number.
 
 I suggest to apply this approach even when we start to check warnings in the middle of the project, when we have tens of thousands:
 
@@ -61,3 +61,16 @@ I suggest to apply this approach even when we start to check warnings in the mid
 1. Repeat from step 2.
 
 With this approach we do not have fix all warnings, we can stop if we are already satisfied with the status. But even in this case *all* warnings must be fixed for the new and modified code parts!
+
+
+### Execute your plan
+
+There is one more thing which is missing from the scenario at the beginning: The tasks, related to the handling of warnings, are not addressed, i.e. the plan to decrease them is simply not executed. 
+
+For this I recommend a simple method I learned from the quality management systems:
+
+The PDCA Cycle:
+* Plan: Create a plan, including the results to be reached. Plan how to measure them by numbers if possible.
+* Do: Assign resources and execute the plan.
+* Check: Check the results, measure the numbers.
+* Act: Review the whole thing, whether it yields the desired results. If not, change it.
