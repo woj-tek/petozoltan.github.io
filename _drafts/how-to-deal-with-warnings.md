@@ -31,6 +31,8 @@ Warnings point to real problems in our source code. *Warnings are potential bugs
 
 There is no fundamental difference between warnings and errors! They differ only in the arbitrary level what we assign to them. You can set it in your IDE.
 
+![petozoltan.github.io/warning-levels.png]
+
 And I do not have to mention that warnings should not be fixed via `SuppressWarnings`...
 
 
@@ -77,4 +79,4 @@ PDCA Cycle:
 
 As I see the software industry simply does not need the code quality above a certain level. Customers, stakeholders and decision makers do not want more *clean code* or less warnings. Maybe these things seem to be unnecessary or too expensive.
 
-In this case it can be a valid solution that we simply ignore all warnings in the code. But then we should not bother to install Sonar as well.
+In this case it can be a valid solution that we simply ignore all warnings in the code. But then we should not bother to install Sonar and watch the high number of warnings.
