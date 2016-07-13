@@ -81,10 +81,13 @@ PDCA Cycle:
 
 Plan: 
 : Create a plan, including the results to be reached. Plan how to measure them by numbers if possible.
+
 Do: 
 : Assign resources and execute the plan.
+
 Check: 
 : Check the results, measure the numbers.
+
 Act: 
 : Review the whole thing, whether it yields the desired results. If not, change it.
 
