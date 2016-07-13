@@ -117,10 +117,18 @@ h4 {
     margin: 2em 0 0 0;
     padding: 0 0 0 0;
 }
+h6 {
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 1.4em;
+    margin: 2em 0 0 0;
+    padding: 0 0 0 0;
+    text-decoration: underline;
+}
 blockquote {
-	font-family: Times, serif;
-	font-size: 110%;
-	font-style: italic;
+    font-family: Times, serif;
+    font-size: 110%;
+    font-style: italic;
 	
     margin: 0 0 0 1.5em;
     padding: 0 0 0 0.5em;
