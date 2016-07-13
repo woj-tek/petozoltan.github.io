@@ -80,16 +80,21 @@ There is one more thing which is missing from the scenario at the beginning: The
 PDCA Cycle:
 
 Plan: 
-: Create a plan, including the results to be reached. Plan how to measure them by numbers if possible.
+: Create an execution plan.
+: Plan the results to be reached. 
+: Plan how to measure them by numbers if possible.
 
 Do: 
-: Assign resources and execute the plan.
+: Assign resources.
+: Execute the plan.
 
 Check: 
-: Check the results, measure the numbers.
+: Check the results.
+: Measure the numbers.
 
 Act: 
-: Review the whole thing, whether it yields the desired results. If not, change it.
+: Review the whole thing, whether it yields the desired results. 
+: If not, change it.
 
 ### Ignore warnings?
 
