@@ -77,7 +77,7 @@ With this approach we do not have fix all warnings, we can stop if we are alread
 
 There is one more thing which is missing from the scenario at the beginning: The tasks, related to the handling of warnings, are not addressed, i.e. the plan to decrease them is simply not executed. For this I recommend a simple method I learned from the quality management systems:
 
-PDCA Cycle:
+###### PDCA Cycle:
 
 Plan: 
 : Create an execution plan.
@@ -90,7 +90,6 @@ Do:
 
 Check: 
 : Check the results.
-
 : Measure the numbers.
 
 Act: 
