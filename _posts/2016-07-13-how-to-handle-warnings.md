@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How To Handle Warnings"
+title: "How To Handle Warnings?"
 date: 2016-07-13
 ---
 
@@ -26,16 +26,18 @@ Many other measures and tools are in use right from the project start: version c
 
 This is the most painful one. Developers do not turn on the displaying of warnings in their local development tools. They hide the warnings, so *they continuously commit a lot of warnings* all the time. So while they are talking about how to decrease their count, they still increase it.
 
-Unfortunately the default setting of IDEs is that warnings are turned off, suggesting that this is the good approach. But it is not. I suggest that the "default setting" should be to turn on all of them and then hide some of them. Which ones should be ignored can be discussed by the team.
+Unfortunately the default setting of IDEs is that warnings are turned off, suggesting that this is the good approach. But it is not. I recommend that the "default setting" should be to turn on all of them. And then the team can agree on a few ones that ones should be ignored.
 
 
 ### Understand what warnings are
 
-It seems that warnings are still the stepchildren of software development. Something annoying that can be ignored. The root problem is that we do not understand what warnings are.
+It seems that warnings are still the stepchildren of software development. Something annoying that can be ignored. The root problem is that we probably do not understand what warnings are.
  
-Warnings point to real problems in our source code. *Warnings are potential bugs.* Actually they *are* bugs, because most of the bugs are caused by incorrect code parts, which could be detected via warnings. Moreover, warnings point to deeper structural problems in the code, which are not simple to fix. Probably that is why we do not like them. (For example, unused parameters are usually a sign of bad class hierarchy.)
+Warnings point to real problems in our source code. *Warnings are potential bugs.* Actually they *are* bugs, because most of the bugs are caused by incorrect code parts, which could be detected via warnings. 
 
-There is no fundamental difference between warnings and errors! They differ only in the arbitrary level what we assign to them. You can set it in your IDE.
+Moreover, warnings point to deeper structural problems in the code, which are not simple to fix. Probably that is why we do not like them. (For example, unused parameters are usually a sign of bad class hierarchy.)
+
+There is no fundamental difference between warnings and errors! They differ only in the arbitrary level what we assign to them. You can set it in your IDE:
 
 ![](https://petozoltan.github.io/warning-levels.png)
 
@@ -44,7 +46,7 @@ And I do not have to mention that warnings should not be fixed via `SuppressWarn
 
 ### Add code checkers to your IDE
 
-I have heard this buzzword many times: "We will turn on Sonar", suggesting that after this everything will be fine. But it will not, since Sonar will not fix the warnings only show them. 
+I have heard this buzzword many times: *"We will turn on Sonar"*, suggesting that after this everything will be fine. But it will not, since Sonar will not fix the warnings only show them. 
 
 What does Sonar server exactly do? 
 
@@ -77,13 +79,17 @@ There is one more thing which is missing from the scenario at the beginning: The
 
 PDCA Cycle:
 
-- *Plan:* Create a plan, including the results to be reached. Plan how to measure them by numbers if possible.
-- *Do:* Assign resources and execute the plan.
-- *Check:* Check the results, measure the numbers.
-- *Act:* Review the whole thing, whether it yields the desired results. If not, change it.
+Plan: 
+: Create a plan, including the results to be reached. Plan how to measure them by numbers if possible.
+Do: 
+: Assign resources and execute the plan.
+Check: 
+: Check the results, measure the numbers.
+Act: 
+: Review the whole thing, whether it yields the desired results. If not, change it.
 
 ### Ignore warnings?
 
-As I see the software industry simply does not need the code quality above a certain level. Customers, stakeholders and decision makers do not want more *clean code* or less warnings. Maybe these things seem to be unnecessary or too expensive.
+As I see the software industry simply does not need the code quality above a certain level. Customers and stakeholders do not want more *clean code* or less warnings. Maybe these things seem to be unnecessary or too expensive.
 
 In this case it can be a valid solution that we simply ignore all warnings in the code. But then we should not bother to install Sonar and watch the high number of warnings.
