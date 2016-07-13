@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How To Deal With Warnings?"
+title: "How To Handle Warnings"
 date: 2016-07-13
 ---
 
