@@ -130,3 +130,9 @@ blockquote {
 	border-left-style: solid;
 	border-left-width: 3px;
 }
+.post_content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
