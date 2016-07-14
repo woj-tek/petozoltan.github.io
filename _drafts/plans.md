@@ -15,10 +15,12 @@ Classes should be closed for the contiuous modifications. A class should be impl
 
 #### Constants should always be enums.
 
-Enums of one specific value set. (E.g. first names and last names are both Strings, but the _value set of first names_ and the _values set of last names_ are not assignible.)
+Enums of one specific _value set_. (E.g. first names and last names are both Strings, but the _value set of first names_ and the _values set of last names_ are not assignible.)
   
 They can be provided with additional information.
   
-#### Prefixes in constant names
+#### Split into more enums
 
-When you see _prefixes_ in the constants' names, that is a clear sing that the constant set should be split into more enums.
+When you see _prefixes_ in the constants' names, that is a clear sign that the constant set should be split into more enums.
+
+The same goes when you see comments between the constants, saying "Here begin the ... constants".
