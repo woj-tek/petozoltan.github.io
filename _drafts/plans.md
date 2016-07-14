@@ -2,9 +2,9 @@
 
 * Interpretation problems. 
 
-  > It can be this way or that way. Wrong.
+  > It can be this way or that way. It is a matter of taste.
   
-  New constants can be added to this class or to separate classes. 
+  Wrong. New constants can be added to this class or to separate classes. 
   If the next developer cannot decide where to write the code, the chaos begins.
 
 * Classes should be specific
@@ -14,4 +14,5 @@
   Enums of one specific value set. (E.g. first names and last names are both Strings, but the _value set of first names_ and the _values set of last names_ are not assignible.)
   
   They can be provided with additional information.
- 
+  
+* When you see _prefixes_ in the constants' names, that is a clear sing that the constant set should be split into more enums.
