@@ -1,1 +1,1 @@
-This is the repository of my blog: [petozoltan.github.io](http://petozoltan.github.io)
+This is the repository of my blog: [OOPs!](https://petozoltan.github.io) ([petozoltan.github.io](https://petozoltan.github.io))
