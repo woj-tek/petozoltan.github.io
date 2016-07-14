@@ -1,13 +1,17 @@
 ## Avoid constant collection classes
 
-* Interpretation problems. 
+#### Interpretation problems. 
 
-  > It can be this way or that way. It is a matter of taste.
+> It can be this way or that way. It is a matter of taste.
   
-  Wrong. New constants can be added to this class or to separate classes. 
-  If the next developer cannot decide where to write the code, the chaos begins.
+Wrong. New constants can be added to this class or to separate classes. 
+If the next developer cannot decide where to write the code, the chaos begins.
 
-* Classes should be specific
+#### Classes should be specific
+
+That's what they are for. 
+Think on _high cohesion_ or the _Single Responsibility Principle_.
+Classes should be closed for the contiuous modifications. A class should be implemented and unit tested, and _finished_. Modifications should rather go in new classes than in existing ones.
 
 * Constants should always be enums.
 
