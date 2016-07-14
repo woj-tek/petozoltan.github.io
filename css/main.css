@@ -7,15 +7,16 @@ body {
 }
 .default_content {
     margin: 1em auto;
-    width: 55%;
+    width: 100%;
+	max-width: 600px;
 
-	border-radius: 3px 3px 3px 3px;
-	border-width: 1px;
-	border-style: solid;
-	border-color: #cccccc;
-	box-shadow: 6px 6px 3px #888888;
-	padding: 1em 1em 1em 1em;
+	-border-radius: 3px 3px 3px 3px;
+	-border-width: 1px;
+	-border-style: solid;
+	-border-color: #cccccc;
+	-box-shadow: 6px 6px 3px #888888;
 	
+	padding: 0;
 	background: white;
 
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
