@@ -20,11 +20,11 @@ In most cases it is better to use enums instead of constants. Enums have more be
 
 * They are type safe.
  
-  Example:.First names and last names are not assigneable, but if both are Strings they can be assigned to each-other. With enums it is not possible.
+  _Example: First names and last names are not assignable, but if both are Strings they can be assigned to each other. With enums it is not possible._
 
 * They can be provided with additional useful information too.
 
-  Example: A message box title and content can be implemented with two constants but with one enum.
+  _Example: A message box title and content can be implemented with two constants which are syntactically not bound to each other. With one enum they can be defined together._
   
 #### Split into more enums
 
