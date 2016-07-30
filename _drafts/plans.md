@@ -1,26 +1,34 @@
 ## Avoid constant collection classes
 
-#### Interpretation problems. 
+Programmers often create separate classes to store constants of a certain area, "to have them at one place" or "to avoid polluting" the procedural classes. But it is not enough to make the code clean. What is the problem with them and how can we solve it?
 
-> It can be this way or that way. It is a matter of taste.
-  
-Wrong. New constants can be added to this class or to separate classes. 
-If the next developer cannot decide where to write the code, the chaos begins.
+#### Interpretation problems
 
-#### Classes should be specific
+When new constants have to be created it is not mandatory to add them to the collection class. Developers can decide to add constants to the collection or to create them somewhere else. Unfortunately this is another problem that makes OOP very hard:
 
-That's what they are for. 
-Think on _high cohesion_ or the _Single Responsibility Principle_.
-Classes should be closed for the contiuous modifications. A class should be implemented and unit tested, and _finished_. Modifications should rather go in new classes than in existing ones.
+> If it is not obvious where to write the new code then the chaos begins...
 
-#### Constants should always be enums.
+#### Classes should not always be extended
 
-Enums of one specific _value set_. (E.g. first names and last names are both Strings, but the _value set of first names_ and the _values set of last names_ are not assignible.)
-  
-They can be provided with additional information.
+Think on the _Open/Closed Principle_. Classes should be closed for modification. At a certain point a class must be tested and finished, in order to have a reliable code. But constant collections are loose and generic, so they are like never finished. When you look at such a class, you cannot decide whether it is finished or not.
+
+#### Prefer enums to constants
+
+In most cases it is better to use enums instead of constants. Enums have more benefits over constants:
+
+* Enums define and limit a specific _value set_. So it is clear to which enum a new value has to be added.
+* They are type safe.
+  Example:.First names and last names are not assigneable, but if both are Strings they can be assigned to each-other. With enums it is not possible.
+* They can be provided with additional useful information too.
+  Example: A message box title and content can be implemented with two constants but with one enum.
   
 #### Split into more enums
 
-When you see _prefixes_ in the constants' names, that is a clear sign that the constant set should be split into more enums.
+Usually a constant collection should be split into more than one enums. You can see a clear sign for that in the following cases:
 
-The same goes when you see comments between the constants, saying "Here begin the ... constants".
+* The constants have different types.
+* The constants' names begin with different _prefixes_ .
+* Constants are grouped by comments.
+
+#### Example
+
