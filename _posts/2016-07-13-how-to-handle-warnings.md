@@ -53,7 +53,7 @@ What does Sonar server exactly do?
 * It executes some static code checkers, and displays their results. The code checkers are usually these ones: *CheckStyle*, *FundBugs* and *PMD*.
 * It executes the code checkers on the code which is already committed into the version control system.
 
-These static code checkers are also available as pluging for our IDEs. So I simply suggest to install them locally at the developers and execute them prior to the commits at least on the new or modified code parts. So we will not commit "Sonar warnings" any more!
+These static code checkers are also available as plugins for our IDEs. So I simply suggest to install them locally at the developers and execute them prior to the commits at least on the new or modified code parts. So we will not commit "Sonar warnings" any more!
 
 
 ### Always keep warning count on zero
