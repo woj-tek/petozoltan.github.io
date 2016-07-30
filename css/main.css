@@ -61,7 +61,8 @@ body {
 	vertical-align: top;
 }
 .index_posts_date {
-	width: 6em;
+	max-width: 6em;
+	padding-right: 0.5em;
 	font-variant: small-caps;
 }
 .index_posts_link {
