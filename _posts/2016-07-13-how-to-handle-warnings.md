@@ -37,9 +37,9 @@ Warnings point to real problems in our source code. *Warnings are potential bugs
 
 Moreover, warnings point to deeper structural problems in the code, which are not simple to fix. Probably that is why we do not like them. (For example, unused parameters are usually a sign of bad class hierarchy.)
 
-There is no fundamental difference between warnings and errors! They differ only in the arbitrary level what we assign to them. You can set it in your IDE:
+There is no fundamental difference between warnings and errors! They differ only in the arbitrary level what we assign to them. You can even set it in your IDE:
 
-![](https://petozoltan.github.io/warning-levels.png)
+![Warning levels](https://petozoltan.github.io/images/2016-07-13-how-to-handle-warnings/warning-levels.png)
 
 And I do not have to mention that warnings should not be fixed via `SuppressWarnings`...
 
