@@ -114,7 +114,9 @@ enum Title {
 // etc.
 ```
 
-At first glance it seems that the class with the constants is simpler and shorter than the enum classes. But imagine that it contains hundreds of constants and their number is always growing, while the enums will not grow. Actually the pure informational lines in the enums are only these ones, which is already shorter and more descriptive than the original:
+At first glance it seems that the class with the constants is simpler and shorter than the enum classes. 
+
+But imagine that it contains hundreds of constants and their number is always growing, while the enums will not grow. Actually the pure informational lines in the enums are only these ones, which is already shorter and more descriptive than the original:
 
 ```java
 enum Gender {
@@ -137,9 +139,43 @@ enum Title {
 // etc.
 ```
 
-On the other hand, related constants are not defined and related so you have to pollute your business code with such lines, for example:
+On the other hand, related constants are not declared to be related so you have to pollute your business code with such lines, for example:
 
+```java
+	switch (code) {
+	case CODE_MALE:
+		doSomething(LABEL_MALE);
+	case CODE_FEMALE:
+		doSomething(LABEL_FEMALE);
+	default:
+		throw new IllegalArgumentException();
+	}
+```
 
+Unfortunately developers tend to write this code at more places in different forms, which means that this business information - the relation - is implemented more times. it is _code duplication_. But even if they implement it only once, it is more descriptive in the enum. We sould just add "boilerplate" methods to our enum, which do not repeat the business information:
+
+```java
+enum Gender {
+
+	MALE(1, "Male"),
+	FEMALE(2, "Female");
+
+	...
+
+	public static String getLabel(int code) {
+		return getByCode(code).getLabel();
+	}
+
+	public static Gender getByCode(int code) {
+		for (Gender gender : values()) {
+			if (gender.getCode() == code) {
+				return gender;
+			}
+		}
+		throw new IllegalArgumentException();
+	}
+}
+```
 
 # Use enums to map information
 
