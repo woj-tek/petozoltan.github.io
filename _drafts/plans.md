@@ -63,11 +63,13 @@ public class UserConstants {
 	public final static String MSG_NAME_MISSING = "Please enter your name";
 	public final static String TITLE_PHONE_MISSING = "Missing phone number";
 	public final static String MSG_PHONE_MISSING = "Please enter your phone number";
+	
+	// etc.
+	...
 }
 ```
 
 But it should be refactored to different enums:
-
 
 ```java
 enum Gender {
@@ -111,6 +113,32 @@ enum Title {
 
 // etc.
 ```
+
+At first glance it seems that the class with the constants is simpler and shorter than the enum classes. But imagine that it contains hundreds of constants and their number is always growing, while the enums will not grow. Actually the pure informational lines in the enums are only these ones, which is already shorter and more descriptive than the original:
+
+```java
+enum Gender {
+
+	MALE(1, "Male"),
+	FEMALE(2, "Female");
+	
+	...
+}
+
+enum Title {
+
+	MR("Mr."),
+	MS("Ms."),
+	MRS("Mrs.");
+	
+	...
+}
+
+// etc.
+```
+
+On the other hand, related constants are not defined and related so you have to pollute your business code with such lines, for example:
+
 
 
 # Use enums to map information
