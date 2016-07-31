@@ -42,10 +42,81 @@ Note: Check out the API documentation of Spring's [@Service](http://docs.spring.
 
 ### Example
 
-# Avoid dynamic mapping of constants
+With a very simple example, this class is simply a collection of constants:
 
-Use enums instead.
+```java
+public class UserConstants {
+
+	// Gender
+	public final static int CODE_MALE = 1;
+	public final static int CODE_FEMALE = 2;
+	
+	public final static String LABEL_MALE = "Male";
+	public final static String LABEL_FEMALE = "Female";
+	
+	public final static String TITLE_MR = "Mr.";
+	public final static String TITLE_MS = "Ms.";
+	public final static String TITLE_MRS = "Mrs.";
+	
+	// Messages
+	public final static String TITLE_NAME_MISSING = "Missing name";
+	public final static String MSG_NAME_MISSING = "Please enter your name";
+	public final static String TITLE_PHONE_MISSING = "Missing phone number";
+	public final static String MSG_PHONE_MISSING = "Please enter your phone number";
+}
+```
+
+But it should be refactored to different enums:
+
+
+```java
+enum Gender {
+
+	MALE(1, "Male"),
+	FEMALE(2, "Female");
+	
+	private int code;
+	private String label;
+	
+	private Gender(int code, String label) {
+		this.code = code;
+		this.label = label;
+	}
+
+	public int getCode() {
+		return code;
+	}
+	
+	public String getLabel() {
+		return label;
+	}
+}
+
+enum Title {
+
+	MR("Mr."),
+	MS("Ms."),
+	MRS("Mrs.");
+	
+	private String label;
+	
+	private Title(String label) {
+		this.label = label;
+	}
+	
+	public String getLabel() {
+		return label;
+	}
+}
+
+// etc.
+```
+
+
+# Use enums to map information
 
 All information that is known in compile time should be defined in compile time and not in runtime.
+
+Information belonging together should be statically mapped. Else other methods will be polluted by mapping them. It is not their responsibility.
 
 # Service Classes Must Be Facades
