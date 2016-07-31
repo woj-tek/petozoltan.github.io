@@ -110,7 +110,7 @@ enum Title {
 
 At first glance it seems that the class with the constants is simpler and shorter than the enum classes. 
 
-But imagine that it contains hundreds of constants and their number is always growing, while the enums will not grow. Actually the pure informational lines in the enums are only these ones, which is already shorter and more descriptive than the original:
+But imagine that it contains hundreds of constants and their number is always growing, while the enums will not grow. Actually the pure informational lines in the enums are only these ones, which are already shorter and more descriptive than the original:
 
 ```java
 enum Gender {
@@ -129,8 +129,6 @@ enum Title {
 	
 	...
 }
-
-// etc.
 ```
 
 On the other hand, related constants are not declared to be related so you have to pollute your business code with such lines, for example:
@@ -146,7 +144,7 @@ On the other hand, related constants are not declared to be related so you have 
 	}
 ```
 
-Unfortunately developers tend to write this code at more places in different forms, which means that this business information - the relation - is implemented more times. it is _code duplication_. But even if they implement it only once, it is more descriptive in the enum. We sould just add "boilerplate" methods to our enum, which do not repeat the business information:
+Unfortunately developers tend to write this code at more places in different forms, which means that this business information is implemented more times. it is _code duplication_. But even if they implement it only once, it is more descriptive in the enum. We sould just add some "boilerplate" methods to our enum, which do not repeat the information:
 
 ```java
 enum Gender {
