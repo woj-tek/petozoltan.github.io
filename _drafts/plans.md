@@ -1,4 +1,4 @@
-## Avoid constant collection classes
+# Avoid Constant Collection Classes
 
 Programmers often create separate classes to store constants of a certain area, "to have them at one place" or "to avoid polluting" the procedural classes. But it is not enough to make the code clean. What is the problem with them and how can we solve it?
 
@@ -30,10 +30,22 @@ Usually a constant collection should be split into more than one enums. You can 
 * The constants' names begin with different _prefixes_ .
 * Constants are grouped by comments.
 
+### Avoid other type of collection classes
+
+Of course, constants are only one example. But developers also create classes that hold a collection of independent or loosely coupled _methods_. The most common example is a _service_.
+
+A service must provide a public interface, i.e. a set of public methods. To avoid creating a method collection class we should apply the _Facade_ design pattern. So the service class should be "thin" by providing the methods and delegate them to specific, highly cohesive classes.
+
+Note: Check out the API documentation of Spring's [@Service](http://docs.spring.io/autorepo/docs/spring-framework/3.0.x/javadoc-api/org/springframework/stereotype/Service.html) annotation:
+
+> Indicates that an annotated class is a "Service" (e.g. a business service facade).
+
 ### Example
 
-## Avoid dynamic mapping of constants
+# Avoid dynamic mapping of constants
 
 Use enums instead.
 
 All information that is known in compile time should be defined in compile time and not in runtime.
+
+# Service Classes Must Be Facades
