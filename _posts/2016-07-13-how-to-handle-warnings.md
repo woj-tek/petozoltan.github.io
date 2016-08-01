@@ -39,7 +39,7 @@ Moreover, warnings point to deeper structural problems in the code, which are no
 
 There is no fundamental difference between warnings and errors! They differ only in the arbitrary level what we assign to them. You can even set it in your IDE:
 
-![Warning levels](https://petozoltan.github.io/images/2016-07-13-how-to-handle-warnings/warning-levels.png)
+![Warning levels](https://petozoltan.github.io/images/how-to-handle-warnings/warning-levels.png)
 
 And I do not have to mention that warnings should not be fixed via `SuppressWarnings`...
 
