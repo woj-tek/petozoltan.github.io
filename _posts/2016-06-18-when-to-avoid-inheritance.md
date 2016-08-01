@@ -45,7 +45,7 @@ then parent and child just simply call each other as independent classes. No nee
 
 #### Do not create parent class if you find that it must be modified when a child class is added or modified
 
-This is a violation of the *Single Responsibility Principle*. The parent class should have only one reason to change. It should not be aware of the children.
+This is a violation of the *Open/Closed Principle*. The parent class should not be modified when a new descendant class is added.
 
 #### Do not create parent class if you do not plan to use it as a declaration type
 
@@ -83,7 +83,7 @@ Abstract..., Base..., Common... are no good names. There is no "abstract" functi
 
 If its members can be split into groups that use each other but only in the same group than they should go into separate classes. But composition should be used then.
 
-Cohesion is basically the same as the *Single Responsibility Principle*. 
+Cohesion is basically a synonym of the *Single Responsibility Principle*, which should not be violated.
 
 #### Prefer composition to inheritance
 
