@@ -41,25 +41,22 @@ With a very simple example, this class is simply a collection of constants:
 ```java
 public class UserConstants {
 
-	// Gender
-	public final static int CODE_MALE = 1;
-	public final static int CODE_FEMALE = 2;
-	
-	public final static String LABEL_MALE = "Male";
-	public final static String LABEL_FEMALE = "Female";
-	
-	public final static String TITLE_MR = "Mr.";
-	public final static String TITLE_MS = "Ms.";
-	public final static String TITLE_MRS = "Mrs.";
-	
-	// Messages
-	public final static String TITLE_NAME_MISSING = "Missing name";
-	public final static String MSG_NAME_MISSING = "Please enter your name";
-	public final static String TITLE_PHONE_MISSING = "Missing phone number";
-	public final static String MSG_PHONE_MISSING = "Please enter your phone number";
-	
-	// etc.
-	...
+    // Gender
+    public final static int CODE_MALE = 1;
+    public final static int CODE_FEMALE = 2;
+
+    public final static String LABEL_MALE = "Male";
+    public final static String LABEL_FEMALE = "Female";
+
+    public final static String TITLE_MR = "Mr.";
+    public final static String TITLE_MS = "Ms.";
+    public final static String TITLE_MRS = "Mrs.";
+
+    // Messages
+    public final static String TITLE_NAME_MISSING = "Missing name";
+    public final static String MSG_NAME_MISSING = "Please enter your name";
+    public final static String TITLE_PHONE_MISSING = "Missing phone number";
+    public final static String MSG_PHONE_MISSING = "Please enter your phone number";
 }
 ```
 
@@ -68,41 +65,41 @@ But it should be refactored to different enums:
 ```java
 enum Gender {
 
-	MALE(1, "Male"),
-	FEMALE(2, "Female");
-	
-	private int code;
-	private String label;
-	
-	private Gender(int code, String label) {
-		this.code = code;
-		this.label = label;
-	}
+    MALE(1, "Male"),
+    FEMALE(2, "Female");
 
-	public int getCode() {
-		return code;
-	}
-	
-	public String getLabel() {
-		return label;
-	}
+    private int code;
+    private String label;
+
+    private Gender(int code, String label) {
+        this.code = code;
+        this.label = label;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public String getLabel() {
+        return label;
+    }
 }
 
 enum Title {
 
-	MR("Mr."),
-	MS("Ms."),
-	MRS("Mrs.");
-	
-	private String label;
-	
-	private Title(String label) {
-		this.label = label;
-	}
-	
-	public String getLabel() {
-		return label;
-	}
+    MR("Mr."),
+    MS("Ms."),
+    MRS("Mrs.");
+
+    private String label;
+
+    private Title(String label) {
+        this.label = label;
+    }
+
+    public String getLabel() {
+        return label;
+    }
 }
 
 // etc.
@@ -115,33 +112,33 @@ But imagine that it contains hundreds of constants and their number is always gr
 ```java
 enum Gender {
 
-	MALE(1, "Male"),
-	FEMALE(2, "Female");
-	
-	...
+    MALE(1, "Male"),
+    FEMALE(2, "Female");
+
+    ...
 }
 
 enum Title {
 
-	MR("Mr."),
-	MS("Ms."),
-	MRS("Mrs.");
-	
-	...
+    MR("Mr."),
+    MS("Ms."),
+    MRS("Mrs.");
+
+    ...
 }
 ```
 
 On the other hand, related constants are not declared to be related so you have to pollute your business code with such lines, for example:
 
 ```java
-	switch (code) {
-	case CODE_MALE:
-		doSomething(LABEL_MALE);
-	case CODE_FEMALE:
-		doSomething(LABEL_FEMALE);
-	default:
-		throw new IllegalArgumentException();
-	}
+        switch (code) {
+        case CODE_MALE:
+            return LABEL_MALE;
+        case CODE_FEMALE:
+            return LABEL_FEMALE;
+        default:
+            throw new IllegalArgumentException();
+        }
 ```
 
 Unfortunately developers tend to write this code at more places in different forms, which means that this business information is implemented more times. It is _code duplication_. But even if they implement it only once, it is more descriptive in the enum. We sould just add some "boilerplate" methods to our enum, which do not repeat the information:
@@ -149,23 +146,23 @@ Unfortunately developers tend to write this code at more places in different for
 ```java
 enum Gender {
 
-	MALE(1, "Male"),
-	FEMALE(2, "Female");
+    MALE(1, "Male"),
+    FEMALE(2, "Female");
 
-	...
+    ...
 
-	public static String getLabel(int code) {
-		return getByCode(code).getLabel();
-	}
+    public static String getLabel(int code) {
+        return getByCode(code).getLabel();
+    }
 
-	public static Gender getByCode(int code) {
-		for (Gender gender : values()) {
-			if (gender.getCode() == code) {
-				return gender;
-			}
-		}
-		throw new IllegalArgumentException();
-	}
+    public static Gender getByCode(int code) {
+        for (Gender gender : values()) {
+            if (gender.getCode() == code) {
+                return gender;
+            }
+        }
+        throw new IllegalArgumentException();
+    }
 }
 ```
 
