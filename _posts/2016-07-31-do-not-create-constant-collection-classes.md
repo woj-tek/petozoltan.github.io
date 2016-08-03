@@ -57,6 +57,8 @@ public class UserConstants {
     public final static String MSG_NAME_MISSING = "Please enter your name";
     public final static String TITLE_PHONE_MISSING = "Missing phone number";
     public final static String MSG_PHONE_MISSING = "Please enter your phone number";
+    
+    // etc.
 }
 ```
 
