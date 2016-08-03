@@ -144,7 +144,7 @@ On the other hand, related constants are not declared to be related so you have 
 	}
 ```
 
-Unfortunately developers tend to write this code at more places in different forms, which means that this business information is implemented more times. it is _code duplication_. But even if they implement it only once, it is more descriptive in the enum. We sould just add some "boilerplate" methods to our enum, which do not repeat the information:
+Unfortunately developers tend to write this code at more places in different forms, which means that this business information is implemented more times. It is _code duplication_. But even if they implement it only once, it is more descriptive in the enum. We sould just add some "boilerplate" methods to our enum, which do not repeat the information:
 
 ```java
 enum Gender {
