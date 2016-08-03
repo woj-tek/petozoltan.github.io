@@ -131,14 +131,14 @@ enum Title {
 On the other hand, related constants are not declared to be related so you have to pollute your business code with such lines, for example:
 
 ```java
-        switch (code) {
-        case CODE_MALE:
-            return LABEL_MALE;
-        case CODE_FEMALE:
-            return LABEL_FEMALE;
-        default:
-            throw new IllegalArgumentException();
-        }
+    switch (code) {
+    case CODE_MALE:
+        return LABEL_MALE;
+    case CODE_FEMALE:
+        return LABEL_FEMALE;
+    default:
+        throw new IllegalArgumentException();
+    }
 ```
 
 Unfortunately developers tend to write this code at more places in different forms, which means that this business information is implemented more times. It is _code duplication_. But even if they implement it only once, it is more descriptive in the enum. We sould just add some "boilerplate" methods to our enum, which do not repeat the information:
