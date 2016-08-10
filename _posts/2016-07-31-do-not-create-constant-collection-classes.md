@@ -12,9 +12,13 @@ When new constants have to be created it is not mandatory to add them to the col
 
 > If it is not obvious where to write the new code then the chaos begins.
 
-### Classes should not always be extended
+### Classes should not always be modified
 
-Think on the _Open/Closed Principle_. Classes should be closed for modification. At a certain point a class must be tested and finished, in order to have a reliable code. But constant collections are loose and generic, so they are like never finished. When you look at such a class, you cannot decide whether it is finished or not.
+Think on the _Open/Closed Principle_. Though it is about inheritance, it has a more general message: 
+
+> Classes should be closed for modification. 
+
+At a certain point a class must be tested and finished, in order to have a reliable code. But constant collections are loose and generic, so they are practically never finished. When you look at such a class, you cannot decide whether it is finished or not.
 
 ### Prefer enums to constants
 
@@ -109,7 +113,7 @@ enum Title {
 
 At first glance it seems that the class with the constants is simpler and shorter than the enum classes. 
 
-But imagine that it contains hundreds of constants and their number is always growing, while the enums will not grow. Actually the pure informational lines in the enums are only these ones, which are already shorter and more descriptive than the original:
+But imagine that it contains hundreds of constants and their number is always growing, while the enums will rarely grow. Actually the pure informational lines in the enums are only these ones, which are already shorter and more descriptive than the original:
 
 ```java
 enum Gender {
@@ -135,9 +139,9 @@ On the other hand, related constants are not declared to be related so you have 
 ```java
     switch (code) {
     case CODE_MALE:
-        return LABEL_MALE;
+        doSomething(LABEL_MALE);
     case CODE_FEMALE:
-        return LABEL_FEMALE;
+        doSomething(LABEL_FEMALE);
     default:
         throw new IllegalArgumentException();
     }
@@ -167,6 +171,10 @@ enum Gender {
     }
 }
 ```
+
+### Do not mix constants with procedures
+
+When a set of public constants are written in a class that also contains public procedures, it will lead to the situation, that the class frequently changes only because of the constants.
 
 ### Avoid other type of collection classes
 
