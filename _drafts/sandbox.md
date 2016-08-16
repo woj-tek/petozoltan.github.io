@@ -8,7 +8,7 @@ date: 2016-06-23
 
 ```java
 class MyClass {
-   String sdfsd;
+String sdfsd;
 }
 ```
 
