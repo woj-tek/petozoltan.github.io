@@ -1,3 +1,5 @@
+![](https://petozoltan.github.io/images/clean-code-outline/clean-code-book-cover.png)
+
 ### Why Clean Code?
 
 #### Enterprise Software
@@ -26,7 +28,9 @@ It is not enough to learn a programming language. We have to develop enterprise 
 * "Should have been done"
 * "We will fix it later"
 * Result of "quick & dirty" coding
-* Poorly written code is a technical debt -"Should be written better"
+* Poorly written code is a technical debt - _"Should be written better"_
+
+![](https://petozoltan.github.io/images/clean-code-outline/velocity-graph.png)
 
 > Technical debt is the biggest risk of the development
 
@@ -34,43 +38,51 @@ It is not enough to learn a programming language. We have to develop enterprise 
 
 #### Expectations
 
-* The code should show what is does on the simplest way
-* The code should show the intentions of its programmer -Express what you will
-* The code should reflect the specification
-* Business analysts should be able to see the business algorithms in the code
+* The code should show what is does
+* The code should show the intentions of its programmer - _Express what you will_
+* The code should reflect the specification - _Business analysts should be able to see the business algorithms in the code_
 * Reviewers should be able to decide whether the code is good or not
+* Logical
+* Direct, straightforward
+
 * Reduce cost and risk of changes
+* Good, correct
+* Less bugs
 * Code quality
 
-> The main goal is to see that the code does what the specification requires
+> The main goal is to see that the code correctly does what the specification requires
 
 #### Goals
 
-* Simple
+* Readable - _We spend much more time with reading than with writing._
 * Understandable
-* Readable
-* Maintainable
+* Simple
+* Effective
+* Easy to change - _Not "fragile"_
 * Testable
+* Fragmented
+* Reliable
 * Intentional
 * Mirrors what it does
-* Does what it is expected to do
+* Does what it is expected to do - _No unexpected solutions_
 * Complies with known patterns
-* Clean from „dirt” and pollution -Boy Scout Rule: Leave it clean
-* Makes hard for bugs to hide
+* Clean from „dirt” and pollution - _Boy Scout Rule: Leave it clean_
+* Error free - _Makes hard for bugs to hide_
 
 #### Main Rules
 
-* One code part implements one thing -block, method, class, package, compilation unit
-* Implement things in a correct part - misplaced responsibility
+* One code part implements one thing - _block, method, class, package, compilation unit_
+* Implement things in a correct part - _misplaced responsibility_
 * Meaningful names (business meaning)
 * No magic numbers (and strings and booleans)
-* No code repetition -One thing is implemented once, one information is written once
+* No code repetition - _One thing is implemented once, one information is written once_
 * Expected behavior
   * "Least astonishment"
   * Count of WTFs :-)
   * No arbitrary solutions
   * Use known conventions and patterns
-  * Clean code = Expressiveness + modularity
+
+> Clean code = Expressiveness + modularity
 
 #### Code Quality
 
@@ -79,10 +91,12 @@ It is not enough to learn a programming language. We have to develop enterprise 
 There is no overall and ultimate measure of code quality.
 
 * Number of warnings
-* Static code checkers - CheckStyle, FindBugs, PMD, Sonar, ...
-* Complexity - Cyclomatic complexity
+* Static code checkers - _CheckStyle, FindBugs, PMD, Sonar, ..._
+* Complexity - _Cyclomatic complexity_
 * Code smell
 * Unit test coverage
+
+![](https://petozoltan.github.io/images/clean-code-outline/code-quality-wtfs.png)
 
 #### Developer Precisity
 
@@ -94,7 +108,7 @@ There is no overall and ultimate measure of code quality.
 
 #### Code Smell
 
-* The feeling that something is not yet good with the code -the code is "not clean"
+* The feeling that something is not yet good with the code
 
 #### Issues
 
@@ -105,7 +119,9 @@ There is no overall and ultimate measure of code quality.
 * Structured programming: Only one return
 * Mandatory comments -no comments needed for private methods
 
-Bad: Dogmatic style
+Example Bad: Dogmatic style
+
+```java
 // Dogmatic comment results obvious comment
 // Dogmatic getters/setters
 /**
@@ -114,104 +130,124 @@ Bad: Dogmatic style
 * @return {@link #_inputSource}
 */
 public final InputSource getInputSource() {
-return _inputSource;
+    return _inputSource;
 }
-public final void parse(final String[] configs, final String configPath, final boolean
-flushAfterParse) {
-if (getInputSource() != null) { }
+public final void parse(final String[] configs, final String configPath, final boolean flushAfterParse) {
+    if (getInputSource() != null) { }
 }
+```
 
 ### Clean Code Approaches
 
 #### Simple Design / Emergent design
 
-Kent Beck
-Runs all the tests
-Contains no duplication
-Expresses the intent of the programmer
-Minimizes the number of classes and methods
+Author: Kent Beck
+
+* Runs all the tests
+* Contains no duplication
+* Expresses the intent of the programmer
+* Minimizes the number of classes and methods
 
 #### Pseudo code
 
-The code should look like a pseudo code
-The types and methods and names we create are pseudo code really
-DSL - Domain Specific Language
-The business analyst should be able to understand it
-Example...
-Pseudo code
+* The code should look like a pseudo code
+* The types and methods and names we create are pseudo code really
+* DSL - Domain Specific Language
+* The business analyst should be able to understand it
+
+Example: Pseudo code
+
+```
 "Take the higher prices"
 if Master prices are higher than in Increase then
 apply Master prices to the Increase
 apply Master conditions to the Increase
 if Master discount fare is higher than in Increase then
 apply Master discount fare to the Increase
-Good: Java code
-void compareAndUpdateIncrease(PricingResponseDTO masterResponse, PricingResponsePaxfares
-masterPaxFares,
-PricingResponseDTO increaseResponse, PricingResponsePaxfares increasePaxFares) {
-if (isMasterPriceHigherOrEqual(masterPaxFares, increasePaxFares)) {
-updateIncreasePrices(masterPaxFares, increasePaxFares);
-updateIncreaseConditions(masterResponse, increaseResponse);
+```
+
+Example Good: Java code
+
+```java
+void compareAndUpdateIncrease(PricingResponseDTO masterResponse, PricingResponsePaxfares masterPaxFares, 
+        PricingResponseDTO increaseResponse, PricingResponsePaxfares increasePaxFares) {
+    
+    if (isMasterPriceHigherOrEqual(masterPaxFares, increasePaxFares)) {
+        updateIncreasePrices(masterPaxFares, increasePaxFares);
+        updateIncreaseConditions(masterResponse, increaseResponse);
+    }
+
+    if (isMasterMaxDiscountFareHigher(masterPaxFares, increasePaxFares)) {
+        updateIncreaseMaxDiscountFares(masterPaxFares, increasePaxFares);
+    }
 }
-if (isMasterMaxDiscountFareHigher(masterPaxFares, increasePaxFares)) {
-updateIncreaseMaxDiscountFares(masterPaxFares, increasePaxFares);
-}
-}
-Change request
+```
+
+Example: Change request
+
+```
 "Always take the conditions from the master."
-Good: Changed code
-void compareAndUpdateIncrease(PricingResponseDTO masterResponse, PricingResponsePaxfares
-masterPaxFares,
-PricingResponseDTO increaseResponse, PricingResponsePaxfares increasePaxFares) {
-if (isMasterPriceHigherOrEqual(masterPaxFares, increasePaxFares)) {
-updateIncreasePrices(masterPaxFares, increasePaxFares);
+```
+
+Example Good: Changed code
+
+```java
+void compareAndUpdateIncrease(PricingResponseDTO masterResponse, PricingResponsePaxfares masterPaxFares, 
+        PricingResponseDTO increaseResponse, PricingResponsePaxfares increasePaxFares) {
+
+    if (isMasterPriceHigherOrEqual(masterPaxFares, increasePaxFares)) {
+        updateIncreasePrices(masterPaxFares, increasePaxFares);
+    }
+    
+    updateIncreaseConditions(masterResponse, increaseResponse);
+    
+    if (isMasterMaxDiscountFareHigher(masterPaxFares, increasePaxFares)) {
+        updateIncreaseMaxDiscountFares(masterPaxFares, increasePaxFares);
+    }
 }
-updateIncreaseConditions(masterResponse, increaseResponse);
-if (isMasterMaxDiscountFareHigher(masterPaxFares, increasePaxFares)) {
-updateIncreaseMaxDiscountFares(masterPaxFares, increasePaxFares);
-}
-}
+```
 
 #### Specification vs. Implementation
 
-Specification: Name or description or "contract" or "promise" = class and method declarations
-Implementation: "internal part" that fulfills the promise = code block {}, package content, etc.
-Every code unit is a "separate world" - e.g. class or method blocks
+* Specification: Name or description or "contract" or "promise" = _class and method declarations_
+* Implementation: "internal part" that fulfills the promise = _code block {}, package content, etc._
+* Every code unit is a "separate world" - _e.g. class or method blocks_
 
-#### "What does this code do?"
+#### What does this code do?
 
-The reader will ask it
-The developer should ask it
+* The reader will ask it
+* The developer should ask it
 
 #### Metric Rules
 
-There are NO numeric rules like maximum lines of code, number of parameters, level of indentation,
-etc.
-The only numeric rule is: One code does one thing + One thing is implemented once
-Classes and methods should be "small" but it is not exactly defined
+* There are NO numeric rules like maximum lines of code, number of parameters, level of indentation, etc.
+* The only numeric rule is: One code does one thing + One thing is implemented once
+* Classes and methods should be "small" but it is not exactly defined
 
 #### Developers
 
-Do not only satisfy the compiler or the unit tests
-Be the reader of your own code -stop and think
-"Tell the story" with proper types and names
-Describe the business logic with English words as much as possible
+* Do not only satisfy the compiler or the unit tests
+* Be the reader of your own code - _stop and think_
+* "Tell the story" with proper types and names
+* Describe the business logic with English words as much as possible
 
-#### Avoid Enemies
+#### Avoid "Enemies" of the Code
 
-No duplication -DRY
-No inline implementation
-No misplaced code
-No parallel development
+* No duplication - _DRY_
+* No inline implementation
+* No misplaced code
+* No parallel development - _"spaghetti code"_
+* No unused code - _"dead code"_
 
 #### Clean Code is an Art
 
-Not so mechanical like languages, technologies and tools
-Many rules and formulas try to approach
+* Not a set of mechanical rules
+* More principles to apply
+* Continuous thing and shaping the code
 
 #### Scrum
 
-"Code is clean"' should be part of Definition of Done
+* "Code is clean"' should be part of Definition of Done
 
 ### Specification & Design
 
