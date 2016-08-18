@@ -4,12 +4,6 @@ title: "How To Handle Warnings?"
 date: 2016-07-13
 ---
 
-* TOC
-{:toc}
-
-
-***
-
 In every software project there is a moment when the team decides to install a Sonar server and to do something with warnings in order to increase code quality. ***But all of the teams will fail.*** This is a typical scenario:
 
 * We work on the software for a long time, until the first or second "big release".
@@ -20,6 +14,12 @@ In every software project there is a moment when the team decides to install a S
 
 Does it sound familiar? Let's see what are here the mistakes, and the lessons learned. Finally I suggest a new way when dealing with this situation.
 
+***
+
+* TOC
+{:toc}
+
+***
 
 ### Take care of warnings from the project start
 
