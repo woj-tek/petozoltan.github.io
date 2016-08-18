@@ -1,8 +1,21 @@
+---
+layout: post
+title: "Clean Code Outline"
+date: 2016-08-18
+---
+
+***
+
+* TOC
+{:toc}
+
+***
+
 ![](https://petozoltan.github.io/images/clean-code-outline/clean-code-book-cover.png)
 
-### Why Clean Code?
+## Why Clean Code?
 
-#### Enterprise Software
+### Enterprise Software
 
 It is not enough to learn a programming language. We have to develop enterprise software which are:
 
@@ -13,7 +26,7 @@ It is not enough to learn a programming language. We have to develop enterprise 
 * Many modifications
 * Iterative development
 
-#### Problems
+### Problems
 
 * Many bugs - potential bugs hiding in the code
 * Code is too complex - hard to understand
@@ -22,7 +35,7 @@ It is not enough to learn a programming language. We have to develop enterprise 
 * Unreliable, impossible estimations
 * Too much Technical Debt collected
 
-#### Technical Debt
+### Technical Debt
 
 * Invisible
 * "Should have been done"
@@ -34,9 +47,9 @@ It is not enough to learn a programming language. We have to develop enterprise 
 
 > Technical debt is the biggest risk of the development
 
-### Clean Code
+## Clean Code
 
-#### Expectations
+### Expectations
 
 * The code should show what is does
 * The code should show the intentions of its programmer - _Express what you will_
@@ -51,7 +64,7 @@ It is not enough to learn a programming language. We have to develop enterprise 
 
 > The main goal is to see that the code correctly does what the specification requires
 
-#### Goals
+### Goals
 
 * Readable - _We spend much more time with reading than with writing._
 * Understandable
@@ -68,7 +81,7 @@ It is not enough to learn a programming language. We have to develop enterprise 
 * Clean from „dirt” and pollution - _Boy Scout Rule: Leave it clean_
 * Error free - _Makes hard for bugs to hide_
 
-#### Main Rules
+### Main Rules
 
 * One code part implements one thing - _block, method, class, package, compilation unit_
 * Implement things in a correct part - _misplaced responsibility_
@@ -83,9 +96,9 @@ It is not enough to learn a programming language. We have to develop enterprise 
 
 > Clean code = Expressiveness + modularity
 
-#### Code Quality
+### Code Quality
 
-##### Possible Measurements
+#### Possible Measurements
 
 There is no overall and ultimate measure of code quality.
 
@@ -97,7 +110,7 @@ There is no overall and ultimate measure of code quality.
 
 ![](https://petozoltan.github.io/images/clean-code-outline/code-quality-wtfs.png)
 
-#### Developer Precisity
+### Developer Precisity
 
 * Be precise
 * Think
@@ -105,13 +118,13 @@ There is no overall and ultimate measure of code quality.
 * Do not be arbitrary
 * Be consequent
 
-#### Code Smell
+### Code Smell
 
 * The feeling that something is not yet good with the code
 
-#### Issues
+### Issues
 
-##### Avoid dogmatic style
+#### Avoid dogmatic style
 
 * Always interfaces
 * Always accessors/mutators (getters/setters)
@@ -137,9 +150,9 @@ public final void parse(final String[] configs, final String configPath, final b
 }
 ```
 
-### Clean Code Approaches
+## Clean Code Approaches
 
-#### Simple Design / Emergent design
+### Simple Design / Emergent design
 
 Author: _Kent Beck_
 
@@ -148,7 +161,7 @@ Author: _Kent Beck_
 * Expresses the intent of the programmer
 * Minimizes the number of classes and methods
 
-#### Pseudo code
+### Pseudo code
 
 * The code should look like a pseudo code
 * The types and methods and names we create are pseudo code really
@@ -209,31 +222,31 @@ void compareAndUpdateIncrease(PricingResponseDTO masterResponse, PricingResponse
 }
 ```
 
-#### Specification vs. Implementation
+### Specification vs. Implementation
 
 * Specification: Name or description or "contract" or "promise" = _class and method declarations_
 * Implementation: "internal part" that fulfills the promise = _code block {}, package content, etc._
 * Every code unit is a "separate world" - _e.g. class or method blocks_
 
-#### What does this code do?
+### What does this code do?
 
 * The reader will ask it
 * The developer should ask it
 
-#### Metric Rules
+### Metric Rules
 
 * There are NO numeric rules like maximum lines of code, number of parameters, level of indentation, etc.
 * The only numeric rule is: One code does one thing + One thing is implemented once
 * Classes and methods should be "small" but it is not exactly defined
 
-#### Developers
+### Developers
 
 * Do not only satisfy the compiler or the unit tests
 * Be the reader of your own code - _stop and think_
 * "Tell the story" with proper types and names
 * Describe the business logic with English words as much as possible
 
-#### Avoid "Enemies" of the Code
+### Avoid "Enemies" of the Code
 
 * No duplication - _DRY_
 * No inline implementation
@@ -241,50 +254,50 @@ void compareAndUpdateIncrease(PricingResponseDTO masterResponse, PricingResponse
 * No parallel development - _"spaghetti code"_
 * No unused code - _"dead code"_
 
-#### Clean Code is an Art
+### Clean Code is an Art
 
 * Not a set of mechanical rules
 * More principles to apply
 * Continuous thinking and shaping the code - _"step back"_
 
-#### Scrum
+### Scrum
 
 * "Code is clean"' should be part of Definition of Done
 
-### Specification & Design
+## Specification & Design
 
 Everything starts with this. But if it is not understood well, the clean coding is worth for nothing.
 
-#### Specification
+### Specification
 
 * Specification must be clear, complete and consistent
 * Specification must be well understood by the developers
 * Avoid implementing a poorly specified features - _they will ruin the code_
 
-#### Design
+### Design
 
-##### Do not underdesign
+#### Do not underdesign
 
 * The design should be a correct and complete solution for the given problem
 * Draw examples to see every possible cases and to find the good solution
 
-##### Do not overdesign
+#### Do not overdesign
 
 * Do not design for assumptions
 * Do not design solutions which will be used much later - _"They will be good in the future"_
 * YAGNI - _You Ain't Gonna Need It_
 
-### No Duplication
+## No Duplication
 
 One of the "enemies" of clean code.
 
-#### Cases of duplication
+### Cases of duplication
 
 * Copy-pasted parts
 * Duplicated logic - _something implemented more times on different ways_
 * Duplicated values or information - _literals or constants_
 
-#### Avoid inline implementation
+### Avoid inline implementation
 
 This is also a _misplaced responsibility_!
 
@@ -293,7 +306,7 @@ This is also a _misplaced responsibility_!
 * Not testable
 * Refactor it
 
-#### DRY Principle
+### DRY Principle
 
 * Don't repeat yourself (Kent Beck)
 
@@ -435,48 +448,48 @@ private void setCountryForSegments(AirportCityCodeItem country) {
 // It is not yet clean: why only two segments?
 ```
 
-### Refinement & Refactoring
+## Refinement & Refactoring
 
-#### Successive Refinement
+### Successive Refinement
 
 * Write a draft or "monolith" first
 * Refine/refactor it
 
-#### Coding Cycle
+### Coding Cycle
 
 * Think
 * Code
 * Think again
 * Optimize/refactor
 
-#### Modifications
+### Modifications
 
 * Refactor first, write code after that
 * Change the "pseudo code" first, the real code after that
 * Refactor to isolate changed part
 
-#### Refactoring
+### Refactoring
 
 * Refactoring is good, technical debt is bad
 * Refactoring is a mandatory part of the iterative development
 * Continuously refactor unclean code to clean code
 * Always refactor for changes in the requirements - _"Until now the program had to do this, from now on the program has to do that"_
 
-#### Design Patterns
+### Design Patterns
 
 (Not part of this training. See links.)
 
 > Perfection is achieved, not when there is nothing left to add, but when there is nothing left to remove. (Antoine de Saint-Exupery)
 
-### Conventions
+## Conventions
 
 * Language conventions - _Java Code Conventions (Sun, 1997)_
 * International conventions, design patterns - _Software Design Patterns_
 * Project's coding conventions
 
-### Names
+## Names
 
-#### Rules
+### Rules
 
 * Meaningful
 * Intentional - _telling what it does_
@@ -487,13 +500,13 @@ private void setCountryForSegments(AirportCityCodeItem country) {
 * Consequent
 * Do not force 'mind-mapping'
 
-#### Practice
+### Practice
 
 * Names just repeat the types - _if types are correct and methods are small_
 * The same object should have the same name when passed to other methods - _not always but usually_
 * Prefer positive conditional names - e.g. avoid !isNot()_
 
-#### Some conventions
+### Some conventions
 
 * Class name: noun
 * Method name: verb
@@ -502,7 +515,7 @@ private void setCountryForSegments(AirportCityCodeItem country) {
 * Old Enterprise JavaBeans - EJB
 * Comply with: Java Code Conventions (Sun, 1997)
 
-#### EJB - Enterprise JavaBeans
+### EJB - Enterprise JavaBeans
 
 * `private Foo foo` - _foo is a 'property' name_
 * `public Foo getFoo()` - _the property name with a capital_
@@ -644,11 +657,11 @@ public class NameDeadlineReminderMessageCollector {
 }
 ```
 
-### Types
+## Types
 
 > The goal of typed languages is to pull issues from run time to compile time.
 
-#### Rules
+### Rules
 
 * Use types
 * Do not use String for non-textual values
@@ -656,7 +669,7 @@ public class NameDeadlineReminderMessageCollector {
 * Avoid using boolean parameters - _hard to read, "magic numbers"_
 * Create exception types instead of error codes
 
-#### Enums
+### Enums
 
 * Enums are static constants
 * You can static import enums to shorten the code
@@ -764,7 +777,7 @@ public enum FareCode {
 }
 ```
 
-#### Smells
+### Smells
 
 * Do not pass parameters in a map
 
@@ -792,9 +805,9 @@ void otherMethod(Map<String, Object> parameters) {
 
 > Everything should be made as simple as possible, but not simpler. (Albert Einstein)
 
-### Methods
+## Methods
 
-#### Rules
+### Rules
 
 * "Small" - _Not an exact rule_
 * Do only one thing - _even small methods may do more things!_
@@ -946,13 +959,13 @@ private SelectedDirectionDTO createSelectedOption(OptionDTO option, String fareF
 }
 ```
 
-#### Avoid Bad Input Parameter Types
+### Avoid Bad Input Parameter Types
 
 * Object
 * String for non-textual types
 * boolean for switches - _use constants or enum instead_
 
-#### Program to Methods
+### Program to Methods
 
 Stateless, independent methods:
 
@@ -962,14 +975,14 @@ Stateless, independent methods:
 
 At the end of the method calls there should always be a method that depend only on the input parameter and whose only result is the return value (or exception).
 
-#### Overloading
+### Overloading
 
 * Use overloading only for convenience
 * For example for default values
 * Do not use it for hiding differences
 * They should call each other - _code smell if they don't_
 
-#### Hiding
+### Hiding
 
 * Hide irrelevant details in a separate method
 * Do not hide relevant details in a separate method
@@ -992,7 +1005,7 @@ List<Integer> scores = createListWithEqualNumbers(10, 0);
 List<Integer> scores = createListWithDifferentNumbers(10);
 ```
 
-#### Two types of methods
+### Two types of methods
 
 * "Coordinator" or "orchestrator"
 * "Technical" or "Algorithm"
@@ -1101,15 +1114,15 @@ private List<DeadlineReminderMessageDTO> loadDeadlineReminderMessages(UriCompone
 }
 ```
 
-#### Smells
+### Smells
 
 * Passing this to a method -it could be implemented with more, smaller and readable classes.
 
 > If you can mix a method's lines and it still compiles, it probably does more things. (Zoltan Peto :-)
 
-### Nulls and Validity Checks
+## Nulls and Validity Checks
 
-#### Avoid NullPointerExceptions (NPE)
+### Avoid NullPointerExceptions (NPE)
 
 * Check at the beginning - _Unhappy path, Happy path_
 * Consider using helper methods
@@ -1144,17 +1157,17 @@ void doStuff(MyClass input) {
 }
 ```
 
-#### Defensive Programming
+### Defensive Programming
 
 Also known as Secure Programming. A larger topic, but some elements:
 
-##### Inputs
+#### Inputs
 
 * Never trust data coming from outside - _user input, external systems_
 * Fail early, Fail clean
 * Create and use immutable types
 
-##### Outputs
+#### Outputs
 
 * Do not modify a data through getters
 * Prevent it if possible - _unmodifiable collections_
@@ -1199,38 +1212,38 @@ public final void parse(final Config[] configs, final boolean flushAfterParse) {
 }
 ```
 
-#### Parameters
+### Parameters
 
 * Do not pass explicitly null - _it is a "cheating", _allow it with an overloaded method_
 
-#### Unit Test of Inputs
+### Unit Test of Inputs
 
 * Unit test will nulls and empty values in all possible ways
   * null object
   * entire collection or array is null
   * collection or array element is null
 
-#### Error Handling
+### Error Handling
 
 * Do not return null - _rather throw exception_
 
 > Things must not be multiplied beyond necessity. The simplest solution is the best. (Occam’s Razor)
 
-### Comments
+## Comments
 
-#### Write the least possible comments
+### Write the least possible comments
 
 Prefer coding to commenting
 The code should document itself as most as possible
 Many and long comments are code smell
 
-#### Comments Should Be
+### Comments Should Be
 
 Meaningful
 Necessary
 Readable
 
-#### Bad Comments
+### Bad Comments
 
 „Commented out” code - Remove it, find it in the version control system
 Separators, markers
@@ -1247,7 +1260,7 @@ Too many HTML markers
 Historical
 Prone to copy-paste error
 
-#### Good Comments
+### Good Comments
 
 TODO comments
 Warnings -e.g. "Not threadsafe"
@@ -1291,29 +1304,29 @@ return null;
 }
 Less is more.
 
-### Dead Code
+## Dead Code
 
-#### Remove unused code
+### Remove unused code
 
 You can find it in the version control system
 Check out warnings for this
 Leave the code clean from dirt
 
-#### Comments
+### Comments
 
 Prone to
 being out-of-date
 copy-paste error
 
-### Error Handling
+## Error Handling
 
-#### Two types of exceptions
+### Two types of exceptions
 
 Expected or business exceptions
 Unexpected program or environment errors
 Only unexpected exceptions should be logged on error level with stack-trace.
 
-#### Good Practices
+### Good Practices
 
 Prefer exceptions to return codes -decreases pollution of clients
 Prefer exception types to exception payload
@@ -1327,24 +1340,24 @@ Example...
 GST: AbstractJpaDAOTest.testFindByInternalId_NotExists() vs. ContractDaoImplTest.
 testFindByInternalId()
 
-#### Bad Practices
+### Bad Practices
 
 Swallow exceptions
 Implement business logic in catch block
 Do not catch exceptions unless you handle them
 
-### Classes
+## Classes
 
-#### Two Types of Classes
+### Two Types of Classes
 
-##### Procedural
+#### Procedural
 
 Business logic or Service
 Stateless, singleton or static if possible
 Created mostly by the DI framework -Spring, Java EE, ...
 If stateful, create it from the code
 
-##### Data structure
+#### Data structure
 
 Entity, DTO (Data Transfer Object)
 Only data members
@@ -1352,7 +1365,7 @@ No business logic
 Always created new -by the database layer or with new from the code
 Accessors/mutators are questionable -getters/setters
 
-#### Rules
+### Rules
 
 One reason to exist, change
 "Small"
@@ -1360,7 +1373,7 @@ No "God" class -"Sack", "Blob"
 Encapsulation (hiding, protection) decreases dependency -Other classes cannot depend on this
 Cohesion
 
-#### Cohesion
+### Cohesion
 
 Implements the "one thing" rule
 Contains only dependent members
@@ -1368,23 +1381,23 @@ Refactor to cohesive classes
 There will be many small classes -Like a toolbox with drawers
 Reduces amount, cost and risk of changes
 
-#### Interfaces
+### Interfaces
 
 Create interfaces for service classes -but not paranoid
 Prefer interfaces to parent classes
 Create marker interfaces
 
-#### Smells
+### Smells
 
-##### No meaningful name
+#### No meaningful name
 
 You cannot give a meaningful name - e.g. "Parent", "Common", "Processor", etc.
 
-##### Unnecessary Polymorphism
+#### Unnecessary Polymorphism
 
 Polymorphic class is not used as polymorphic -never declared to parent type - see later
 
-##### Does more things - Loose cohesion
+#### Does more things - Loose cohesion
 
 Many methods -"God" or "Blob" class
 Methods of a class can be split into distinct call chains -they should be in separate classes
@@ -1393,14 +1406,14 @@ Refactor to composition + Facade pattern
 Example: GST History Comparators
 Example...
 
-### Formatting
+## Formatting
 
-#### Rules
+### Rules
 
 Increases readability and expressiveness
 Put close to each other what belongs together
 
-#### Vertical
+### Vertical
 
 Member variable declarations at the top of the class
 Local variable declarations prior to their usage -or at the top of the block
@@ -1408,7 +1421,7 @@ Use empty lines -but only one
 Write in order of execution and calls
 Write similar methods close to each other
 
-#### Horizontal
+### Horizontal
 
 Limit line length -100-120 characters
 The reader should not scroll to the right
@@ -1416,21 +1429,21 @@ Use white space
 Use correct indentation
 Do not use tabular formatting
 
-#### Blocks
+### Blocks
 
 Always put braces
 Always put braces for empty blocks too
 
-#### Practices
+### Practices
 
 Agree on formatting in project
 Use your IDE's capabilities -default is often good
 It is worth to force formatting on long expressions -// comment
 Do not deviate too much from Java Code Conventions (Sun, 1997)
 
-### Unit Tests
+## Unit Tests
 
-#### Rules
+### Rules
 
 Continuously write unit tests
 Maintain unit test -keep them running
@@ -1439,23 +1452,23 @@ Tests must be clean too - they will change with the code
 Tests must obey the test patterns
 F.I.R.S.T. principles
 
-#### Benefits
+### Benefits
 
 Enforces to write testable code - Testable code is clean code
 Makes the code flexible -changes with regression tests
 
-#### Code Coverage
+### Code Coverage
 
 Try to reach higher levels (>90%)
 Do not write tests only for the sake of the code coverage
 
-#### Practices
+### Practices
 
 It is allowed to use the default (package) visibility for the sake of the unit testing
 See more in JUnit Training
 Example...
 
-### Warnings
+## Warnings
 
 Do not ignore compiler/IDE warnings
 Each warning is a potential/existing bug
@@ -1477,35 +1490,35 @@ private void addDescription(Contract contract, String comment) {
 contract.setDescription(createDescription(contract.getType(), comment));
 }
 
-### Logging
+## Logging
 
 Use correct logging levels
 Log stack trace only for unexpected program errors
 Do not create (concatenate) expensive message if not logged -see SLF4J
 
-### Java
+## Java
 
 Never use raw types -always use generics correctly
 Avoid using reflection
 Do not use instanceof and isAssignableFrom() -it adds dependency and duplication
 Know you API -use utility methods
 
-### Object Oriented Programming
+## Object Oriented Programming
 
-#### OOP Paradigm
+### OOP Paradigm
 
 The original paradigm just to remember:
 Encapsulation
 Inheritance
 Polymorphism
 
-#### Clean OOP Principles
+### Clean OOP Principles
 
 Tight cohesion
 Loose coupling
 Encapsulation -where to write code?
 
-#### Separation of concerns
+### Separation of concerns
 
 Creation -Dependency Injection
 Configuration
@@ -1514,16 +1527,16 @@ Data -Entities, DTOs
 Layers
 Logging -Framework or Aspect Oriented Programming
 
-#### Dependency Injection
+### Dependency Injection
 
-##### Dependency Inversion
+#### Dependency Inversion
 
 A.k.a. Inversion of Control, IoC
 Always depend from the abstraction
 The more abstract, the more robust
 Example...
 
-##### Dependency Injection
+#### Dependency Injection
 
 Implementation of the Dependency Inversion
 Mostly done by a DI framework -Spring, Java EE, ...
@@ -1554,16 +1567,16 @@ private FileHistoryToFileHistoryDtoAssembler fileHistoryAssembler;
 @Autowired
 private HttpHistoryAuthorHelperTAFile authorHelper;
 
-#### Inheritance over instanceof
+### Inheritance over instanceof
 
 Do not use instanceof and isAssignableFrom()
 adds dependency
 adds duplication
 refactor to polymorphism or patterns
 
-#### Composition over inheritance
+### Composition over inheritance
 
-##### Problems with inheritance
+#### Problems with inheritance
 
 Too strict
 Hard to develop -one child changes a certain way the other one does not
@@ -1571,18 +1584,18 @@ Do not use inheritance only for a "common" code
 Parent and children are be changed together -spaghetti code
 Item 16 in Effective Java (2nd Edition, Joshua Bloch, 2008)
 
-##### Code Smells
+#### Code Smells
 
 Parent must be changed when children change, abstract methods should be added
 The parent's name is "Common..." -a class should have an intentional business name
 
-##### Use inheritance only for
+#### Use inheritance only for
 
 Real polymorphism
 Polymorphic usage - declared as a "parent" type
 Design patterns
 
-#### Law of Demeter
+### Law of Demeter
 
 "Only talk to immediate friends"
 Do not depend on the implementation details other classes
@@ -1600,70 +1613,70 @@ userService.checkPassword(pwd); // It uses UserDao
 User user = userDao.findUser(name); // It should not
 }
 
-#### S.O.L.I.D.
+### S.O.L.I.D.
 
 Not in the book but also Uncle Bob.
 
-##### Single Responsibility
+#### Single Responsibility
 
 a class should have only a single responsibility
 (i.e. only one potential change in the software's specification should be able to affect the specification of the
 class)
 
-##### Open/Closed
+#### Open/Closed
 
 software entities should be open for extension, but closed for modification
 
-##### Liskov Substitution
+#### Liskov Substitution
 
 Objects should be replaceable with instances of their subtypes without altering the correctness of that
 program.
 ” See also design by contract.
 
-##### Interface Segregation
+#### Interface Segregation
 
 many client-specific interfaces are better than one general-purpose interface
 
-##### Dependency Inversion
+#### Dependency Inversion
 
 Depend on Abstractions. Do not depend on concretions.
 Dependency injection is one method of following this principle
 
-### Code Smells
+## Code Smells
 
-#### Futher reading
+### Futher reading
 
 See in the book
 Bad Practices
 Antipatterns
 Software engineering antipatterns
 
-### Clean Code Training Links
+## Clean Code Training Links
 
-#### Books
+### Books
 
 Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin, 1994)
 Design Patterns: Elements of Reusable Object-Oriented Software ("Gang of Four", 1994)
 Refactoring: Improving the Design of Existing Code (Martin Fowler, Kent Beck, ..., 1999)
 Effective Java (2nd Edition, Joshua Bloch, 2008)
 
-#### PDF
+### PDF
 
 Java Code Conventions (Sun, 1997)
 Clean Code Cheat Sheet v2.4
 Design Principles and Design Patterns (Robert C. Martin, 2000)
 Uncle Bob: Principles Of OOD (SOLID)
 
-#### Java
+### Java
 
 How to Write Doc Comments for the Javadoc Tool
 
-#### Images
+### Images
 
 The only valid measurement of code quality
 Unit Test Goals & Smells
 
-#### Wikipedia
+### Wikipedia
 
 Dependency Injection
 Design Patterns (GoF)
@@ -1671,13 +1684,13 @@ Software Design Pattern
 Composition over inheritance
 Cyclomatic complexity
 
-#### Articles
+### Articles
 
 There Are Only 2 Roles of Code
 Uncle Bob: Principles Of OOD (SOLID)
 Essential XP: Emergent Design
 
-#### docSpace
+### docSpace
 
 Clean Code Thoughts
 Software Development
