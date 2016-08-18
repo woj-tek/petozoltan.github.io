@@ -4,6 +4,13 @@ title: "Do Not Create Constant Collection Classes"
 date: 2016-07-31
 ---
 
+***
+
+* TOC
+{:toc}
+
+***
+
 Programmers often create separate classes to store constants of a certain area, "to have them at one place" or "to avoid polluting" the procedural classes. But it is not enough to make the code clean. What is the problem with them and how can we solve it?
 
 ### Interpretation problems
