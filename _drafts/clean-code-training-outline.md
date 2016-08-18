@@ -1014,6 +1014,93 @@ public Anything calculateAnything(This this, That that) {
 }
 ```
 
+How to use these types:
+
+* Do not mix business lines with technical lines
+* Do not pollute the code with technical details
+* Hide irrelevant details
+* Do not hide relevant details
+
+Example: Bad: Pollution by repeating irrelevant technical details
+
+``` java
+@Override
+public List<DeadlineReminderMessageDTO> loadOptionDeadlineRemindersByPoses(List<String> gdUserPoses) {
+    UriComponentsBuilder componentsBuilder = UriComponentsBuilder.fromHttpUrl(GSP_ROOT_URI + SpsRestEndpoint.OPTION_DEADLINE_REMINDERS_GD.getValue());
+    componentsBuilder.queryParam("gdUserPoses", gdUserPoses.toArray());
+    ResponseEntity<List<DeadlineReminderMessageDTO>> responseEntity = restTemplate.exchange(
+            componentsBuilder.build().toString(),
+            HttpMethod.GET, 
+            null, 
+            new ParameterizedTypeReference<List<DeadlineReminderMessageDTO>>() {}, 
+            Collections.emptyMap());
+    return responseEntity.getBody();
+}
+
+@Override
+public List<DeadlineReminderMessageDTO> loadNameDeadlineRemindersByPoses(List<String> gdUserPoses) {
+    UriComponentsBuilder componentsBuilder = UriComponentsBuilder.fromHttpUrl(GSP_ROOT_URI + SpsRestEndpoint.NAME_DEADLINE_REMINDERS_GD.getValue());
+    componentsBuilder.queryParam("gdUserPoses", gdUserPoses.toArray());
+    ResponseEntity<List<DeadlineReminderMessageDTO>> responseEntity = restTemplate.exchange(
+            componentsBuilder.build().toString(), 
+            HttpMethod.GET, 
+            null, 
+            new ParameterizedTypeReference<List<DeadlineReminderMessageDTO>>() {}, 
+            Collections.emptyMap());
+    return responseEntity.getBody();
+}
+
+@Override
+public List<DeadlineReminderMessageDTO> loadTicketingDeadlineRemindersByPoses(List<String> gdUserPoses) {
+    UriComponentsBuilder componentsBuilder = UriComponentsBuilder.fromHttpUrl(GSP_ROOT_URI + SpsRestEndpoint.TICKETING_DEADLINE_REMINDERS_GD.getValue());
+    componentsBuilder.queryParam("gdUserPoses", gdUserPoses.toArray());
+    ResponseEntity<List<DeadlineReminderMessageDTO>> responseEntity = restTemplate.exchange(
+            componentsBuilder.build().toString(),
+            HttpMethod.GET, 
+            null, 
+            new ParameterizedTypeReference<List<DeadlineReminderMessageDTO>>() {}, 
+            Collections.emptyMap());
+    return responseEntity.getBody();
+}
+```
+
+Example: Good: No repeating technical details
+
+``` java
+import static com.lhsystems.sales.gst.services.spsaccessor.rest.SpsRestEndpoint.*;
+
+@Override
+public List<DeadlineReminderMessageDTO> loadOptionDeadlineRemindersByPoses(List<String> gdUserPoses) {
+    return loadDeadlineRemindersByPoses(OPTION_DEADLINE_REMINDERS_GD, gdUserPoses);
+}
+
+@Override
+public List<DeadlineReminderMessageDTO> loadNameDeadlineRemindersByPoses(List<String> gdUserPoses) {
+    return loadDeadlineRemindersByPoses(NAME_DEADLINE_REMINDERS_GD, gdUserPoses);
+}
+
+@Override
+public List<DeadlineReminderMessageDTO> loadTicketingDeadlineRemindersByPoses(List<String> gdUserPoses) {
+    return loadDeadlineRemindersByPoses(TICKETING_DEADLINE_REMINDERS_GD, gdUserPoses);
+}
+
+private List<DeadlineReminderMessageDTO> loadDeadlineRemindersByPoses(SpsRestEndpoint endpoint, List<String> gdUserPoses) {
+    UriComponentsBuilder componentsBuilder = UriComponentsBuilder.fromHttpUrl(GSP_ROOT_URI + endpoint.getValue());
+    componentsBuilder.queryParam("gdUserPoses", gdUserPoses.toArray());
+    return loadDeadlineReminderMessages(componentsBuilder);
+}
+
+private List<DeadlineReminderMessageDTO> loadDeadlineReminderMessages(UriComponentsBuilder componentsBuilder) {
+    ResponseEntity<List<DeadlineReminderMessageDTO>> responseEntity = restTemplate.exchange(
+            componentsBuilder.build().toString(),
+            HttpMethod.GET, 
+            null, 
+            new ParameterizedTypeReference<List<DeadlineReminderMessageDTO>>() {}, 
+            Collections.emptyMap());
+    return responseEntity.getBody();
+}
+```
+
 #### Smells
 
 * Passing this to a method -it could be implemented with more, smaller and readable classes.
@@ -1128,93 +1215,6 @@ public final void parse(final Config[] configs, final boolean flushAfterParse) {
 * Do not return null - _rather throw exception_
 
 > Things must not be multiplied beyond necessity. The simplest solution is the best. (Occam’s Razor)
-
-### Readability
-
-#### Methods
-
-Remember the 2 types of methods above...
-
-* Do not mix business lines with technical lines
-* Do not pollute the code with technical details
-* Hide irrelevant details
-* Do not hide relevant details
-
-Example: Bad: Pollution by repeating irrelevant technical details
-
-``` java
-@Override
-public List<DeadlineReminderMessageDTO> loadOptionDeadlineRemindersByPoses(List<String>
-gdUserPoses) {
-UriComponentsBuilder componentsBuilder = UriComponentsBuilder.fromHttpUrl(GSP_ROOT_URI
-+ SpsRestEndpoint.OPTION_DEADLINE_REMINDERS_GD.getValue());
-componentsBuilder.queryParam("gdUserPoses", gdUserPoses.toArray());
-ResponseEntity<List<DeadlineReminderMessageDTO>> responseEntity = restTemplate.exchange
-(componentsBuilder.build().toString(),
-HttpMethod.GET, null, new
-ParameterizedTypeReference<List<DeadlineReminderMessageDTO>>() {
-}, Collections.emptyMap());
-return responseEntity.getBody();
-}
-@Override
-public List<DeadlineReminderMessageDTO> loadNameDeadlineRemindersByPoses(List<String>
-gdUserPoses) {
-UriComponentsBuilder componentsBuilder = UriComponentsBuilder.fromHttpUrl(GSP_ROOT_URI
-+ SpsRestEndpoint.NAME_DEADLINE_REMINDERS_GD.getValue());
-componentsBuilder.queryParam("gdUserPoses", gdUserPoses.toArray());
-ResponseEntity<List<DeadlineReminderMessageDTO>> responseEntity = restTemplate.exchange
-(componentsBuilder.build().toString(),
-HttpMethod.GET, null, new
-ParameterizedTypeReference<List<DeadlineReminderMessageDTO>>() {
-}, Collections.emptyMap());
-return responseEntity.getBody();
-}
-@Override
-public List<DeadlineReminderMessageDTO> loadTicketingDeadlineRemindersByPoses(List<String>
-gdUserPoses) {
-UriComponentsBuilder componentsBuilder = UriComponentsBuilder.fromHttpUrl(GSP_ROOT_URI
-+ SpsRestEndpoint.TICKETING_DEADLINE_REMINDERS_GD.getValue());
-componentsBuilder.queryParam("gdUserPoses", gdUserPoses.toArray());
-ResponseEntity<List<DeadlineReminderMessageDTO>> responseEntity = restTemplate.exchange
-(componentsBuilder.build().toString(),
-HttpMethod.GET, null, new
-ParameterizedTypeReference<List<DeadlineReminderMessageDTO>>() {
-}, Collections.emptyMap());
-return responseEntity.getBody();
-}
-Good: No repeating technical details
-import static com.lhsystems.sales.gst.services.spsaccessor.rest.SpsRestEndpoint.*;
-@Override
-public List<DeadlineReminderMessageDTO> loadOptionDeadlineRemindersByPoses(List<String>
-gdUserPoses) {
-return loadDeadlineRemindersByPoses(OPTION_DEADLINE_REMINDERS_GD, gdUserPoses);
-}
-@Override
-public List<DeadlineReminderMessageDTO> loadNameDeadlineRemindersByPoses(List<String>
-gdUserPoses) {
-return loadDeadlineRemindersByPoses(NAME_DEADLINE_REMINDERS_GD, gdUserPoses);
-}
-@Override
-public List<DeadlineReminderMessageDTO> loadTicketingDeadlineRemindersByPoses(List<String>
-gdUserPoses) {
-return loadDeadlineRemindersByPoses(TICKETING_DEADLINE_REMINDERS_GD, gdUserPoses);
-}
-private List<DeadlineReminderMessageDTO> loadDeadlineRemindersByPoses(SpsRestEndpoint endpoint,
-List<String> gdUserPoses) {
-UriComponentsBuilder componentsBuilder = UriComponentsBuilder.fromHttpUrl(GSP_ROOT_URI +
-endpoint.getValue());
-componentsBuilder.queryParam("gdUserPoses", gdUserPoses.toArray());
-return loadDeadlineReminderMessages(componentsBuilder);
-}
-private List<DeadlineReminderMessageDTO> loadDeadlineReminderMessages(UriComponentsBuilder
-componentsBuilder) {
-ResponseEntity<List<DeadlineReminderMessageDTO>> responseEntity = restTemplate.exchange
-(componentsBuilder.build().toString(),
-HttpMethod.GET, null, new
-ParameterizedTypeReference<List<DeadlineReminderMessageDTO>>() {
-}, Collections.emptyMap());
-return responseEntity.getBody();
-}
 
 ### Comments
 
