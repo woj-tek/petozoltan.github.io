@@ -19,16 +19,18 @@ date: 2016-06-23
 
 #### Code
 
-```java
+``` java
 class MyClass {
 String sdfsd;
 }
 ```
 
-```
+``` java
+
 class MyClass {
    String sdfsd;
 }
+
 ```
 
 ~~~java
