@@ -4,10 +4,9 @@ title: "How To Handle Warnings?"
 date: 2016-07-13
 ---
 
-Contents
-
 * TOC
 {:toc}
+
 
 ***
 
