@@ -105,3 +105,14 @@ if you need a more detailed description of the superset of Markdown which kramdo
 > vonal
 >>>>>>>>>>>>>>>>>>>>>>>> 3000 vonal
 ~~helló~~
+
+- OOPs
+  - Updates
+    - Constant Collection Classes
+      - update post
+        - new chapter : Const coll in a procedural class: SRP violation
+      - update wiki
+    - clean code outline 
+      - spaghetti code 
+      - add yegor links
+      - CC = error free + maintainability
