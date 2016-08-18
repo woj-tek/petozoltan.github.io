@@ -4,6 +4,13 @@ title: "What Is The Problem With Inheritance?"
 date: 2016-06-19
 ---
 
+***
+
+* TOC
+{:toc}
+
+***
+
 I often find very hard and annoying to maintain the class hierarchies we write. And I am constantly thinking on the reasons, why. Inheritance is one of the basic principles of object oriented programming, so it may sound strange that there is a problem with it. Of course, inheritance is good but the way we use it may not be good. Let me explain it through an example.
 
 
