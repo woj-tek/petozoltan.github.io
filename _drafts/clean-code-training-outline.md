@@ -121,7 +121,6 @@ There is no overall and ultimate measure of code quality.
 Example: Bad: Dogmatic style
 
 ``` java
-
 // Dogmatic comment results obvious comment
 // Dogmatic getters/setters
 
@@ -136,7 +135,6 @@ public final InputSource getInputSource() {
 public final void parse(final String[] configs, final String configPath, final boolean flushAfterParse) {
     if (getInputSource() != null) { }
 }
-
 ```
 
 ### Clean Code Approaches
@@ -160,8 +158,7 @@ Author: _Kent Beck_
 Example: Pseudo code
 
 ```
-
-"Take the higher prices"
+"Take the higher prices":
 
 if Master prices are higher than in Increase then
    apply Master prices to the Increase
@@ -169,13 +166,11 @@ and
    apply Master conditions to the Increase
 if Master discount fare is higher than in Increase then
    apply Master discount fare to the Increase
-
 ```
 
 Example: Good: Java code
 
 ``` java
-
 void compareAndUpdateIncrease(PricingResponseDTO masterResponse, PricingResponsePaxfares masterPaxFares, 
         PricingResponseDTO increaseResponse, PricingResponsePaxfares increasePaxFares) {
     
@@ -188,21 +183,17 @@ void compareAndUpdateIncrease(PricingResponseDTO masterResponse, PricingResponse
         updateIncreaseMaxDiscountFares(masterPaxFares, increasePaxFares);
     }
 }
-
 ```
 
 Example: Change request
 
 ```
-
 "Always take the conditions from the master."
-
 ```
 
 Example: Good: Changed code
 
 ``` java
-
 void compareAndUpdateIncrease(PricingResponseDTO masterResponse, PricingResponsePaxfares masterPaxFares, 
         PricingResponseDTO increaseResponse, PricingResponsePaxfares increasePaxFares) {
 
@@ -216,7 +207,6 @@ void compareAndUpdateIncrease(PricingResponseDTO masterResponse, PricingResponse
         updateIncreaseMaxDiscountFares(masterPaxFares, increasePaxFares);
     }
 }
-
 ```
 
 #### Specification vs. Implementation
@@ -314,7 +304,6 @@ Example: Refactor inline implementation
 Example: Bad: Duplication causes incorrect intention
 
 ``` java
-
 // It suggests that it is a branching, but it is only a duplicate
 // It differs only in the input value, which is implemented inline
 
@@ -325,13 +314,11 @@ public boolean isMultipleOriginAllowedForCountry(SearchFlightsForm form) {
         return isCountryInTheListOfAllowedMultipleOrigins(userHelper.getCurrentUserPos());
     }
 }
-
 ```
 
 Example: Good: No duplicates, correct intention
 
 ``` java
-
 public boolean isMultipleOriginAllowedForCountry(SearchFlightsForm form) {
     return isCountryInTheListOfAllowedMultipleOrigins(getPosOfUser(form));
 }
@@ -341,13 +328,11 @@ private String getPosOfUser(SearchFlightsForm form) {
     return GstUserType.INTERNAL == userHelper.getCurrentUserUserType() ? 
             form.getPos().getCode() : userHelper.getCurrentUserPos();
 }
-
 ```
 
 Example: Bad: Duplicated implementation with differences
 
 ``` java
-
 // Cause: laziness of the developer
 // Cannot be found by a code checker
 // Blocks the development and the refactoring too
@@ -402,13 +387,11 @@ public final void parse(final Config[] configs, final boolean flushAfterParse) {
 // - Methods are doing more than one thing
 // - Inner dependency
 // - Not expressive validity check
-
 ```
 
 Example: Bad: Duplicates differ only in values
 
 ``` java
-
 // Bad intention: similar methods with very different names - how can be that?
 // Methods do what they tell but you CANNOT SEE it
 // It contains another duplication which can be expensive (e.g. database access)
@@ -426,13 +409,11 @@ private void removeCountriesForNormalFlights() {
         getSegments().get(1).setDestination(null);
     }
 }
-
 ```
 
 Example: Good: Refactor value differences to input parameters
 
 ``` java
-
 // Methods do what they tell and you CAN SEE it
 
 private void fillOutCountriesForMultipleOrigin() {
@@ -452,7 +433,6 @@ private void setCountryForSegments(AirportCityCodeItem country) {
 
 // It is not yet clean: magic numbers
 // It is not yet clean: why only two segments?
-
 ```
 
 ### Refinement & Refactoring
@@ -532,7 +512,6 @@ private void setCountryForSegments(AirportCityCodeItem country) {
 Example: Bad: Names
 
 ``` java
-
 class DtaRcrd102 {
 
     // Not meaningful, not readable, not pronounceable
@@ -562,13 +541,11 @@ class DtaRcrd102 {
         }
     }
 }
-
 ```
 
 Example: Good: Names
 
 ``` java
-
 class Customer {
 
     private String description;
@@ -592,29 +569,25 @@ class Customer {
         return sum;
     }
 }
-
 ```
 
 Example: Bad: Not informative names
 
 ``` java
-
 // What does it really do?
 assertThat(scores, is(StudentService.collectScores(STUDENT_LIST2)));
-
 ```
 
 Example: Good: Informative names
 
 ``` java 
-
 // Readable: "It creates an empty score list from an empty student list"
 assertThat(emptyScoreList, is(StudentService.collectScores(STUDENT_LIST_EMPTY)));
+```
 
 Example: Bad: Not informative name of input parameter
 
 ``` java
-
 // What kind of input value is converted?
 // It is not a 'find' but rather a 'convert'
 private String findDeadlineType(int i) {
@@ -634,25 +607,21 @@ private String findDeadlineType(int i) {
 }
 
 // Best practice: Refactor to enum
-
 ```
 
 Example: Bad: Confusing characters _(From the book)_
 
 ``` java
-
     int a = l;
     if ( O == l )
         a = O1;
     else
         l = 01;
-
 ```
 
 Example: Good: Name lengths correspond to scope
 
 ``` java
-
 // The class is one screen long
 @Component
 public class NameDeadlineReminderMessageCollector {
@@ -673,12 +642,11 @@ public class NameDeadlineReminderMessageCollector {
         return sorter.sort(filter.filter(findDeadlines(poses), findPnrs(poses)));
     }
 }
-
 ```
 
 ### Types
 
-> The goal of typed languages is to pull issues from run time to compile time
+> The goal of typed languages is to pull issues from run time to compile time.
 
 #### Rules
 
@@ -702,7 +670,6 @@ public class NameDeadlineReminderMessageCollector {
 Example: Bad: Implementation with collections and procedures
 
 ``` java
-
 public final class ContractFormatter implements Serializable {
     
     // They belong to formatFareFamily(), loose cohesion
@@ -762,13 +729,11 @@ public final class ContractFormatter implements Serializable {
         return fareFamily;
     }
 }
-
 ```
 
 Example: Good: Information and mapping as enum
 
 ``` java
-
 import static com.lhsystems.sales.gst.common.domain.FareCategory.*;
 
 public enum FareCode {
@@ -797,7 +762,6 @@ public enum FareCode {
         return category == BUNDLE;
     }
 }
-
 ```
 
 #### Smells
@@ -824,14 +788,13 @@ void otherMethod(Map<String, Object> parameters) {
     Long userId = (Long) parameters.get("userId");
     ...
 }
-
 ```
 
 > Everything should be made as simple as possible, but not simpler. (Albert Einstein)
 
-10 Methods
+### Methods
 
-10.1 Rules
+#### Rules
 
 * "Small" - _Not an exact rule_
 * Do only one thing - _even small methods may do more things!_
@@ -847,7 +810,6 @@ void otherMethod(Map<String, Object> parameters) {
 Example: Bad: Unexpected behavior
 
 ``` java
-
 boolean checkPassword(String pwd) {
     if( pwd.equals(„secret”) ){
         createSession(); // Unexpected side effect
@@ -856,13 +818,11 @@ boolean checkPassword(String pwd) {
         return false;
     }
 }
-
 ```
 
 Example: Bad: Unintentional return values
 
 ``` java
-
     int createProcess();
 
     // Which one is correct?
@@ -870,13 +830,11 @@ Example: Bad: Unintentional return values
     processNumber = createProcess()
     processCount = createProcess()
     createdInMillis = createProcess()
-
 ```
 
 Example: Bad: Method doing more than one thing
 
 ``` java
-
 // Are the lines in the proper order?
 public synchronized void flush() throws IOException {
     getContentBuffer().flush();
@@ -884,13 +842,11 @@ public synchronized void flush() throws IOException {
     getBufferedWriter().flush();
     contentBuffer = new StringWriter();
 }
-
 ```
 
 Example: Good: Methods doing one thing
 
 ``` java
-
 // Method complies with the contract
 @Override // This is also important, not only for the compiler
 public synchronized void flush() throws IOException {
@@ -907,13 +863,11 @@ private synchronized void flushMyBuffer() throws IOException {
 // Now it is clear that it has two buffers. Is is a good solution?
 // Clean code is not the final goal, it is a way to the goal:
 // is the code correct?
-
 ```
 
 Example: Bad: Method doing more than one thing _(from the book)_
 
 ``` java
-
 // It does three things
 public void pay() {
     for (Employee e : employees) {
@@ -923,13 +877,11 @@ public void pay() {
         }
     }
 }
-
 ```
 
 Example: Good: Methods doing one thing (from the book)
 
 ``` java
-
 public void pay() {
     for (Employee e : employees) {
         payIfNecessary(e);
@@ -946,13 +898,11 @@ private void calculateAndDeliverPay(Employee e) {
     Money pay = e.calculatePay();
     e.deliverPay(pay);
 }
-
 ```
 
 Example: Bad: Side effect: modifying the input parameter
 
 ``` java
-
 // Incorrect name
 private SelectedDirectionDTO createSelectedOption(OptionDTO option, String fareFamily) {
 
@@ -994,16 +944,15 @@ private SelectedDirectionDTO createSelectedOption(OptionDTO option, String fareF
     }
     return so;
 }
-
 ```
 
-10.2 Avoid Bad Input Parameter Types
+#### Avoid Bad Input Parameter Types
 
 * Object
 * String for non-textual types
 * boolean for switches - _use constants or enum instead_
 
-10.3 Program to Methods
+#### Program to Methods
 
 Stateless, independent methods:
 
@@ -1013,14 +962,14 @@ Stateless, independent methods:
 
 At the end of the method calls there should always be a method that depend only on the input parameter and whose only result is the return value (or exception).
 
-10.4 Overloading
+#### Overloading
 
 * Use overloading only for convenience
 * For example for default values
 * Do not use it for hiding differences
 * They should call each other - _code smell if they don't_
 
-10.5 Hiding
+#### Hiding
 
 * Hide irrelevant details in a separate method
 * Do not hide relevant details in a separate method
@@ -1028,26 +977,22 @@ At the end of the method calls there should always be a method that depend only 
 Example: Bad: Overloads and Hiding
 
 ``` java
-
 // Overloads doing different things
 // relevant details are hidden (what lists are created)
 List<Integer> scores = initScores(10, 0);
 List<Integer> scores = initScores(10);
-
 ```
 
 Example: Good: No overloads and Hiding
 
 ``` java
-
 // Method intention is expressed in their names
 // only irrelevant details are hidden (how lists are created)
 List<Integer> scores = createListWithEqualNumbers(10, 0);
 List<Integer> scores = createListWithDifferentNumbers(10);
-
 ```
 
-10.6 Two types of methods
+#### Two types of methods
 
 * "Coordinator" or "orchestrator"
 * "Technical" or "Algorithm"
@@ -1055,7 +1000,6 @@ List<Integer> scores = createListWithDifferentNumbers(10);
 Example: Good: Types of methods
 
 ``` java
-
 // Orchestrator method - Easy to read - Business logic
 public void modifySomething(Something s) {
     s.setAnything( s.getThis(), s.getThat() );
@@ -1068,18 +1012,17 @@ public void modifySomething(Something s) {
 public Anything calculateAnything(This this, That that) {
     return this.getCount() * that.getSize();
 }
-
 ```
 
-10.7 Smells
+#### Smells
 
 * Passing this to a method -it could be implemented with more, smaller and readable classes.
 
 > If you can mix a method's lines and it still compiles, it probably does more things. (Zoltan Peto :-)
 
-11 Nulls and Validity Checks
+### Nulls and Validity Checks
 
-11.1 Avoid NullPointerExceptions (NPE)
+#### Avoid NullPointerExceptions (NPE)
 
 * Check at the beginning - _Unhappy path, Happy path_
 * Consider using helper methods
@@ -1088,7 +1031,6 @@ public Anything calculateAnything(This this, That that) {
 Example: Bad: Null check at the wrong place
 
 ``` java
-
 void doSomething(MyClass input) {
     if(input != null) { // Unnecessary here
         doStuff(input);
@@ -1098,13 +1040,11 @@ void doSomething(MyClass input) {
 void doStuff(MyClass input) {
     input.setData(10); // Would be necessary here
 }
-
 ```
 
 Example: Good: Null check always and only when dereferencing
 
 ``` java
-
 void doSomething(MyClass input) {
     doStuff(input);
 }
@@ -1115,85 +1055,94 @@ void doStuff(MyClass input) {
     }
     input.setData(10);
 }
-
 ```
 
-11.2 Defensive Programming
+#### Defensive Programming
 
 Also known as Secure Programming. A larger topic, but some elements:
 
-11.2.1 Inputs
+##### Inputs
 
-Never trust data coming from outside -user input, external systems
-Fail early, Fail clean
+* Never trust data coming from outside - _user input, external systems_
+* Fail early, Fail clean
+* Create and use immutable types
 
-11.2.2 Outputs
+##### Outputs
 
-Do not modify a data through getters
-Prevent it if possible - unmodifiable collections
-Hard to prevent for data structures
-Example...
-Bad: Unclear validity check
+* Do not modify a data through getters
+* Prevent it if possible - _unmodifiable collections_
+* Create and use immutable types
+
+Example: Bad: Unclear validity check
+
+``` java
 // What to do when input source is null?
 // Why is the entire content indented?
 public final void parse(final Config[] configs, final boolean flushAfterParse) {
-if (getInputSource() != null) {
-final EdifactParser parser = new EdifactParser(getInputSource(), getHandler());
-for (final Config config : configs) {
-parser.addConfig(config);
+    if (getInputSource() != null) {
+        final EdifactParser parser = new EdifactParser(getInputSource(), getHandler());
+        for (final Config config : configs) {
+            parser.addConfig(config);
+        }
+        parser.convert();
+        if (flushAfterParse) {
+            getHandler().flush(true);
+        }
+    }
 }
-parser.convert();
-if (flushAfterParse) {
-getHandler().flush(true);
-}
-}
-}
-Good: Validity check at the beginning
-// What to do when input source is null?
-// Why is the entire content indented?
+```
+
+Example: Good: Validity check at the beginning
+
+``` java
 public final void parse(final Config[] configs, final boolean flushAfterParse) {
-// Unhappy path
-if (getInputSource() == null) {
-return; // Do nothing, return default or throw exception
+    // Unhappy path
+    if (getInputSource() == null) {
+        return; // Do nothing, return default or throw exception
+    }
+    // Happy path or Normal flow
+    final EdifactParser parser = new EdifactParser(getInputSource(), getHandler());
+    for (final Config config : configs) {
+        parser.addConfig(config);
+    }
+    parser.convert();
+    if (flushAfterParse) {
+        getHandler().flush(true);
+    }
 }
-// Happy path or Normal flow
-final EdifactParser parser = new EdifactParser(getInputSource(), getHandler());
-for (final Config config : configs) {
-parser.addConfig(config);
-}
-parser.convert();
-if (flushAfterParse) {
-getHandler().flush(true);
-}
-}
+```
 
-11.3 Parameters
+#### Parameters
 
-Do not pass explicitly null -hide it with an overloaded method
+* Do not pass explicitly null - _it is a "cheating", _allow it with an overloaded method_
 
-11.4 Unit Tests
+#### Unit Test of Inputs
 
-Unit test will nulls and empty values in all possible ways
-null object
-entire collection or array is null
-collection or array element is null
+* Unit test will nulls and empty values in all possible ways
+  * null object
+  * entire collection or array is null
+  * collection or array element is null
 
-11.5 Error Handling
+#### Error Handling
 
-Do not return null -rather throw exception
-Things must not be multiplied beyond necessity. The simplest solution is the best.
-Occam’s Razor
+* Do not return null - _rather throw exception_
 
-12 Readability
+> Things must not be multiplied beyond necessity. The simplest solution is the best. (Occam’s Razor)
 
-12.1 Good Practice
+### Readability
 
-No not mix business lines with technical lines
-Do not pollute the code with technical details
-Hide irrelevant details
-Do not hide relevant details
-Example...
-Bad: Pollution by repeating irrelevant technical details
+#### Methods
+
+Remember the 2 types of methods above...
+
+* Do not mix business lines with technical lines
+* Do not pollute the code with technical details
+* Hide irrelevant details
+* Do not hide relevant details
+
+Example: Bad: Pollution by repeating irrelevant technical details
+
+``` java
 @Override
 public List<DeadlineReminderMessageDTO> loadOptionDeadlineRemindersByPoses(List<String>
 gdUserPoses) {
@@ -1267,21 +1216,21 @@ ParameterizedTypeReference<List<DeadlineReminderMessageDTO>>() {
 return responseEntity.getBody();
 }
 
-13 Comments
+### Comments
 
-13.1 Write the least possible comments
+#### Write the least possible comments
 
 Prefer coding to commenting
 The code should document itself as most as possible
 Many and long comments are code smell
 
-13.2 Comments Should Be
+#### Comments Should Be
 
 Meaningful
 Necessary
 Readable
 
-13.3 Bad Comments
+#### Bad Comments
 
 „Commented out” code - Remove it, find it in the version control system
 Separators, markers
@@ -1298,7 +1247,7 @@ Too many HTML markers
 Historical
 Prone to copy-paste error
 
-13.4 Good Comments
+#### Good Comments
 
 TODO comments
 Warnings -e.g. "Not threadsafe"
@@ -1342,29 +1291,29 @@ return null;
 }
 Less is more.
 
-14 Dead Code
+### Dead Code
 
-14.1 Remove unused code
+#### Remove unused code
 
 You can find it in the version control system
 Check out warnings for this
 Leave the code clean from dirt
 
-14.2 Comments
+#### Comments
 
 Prone to
 being out-of-date
 copy-paste error
 
-15 Error Handling
+### Error Handling
 
-15.1 Two types of exceptions
+#### Two types of exceptions
 
 Expected or business exceptions
 Unexpected program or environment errors
 Only unexpected exceptions should be logged on error level with stack-trace.
 
-15.2 Good Practices
+#### Good Practices
 
 Prefer exceptions to return codes -decreases pollution of clients
 Prefer exception types to exception payload
@@ -1378,24 +1327,24 @@ Example...
 GST: AbstractJpaDAOTest.testFindByInternalId_NotExists() vs. ContractDaoImplTest.
 testFindByInternalId()
 
-15.3 Bad Practices
+#### Bad Practices
 
 Swallow exceptions
 Implement business logic in catch block
 Do not catch exceptions unless you handle them
 
-16 Classes
+### Classes
 
-16.1 Two Types of Classes
+#### Two Types of Classes
 
-16.1.1 Procedural
+##### Procedural
 
 Business logic or Service
 Stateless, singleton or static if possible
 Created mostly by the DI framework -Spring, Java EE, ...
 If stateful, create it from the code
 
-16.1.2 Data structure
+##### Data structure
 
 Entity, DTO (Data Transfer Object)
 Only data members
@@ -1403,7 +1352,7 @@ No business logic
 Always created new -by the database layer or with new from the code
 Accessors/mutators are questionable -getters/setters
 
-16.2 Rules
+#### Rules
 
 One reason to exist, change
 "Small"
@@ -1411,7 +1360,7 @@ No "God" class -"Sack", "Blob"
 Encapsulation (hiding, protection) decreases dependency -Other classes cannot depend on this
 Cohesion
 
-16.3 Cohesion
+#### Cohesion
 
 Implements the "one thing" rule
 Contains only dependent members
@@ -1419,23 +1368,23 @@ Refactor to cohesive classes
 There will be many small classes -Like a toolbox with drawers
 Reduces amount, cost and risk of changes
 
-16.4 Interfaces
+#### Interfaces
 
 Create interfaces for service classes -but not paranoid
 Prefer interfaces to parent classes
 Create marker interfaces
 
-16.5 Smells
+#### Smells
 
-16.5.1 No meaningful name
+##### No meaningful name
 
 You cannot give a meaningful name - e.g. "Parent", "Common", "Processor", etc.
 
-16.5.2 Unnecessary Polymorphism
+##### Unnecessary Polymorphism
 
 Polymorphic class is not used as polymorphic -never declared to parent type - see later
 
-16.5.3 Does more things - Loose cohesion
+##### Does more things - Loose cohesion
 
 Many methods -"God" or "Blob" class
 Methods of a class can be split into distinct call chains -they should be in separate classes
@@ -1444,14 +1393,14 @@ Refactor to composition + Facade pattern
 Example: GST History Comparators
 Example...
 
-17 Formatting
+### Formatting
 
-17.1 Rules
+#### Rules
 
 Increases readability and expressiveness
 Put close to each other what belongs together
 
-17.2 Vertical
+#### Vertical
 
 Member variable declarations at the top of the class
 Local variable declarations prior to their usage -or at the top of the block
@@ -1459,7 +1408,7 @@ Use empty lines -but only one
 Write in order of execution and calls
 Write similar methods close to each other
 
-17.3 Horizontal
+#### Horizontal
 
 Limit line length -100-120 characters
 The reader should not scroll to the right
@@ -1467,21 +1416,21 @@ Use white space
 Use correct indentation
 Do not use tabular formatting
 
-17.4 Blocks
+#### Blocks
 
 Always put braces
 Always put braces for empty blocks too
 
-17.5 Practices
+#### Practices
 
 Agree on formatting in project
 Use your IDE's capabilities -default is often good
 It is worth to force formatting on long expressions -// comment
 Do not deviate too much from Java Code Conventions (Sun, 1997)
 
-18 Unit Tests
+### Unit Tests
 
-18.1 Rules
+#### Rules
 
 Continuously write unit tests
 Maintain unit test -keep them running
@@ -1490,23 +1439,23 @@ Tests must be clean too - they will change with the code
 Tests must obey the test patterns
 F.I.R.S.T. principles
 
-18.2 Benefits
+#### Benefits
 
 Enforces to write testable code - Testable code is clean code
 Makes the code flexible -changes with regression tests
 
-18.3 Code Coverage
+#### Code Coverage
 
 Try to reach higher levels (>90%)
 Do not write tests only for the sake of the code coverage
 
-18.4 Practices
+#### Practices
 
 It is allowed to use the default (package) visibility for the sake of the unit testing
 See more in JUnit Training
 Example...
 
-19 Warnings
+### Warnings
 
 Do not ignore compiler/IDE warnings
 Each warning is a potential/existing bug
@@ -1528,35 +1477,35 @@ private void addDescription(Contract contract, String comment) {
 contract.setDescription(createDescription(contract.getType(), comment));
 }
 
-20 Logging
+### Logging
 
 Use correct logging levels
 Log stack trace only for unexpected program errors
 Do not create (concatenate) expensive message if not logged -see SLF4J
 
-21 Java
+### Java
 
 Never use raw types -always use generics correctly
 Avoid using reflection
 Do not use instanceof and isAssignableFrom() -it adds dependency and duplication
 Know you API -use utility methods
 
-22 Object Oriented Programming
+### Object Oriented Programming
 
-22.1 OOP Paradigm
+#### OOP Paradigm
 
 The original paradigm just to remember:
 Encapsulation
 Inheritance
 Polymorphism
 
-22.2 Clean OOP Principles
+#### Clean OOP Principles
 
 Tight cohesion
 Loose coupling
 Encapsulation -where to write code?
 
-22.3 Separation of concerns
+#### Separation of concerns
 
 Creation -Dependency Injection
 Configuration
@@ -1565,8 +1514,8 @@ Data -Entities, DTOs
 Layers
 Logging -Framework or Aspect Oriented Programming
 
-22.4 Dependency Injection
-2
+#### Dependency Injection
+
 ##### Dependency Inversion
 
 A.k.a. Inversion of Control, IoC
@@ -1574,7 +1523,7 @@ Always depend from the abstraction
 The more abstract, the more robust
 Example...
 
-22.4.2 Dependency Injection
+##### Dependency Injection
 
 Implementation of the Dependency Inversion
 Mostly done by a DI framework -Spring, Java EE, ...
@@ -1605,16 +1554,16 @@ private FileHistoryToFileHistoryDtoAssembler fileHistoryAssembler;
 @Autowired
 private HttpHistoryAuthorHelperTAFile authorHelper;
 
-22.5 Inheritance over instanceof
+#### Inheritance over instanceof
 
 Do not use instanceof and isAssignableFrom()
 adds dependency
 adds duplication
 refactor to polymorphism or patterns
 
-22.6 Composition over inheritance
+#### Composition over inheritance
 
-22.6.1 Problems with inheritance
+##### Problems with inheritance
 
 Too strict
 Hard to develop -one child changes a certain way the other one does not
@@ -1622,18 +1571,18 @@ Do not use inheritance only for a "common" code
 Parent and children are be changed together -spaghetti code
 Item 16 in Effective Java (2nd Edition, Joshua Bloch, 2008)
 
-22.6.2 Code Smells
+##### Code Smells
 
 Parent must be changed when children change, abstract methods should be added
 The parent's name is "Common..." -a class should have an intentional business name
 
-22.6.3 Use inheritance only for
+##### Use inheritance only for
 
 Real polymorphism
 Polymorphic usage - declared as a "parent" type
 Design patterns
 
-22.7 Law of Demeter
+#### Law of Demeter
 
 "Only talk to immediate friends"
 Do not depend on the implementation details other classes
@@ -1651,70 +1600,70 @@ userService.checkPassword(pwd); // It uses UserDao
 User user = userDao.findUser(name); // It should not
 }
 
-22.8 S.O.L.I.D.
+#### S.O.L.I.D.
 
 Not in the book but also Uncle Bob.
 
-22.8.1 Single Responsibility
+##### Single Responsibility
 
 a class should have only a single responsibility
 (i.e. only one potential change in the software's specification should be able to affect the specification of the
 class)
 
-22.8.2 Open/Closed
+##### Open/Closed
 
 software entities should be open for extension, but closed for modification
 
-22.8.3 Liskov Substitution
+##### Liskov Substitution
 
 Objects should be replaceable with instances of their subtypes without altering the correctness of that
 program.
 ” See also design by contract.
 
-22.8.4 Interface Segregation
+##### Interface Segregation
 
 many client-specific interfaces are better than one general-purpose interface
 
-22.8.5 Dependency Inversion
+##### Dependency Inversion
 
 Depend on Abstractions. Do not depend on concretions.
 Dependency injection is one method of following this principle
 
-23 Code Smells
+### Code Smells
 
-23.1 Futher reading
+#### Futher reading
 
 See in the book
 Bad Practices
 Antipatterns
 Software engineering antipatterns
 
-24 Clean Code Training Links
+### Clean Code Training Links
 
-24.1 Books
+#### Books
 
 Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin, 1994)
 Design Patterns: Elements of Reusable Object-Oriented Software ("Gang of Four", 1994)
 Refactoring: Improving the Design of Existing Code (Martin Fowler, Kent Beck, ..., 1999)
 Effective Java (2nd Edition, Joshua Bloch, 2008)
 
-24.2 PDF
+#### PDF
 
 Java Code Conventions (Sun, 1997)
 Clean Code Cheat Sheet v2.4
 Design Principles and Design Patterns (Robert C. Martin, 2000)
 Uncle Bob: Principles Of OOD (SOLID)
 
-24.3 Java
+#### Java
 
 How to Write Doc Comments for the Javadoc Tool
 
-24.4 Images
+#### Images
 
 The only valid measurement of code quality
 Unit Test Goals & Smells
 
-24.5 Wikipedia
+#### Wikipedia
 
 Dependency Injection
 Design Patterns (GoF)
@@ -1722,13 +1671,13 @@ Software Design Pattern
 Composition over inheritance
 Cyclomatic complexity
 
-24.6 Articles
+#### Articles
 
 There Are Only 2 Roles of Code
 Uncle Bob: Principles Of OOD (SOLID)
 Essential XP: Emergent Design
 
-24.7 docSpace
+#### docSpace
 
 Clean Code Thoughts
 Software Development
