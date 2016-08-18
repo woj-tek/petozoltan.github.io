@@ -75,6 +75,9 @@ a {
 a:hover {
 	text-decoration: underline;
 }
+.underscored {
+	text-decoration: underline;
+}
 p {
 	margin: 1em 0 0 0;
 	padding: 0 0 0 0;
@@ -125,7 +128,7 @@ h4 {
 h6 {
 	font-size: 1em;
 	font-weight: normal;
-	line-height: 1.4em;
+	line-height: 1.5em;
 	margin: 1em 0 0 0;
 	padding: 0 0 0 0;
 	text-decoration: underline;
