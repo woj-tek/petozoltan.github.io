@@ -12,7 +12,6 @@ date: 2016-06-23
 ##### update wiki
 #### clean code outline 
 ##### spaghetti code 
-##### add yegor links
 ##### CC = error free + maintainability
 
 #### Code
@@ -125,5 +124,4 @@ if you need a more detailed description of the superset of Markdown which kramdo
       - update wiki
     - clean code outline 
       - spaghetti code 
-      - add yegor links
       - CC = error free + maintainability
