@@ -44,7 +44,6 @@ It is not enough to learn a programming language. We have to develop enterprise 
 * Reviewers should be able to decide whether the code is good or not
 * Logical
 * Direct, straightforward
-
 * Reduce cost and risk of changes
 * Good, correct
 * Less bugs
@@ -119,29 +118,32 @@ There is no overall and ultimate measure of code quality.
 * Structured programming: Only one return
 * Mandatory comments -no comments needed for private methods
 
-Example Bad: Dogmatic style
+Example: Bad: Dogmatic style
 
-```java
+``` java
+
 // Dogmatic comment results obvious comment
 // Dogmatic getters/setters
+
 /**
 * Getter of {@link #_inputSource}.
-*
 * @return {@link #_inputSource}
 */
 public final InputSource getInputSource() {
     return _inputSource;
 }
+
 public final void parse(final String[] configs, final String configPath, final boolean flushAfterParse) {
     if (getInputSource() != null) { }
 }
+
 ```
 
 ### Clean Code Approaches
 
 #### Simple Design / Emergent design
 
-Author: Kent Beck
+Author: _Kent Beck_
 
 * Runs all the tests
 * Contains no duplication
@@ -158,17 +160,22 @@ Author: Kent Beck
 Example: Pseudo code
 
 ```
+
 "Take the higher prices"
+
 if Master prices are higher than in Increase then
-apply Master prices to the Increase
-apply Master conditions to the Increase
+   apply Master prices to the Increase
+and
+   apply Master conditions to the Increase
 if Master discount fare is higher than in Increase then
-apply Master discount fare to the Increase
+   apply Master discount fare to the Increase
+
 ```
 
-Example Good: Java code
+Example: Good: Java code
 
-```java
+``` java
+
 void compareAndUpdateIncrease(PricingResponseDTO masterResponse, PricingResponsePaxfares masterPaxFares, 
         PricingResponseDTO increaseResponse, PricingResponsePaxfares increasePaxFares) {
     
@@ -181,17 +188,21 @@ void compareAndUpdateIncrease(PricingResponseDTO masterResponse, PricingResponse
         updateIncreaseMaxDiscountFares(masterPaxFares, increasePaxFares);
     }
 }
+
 ```
 
 Example: Change request
 
 ```
+
 "Always take the conditions from the master."
+
 ```
 
-Example Good: Changed code
+Example: Good: Changed code
 
-```java
+``` java
+
 void compareAndUpdateIncrease(PricingResponseDTO masterResponse, PricingResponsePaxfares masterPaxFares, 
         PricingResponseDTO increaseResponse, PricingResponsePaxfares increasePaxFares) {
 
@@ -205,6 +216,7 @@ void compareAndUpdateIncrease(PricingResponseDTO masterResponse, PricingResponse
         updateIncreaseMaxDiscountFares(masterPaxFares, increasePaxFares);
     }
 }
+
 ```
 
 #### Specification vs. Implementation
@@ -243,7 +255,7 @@ void compareAndUpdateIncrease(PricingResponseDTO masterResponse, PricingResponse
 
 * Not a set of mechanical rules
 * More principles to apply
-* Continuous thing and shaping the code
+* Continuous thinking and shaping the code - _"step back"_
 
 #### Scrum
 
@@ -255,682 +267,856 @@ Everything starts with this. But if it is not understood well, the clean coding 
 
 #### Specification
 
-Specification must be clear, complete and consistent
-Specification must be well understood by the developers
-Avoid implementing a poorly specified features -they will ruin the code
+* Specification must be clear, complete and consistent
+* Specification must be well understood by the developers
+* Avoid implementing a poorly specified features - _they will ruin the code_
 
 #### Design
 
 ##### Do not underdesign
 
-The design should be a correct and complete solution for the given problem
-Draw examples to see every possible cases and to find the good solution
+* The design should be a correct and complete solution for the given problem
+* Draw examples to see every possible cases and to find the good solution
 
 ##### Do not overdesign
 
-Do not design for assumptions
-Do not design solutions which will be used much later -"They will be good in the future"
-YAGNI -You Ain't Gonna Need It
+* Do not design for assumptions
+* Do not design solutions which will be used much later - _"They will be good in the future"_
+* YAGNI - _You Ain't Gonna Need It_
 
 ### No Duplication
 
-Biggest enemy of clean code
+One of the "enemies" of clean code.
 
 #### Cases of duplication
 
-Copy-pasted parts
-Duplicated logic -something implemented more times on different ways
-Duplicated values or information - literals or constants
+* Copy-pasted parts
+* Duplicated logic - _something implemented more times on different ways_
+* Duplicated values or information - _literals or constants_
 
 #### Avoid inline implementation
 
-This is also a realization of a misplaced responsibility
-Not reusable - Leads to duplication
-Different implementations
-Not testable
-Refactor it
+This is also a _misplaced responsibility_!
+
+* Not reusable - Leads to duplication
+* Different implementations
+* Not testable
+* Refactor it
 
 #### DRY Principle
 
-Don't repeat yourself (Kent Beck)
-Example...
-Example...
-Bad: Duplication causes incorrect intention
+* Don't repeat yourself (Kent Beck)
+
+Example: Refactor inline implementation
+
+![](https://petozoltan.github.io/images/clean-code-outline/refactoring-inline-implementation.png)
+
+Example: Bad: Duplication causes incorrect intention
+
+``` java
+
 // It suggests that it is a branching, but it is only a duplicate
 // It differs only in the input value, which is implemented inline
+
 public boolean isMultipleOriginAllowedForCountry(SearchFlightsForm form) {
-if (GstUserType.INTERNAL == userHelper.getCurrentUserUserType()) {
-return isCountryInTheListOfAllowedMultipleOrigins(form.getPos().getCode());
-} else {
-return isCountryInTheListOfAllowedMultipleOrigins(userHelper.getCurrentUserPos());
+    if (GstUserType.INTERNAL == userHelper.getCurrentUserUserType()) {
+        return isCountryInTheListOfAllowedMultipleOrigins(form.getPos().getCode());
+    } else {
+        return isCountryInTheListOfAllowedMultipleOrigins(userHelper.getCurrentUserPos());
+    }
 }
-}
-Good: No duplicates, correct intention
+
+```
+
+Example: Good: No duplicates, correct intention
+
+``` java
+
 public boolean isMultipleOriginAllowedForCountry(SearchFlightsForm form) {
-return isCountryInTheListOfAllowedMultipleOrigins(getPosOfUser(form));
+    return isCountryInTheListOfAllowedMultipleOrigins(getPosOfUser(form));
 }
+
 // Extracted funtionality can be tested too
 private String getPosOfUser(SearchFlightsForm form) {
-return GstUserType.INTERNAL == userHelper.getCurrentUserUserType() ?
-form.getPos().getCode() : userHelper.getCurrentUserPos();
+    return GstUserType.INTERNAL == userHelper.getCurrentUserUserType() ? 
+            form.getPos().getCode() : userHelper.getCurrentUserPos();
 }
-Example...
-Bad: Duplicated implementation with differences
+
+```
+
+Example: Bad: Duplicated implementation with differences
+
+``` java
+
 // Cause: laziness of the developer
 // Cannot be found by a code checker
 // Blocks the development and the refactoring too
-public final void parse(final String[] configs, final String configPath, final boolean
-flushAfterParse) {
-final FileLocator locator = new FileLocator();
-try {
-if (getInputSource() != null) {
-final EdifactParser parser = new EdifactParser(getInputSource(), getHandler());
-final String extendedConfigPath = StringUtils.isEmpty(configPath) ? ""
-: configPath + CharacterConstant.SLASH;
-for (final String config : configs) {
-final File grammarFile = locator.locate(extendedConfigPath + config + ".xml");
-parser.addConfig(new Config(config, grammarFile));
+
+public final void parse(final String[] configs, final String configPath, final boolean flushAfterParse) {
+    final FileLocator locator = new FileLocator();
+    try {
+        if (getInputSource() != null) {
+            final EdifactParser parser = new EdifactParser(getInputSource(), getHandler());
+            final String extendedConfigPath = StringUtils.isEmpty(configPath) ? "" : configPath + CharacterConstant.SLASH;
+            for (final String config : configs) {
+                final File grammarFile = locator.locate(extendedConfigPath + config + ".xml");
+                parser.addConfig(new Config(config, grammarFile));
+            }
+            parser.convert();
+            if (flushAfterParse) {
+                getHandler().flush(true);
+            }
+        }
+    } catch (final IOException e) {
+        throw new ExtendedRuntimeException(e);
+    } catch (final ExtendedException e) {
+        throw new ExtendedRuntimeException(e);
+    } finally {
+        locator.releaseAll();
+    }
 }
-parser.convert();
-if (flushAfterParse) {
-getHandler().flush(true);
-}
-}
-} catch (final IOException e) {
-throw new ExtendedRuntimeException(e);
-} catch (final ExtendedException e) {
-throw new ExtendedRuntimeException(e);
-} finally {
-locator.releaseAll();
-}
-}
+
 public final void parse(final Config[] configs, final boolean flushAfterParse) {
-final FileLocator locator = new FileLocator();
-try {
-if (getInputSource() != null) {
-final EdifactParser parser = new EdifactParser(getInputSource(), getHandler());
-for (final Config config : configs) {
-parser.addConfig(config);
+    final FileLocator locator = new FileLocator();
+    try {
+        if (getInputSource() != null) {
+            final EdifactParser parser = new EdifactParser(getInputSource(), getHandler());
+            for (final Config config : configs) {
+                parser.addConfig(config);
+            }
+            parser.convert();
+            if (flushAfterParse) {
+                getHandler().flush(true);
+            }
+        }
+    } catch (final IOException e) {
+        throw new ExtendedRuntimeException(e);
+    } catch (final ExtendedException e) {
+        throw new ExtendedRuntimeException(e);
+    } finally {
+        locator.releaseAll();
+    }
 }
-parser.convert();
-if (flushAfterParse) {
-getHandler().flush(true);
-}
-}
-} catch (final IOException e) {
-throw new ExtendedRuntimeException(e);
-} catch (final ExtendedException e) {
-throw new ExtendedRuntimeException(e);
-} finally {
-locator.releaseAll();
-}
-}
+
 // Other clean code issues in this example:
 // - Methods are doing more than one thing
 // - Inner dependency
 // - Not expressive validity check
-Example...
-Bad: Duplicates differ only in values
+
+```
+
+Example: Bad: Duplicates differ only in values
+
+``` java
+
 // Bad intention: similar methods with very different names - how can be that?
 // Methods do what they tell but you CANNOT SEE it
 // It contains another duplication which can be expensive (e.g. database access)
+
 private void fillOutCountriesForMultipleOrigin() {
-getSegments().get(0).setOrigin(countryAutoCompleteHelper.getCountryItemForAiportCode
-(getPosForMultipleOrigin()));
-if (JourneyType.OPEN_JAW.equals(getJourneyType())) {
-getSegments().get(1).setDestination(countryAutoCompleteHelper.
-getCountryItemForAiportCode(getPosForMultipleOrigin()));
+    getSegments().get(0).setOrigin(countryAutoCompleteHelper.getCountryItemForAiportCode(getPosForMultipleOrigin()));
+    if (JourneyType.OPEN_JAW.equals(getJourneyType())) {
+        getSegments().get(1).setDestination(countryAutoCompleteHelper.getCountryItemForAiportCode(getPosForMultipleOrigin()));
+    }
 }
-}
+
 private void removeCountriesForNormalFlights() {
-getSegments().get(0).setOrigin(null);
-if (JourneyType.OPEN_JAW.equals(getJourneyType())) {
-getSegments().get(1).setDestination(null);
+    getSegments().get(0).setOrigin(null);
+    if (JourneyType.OPEN_JAW.equals(getJourneyType())) {
+        getSegments().get(1).setDestination(null);
+    }
 }
-}
-Good: Refactor value differences to input parameters
+
+```
+
+Example: Good: Refactor value differences to input parameters
+
+``` java
+
 // Methods do what they tell and you CAN SEE it
+
 private void fillOutCountriesForMultipleOrigin() {
-setCountryForSegments(countryAutoCompleteHelper.getCountryItemForAiportCode
-(getPosForMultipleOrigin()));
+    setCountryForSegments(countryAutoCompleteHelper.getCountryItemForAiportCode(getPosForMultipleOrigin()));
 }
+
 private void removeCountriesForNormalFlights() {
-setCountryForSegments(null);
+    setCountryForSegments(null);
 }
+
 private void setCountryForSegments(AirportCityCodeItem country) {
-getSegments().get(0).setOrigin(country);
-if (JourneyType.OPEN_JAW.equals(getJourneyType())) {
-getSegments().get(1).setDestination(country);
+    getSegments().get(0).setOrigin(country);
+    if (JourneyType.OPEN_JAW.equals(getJourneyType())) {
+        getSegments().get(1).setDestination(country);
+    }
 }
-}
+
 // It is not yet clean: magic numbers
 // It is not yet clean: why only two segments?
+
+```
 
 ### Refinement & Refactoring
 
 #### Successive Refinement
 
-Write a draft or "monolith" first
-Refine/refactor it
+* Write a draft or "monolith" first
+* Refine/refactor it
 
 #### Coding Cycle
 
-Think
-Code
-Think again
-Optimize/refactor
+* Think
+* Code
+* Think again
+* Optimize/refactor
 
 #### Modifications
 
-Refactor first, write code after that
-Refactor to isolate changed part
-Change the "pseudo code" first, the real code after that
+* Refactor first, write code after that
+* Change the "pseudo code" first, the real code after that
+* Refactor to isolate changed part
 
 #### Refactoring
 
-Refactoring is good, technical debt is bad
-Refactoring is a mandatory part of the iterative development
-Continuously refactor unclean code to clean code
-Always refactor for changes in the requirements
-"Until now the program had to do this, from now on the program has to do that"
+* Refactoring is good, technical debt is bad
+* Refactoring is a mandatory part of the iterative development
+* Continuously refactor unclean code to clean code
+* Always refactor for changes in the requirements - _"Until now the program had to do this, from now on the program has to do that"_
 
 #### Design Patterns
 
-Not part of this training.
-Clean Code Refactoring Design Patterns
-Design Patterns: Elements of Reusable Object-Oriented Software ("Gang of Four", 1994)
-Design Patterns (GoF)
-Software Design Pattern
-Perfection is achieved, not when there is nothing left to add, but when there is nothing left to remove.
-Antoine de Saint-Exupery
+(Not part of this training. See links.)
+
+> Perfection is achieved, not when there is nothing left to add, but when there is nothing left to remove. (Antoine de Saint-Exupery)
 
 ### Conventions
 
-Language conventions -Java Code Conventions (Sun, 1997)
-International conventions, design patterns -Software Design Pattern
-Project's coding conventions
+* Language conventions - _Java Code Conventions (Sun, 1997)_
+* International conventions, design patterns - _Software Design Patterns_
+* Project's coding conventions
 
 ### Names
 
 #### Rules
 
-Meaningful
-Intentional - telling what it does
-Readable, understandable
-Self-explanatory
-Not disinforming
-Pronounceable
-Consequent
-Do not force 'mind-mapping'
+* Meaningful
+* Intentional - _telling what it does_
+* Readable, understandable
+* Self-explanatory
+* Not disinforming
+* Pronounceable
+* Consequent
+* Do not force 'mind-mapping'
 
 #### Practice
 
-Names just repeat the types -if types are correct and methods are small
-The same object should have the same name when passed to other methods -not always but
-usually
-Prefer positive conditional names -e.g. !isNot()
+* Names just repeat the types - _if types are correct and methods are small_
+* The same object should have the same name when passed to other methods - _not always but usually_
+* Prefer positive conditional names - e.g. avoid !isNot()_
 
 #### Some conventions
 
-Class name: noun
-Method name: verb
-Avoid prefixes and technical terms (e.g. Abstract)
-Name length corresponds scope length
-Old Enterprise JavaBeans - EJB
-Comply with: Java Code Conventions (Sun, 1997)
+* Class name: noun
+* Method name: verb
+* Avoid prefixes and technical terms (e.g. Abstract)
+* Name length corresponds scope length
+* Old Enterprise JavaBeans - EJB
+* Comply with: Java Code Conventions (Sun, 1997)
 
 #### EJB - Enterprise JavaBeans
 
-private Foo foo -foo is a 'property' name
-public Foo getFoo() -the property name with a capital
-public void setFoo(Foo foo)
-public boolean isSomething() -also hasSomething()
-Example...
-Bad: Names
+* `private Foo foo` - _foo is a 'property' name_
+* `public Foo getFoo()` - _the property name with a capital_
+* `public void setFoo(Foo foo)`
+* `public boolean isSomething()` - _also hasSomething()_
+
+Example: Bad: Names
+
+``` java
+
 class DtaRcrd102 {
-// Not meaningful, not readable, not pronounceable
-Date genymdhms;
-Date modymdhms;
-String pszqint = "102";
-// Avoid prefixes and Hungarian notation
-String m_dsc;
-String strName;
-// Hard to read
-XYZControllerForEfficientStorageOfStrings con1;
-XYZControllerForEfficientHandlingOfStrings con2;
-// Disinforming
-void setName(String name) {
-m_dsc = name;
+
+    // Not meaningful, not readable, not pronounceable
+    Date genymdhms;
+    Date modymdhms;
+    String pszqint = "102";
+
+    // Avoid prefixes and Hungarian notation
+    String m_dsc;
+    String strName;
+
+    // Hard to read
+    XYZControllerForEfficientStorageOfStrings con1;
+    XYZControllerForEfficientHandlingOfStrings con2;
+
+    // Disinforming
+    void setName(String name) {
+        m_dsc = name;
+    }
+
+    // Not informative
+    void doCalculation() {
+
+        // Too short names, Magic numbers
+        for (int j=0; j<34; j++) {
+            s += (t[j]*4)/5;
+        }
+    }
 }
-// Not informative
-void doCalculation() }
-// Magic number, not self-explanatory
-for (int j=0; j<34; j++) {
-s += (t[j]*4)/5;
-}
-}
-};
-Good: Names
+
+```
+
+Example: Good: Names
+
+``` java
+
 class Customer {
-private String description;
-private Date generationTimestamp;
-private Date modificationTimestamp;;
-private final String recordId = "102";
-int realDaysPerIdealDay = 4;
-const int WORK_DAYS_PER_WEEK = 5;
-int sum = 0;
-void setDescription(String description) {
-this.description = description;
+
+    private String description;
+    private Date generationTimestamp;
+    private Date modificationTimestamp;;
+    private final String recordId = "102";
+    int realDaysPerIdealDay = 4;
+    const int WORK_DAYS_PER_WEEK = 5;
+    int sum = 0;
+
+    void setDescription(String description) {
+        this.description = description;
+    }
+
+    int calculateWeeks() {
+        for (int j=0; j < NUMBER_OF_TASKS; j++) {
+            int realTaskDays = taskEstimate[j] * realDaysPerIdealDay;
+            int realTaskWeeks = (realdays / WORK_DAYS_PER_WEEK);
+            sum += realTaskWeeks;
+        }
+        return sum;
+    }
 }
-int calculateWeeks() {
-for (int j=0; j < NUMBER_OF_TASKS; j++) {
-int realTaskDays = taskEstimate[j] * realDaysPerIdealDay;
-int realTaskWeeks = (realdays / WORK_DAYS_PER_WEEK);
-sum += realTaskWeeks;
-}
-return sum;
-}
-};
-Example...
-Bad: Not informative names
+
+```
+
+Example: Bad: Not informative names
+
+``` java
+
 // What does it really do?
 assertThat(scores, is(StudentService.collectScores(STUDENT_LIST2)));
-Good: Informative names
+
+```
+
+Example: Good: Informative names
+
+``` java 
+
 // Readable: "It creates an empty score list from an empty student list"
 assertThat(emptyScoreList, is(StudentService.collectScores(STUDENT_LIST_EMPTY)));
-Example...
-Bad: Not informative name of input parameter
+
+Example: Bad: Not informative name of input parameter
+
+``` java
+
 // What kind of input value is converted?
 // It is not a 'find' but rather a 'convert'
 private String findDeadlineType(int i) {
-String result;
-switch (i) {
-case 0:
-result = RK_FIRST_NAME_DEADLINE;
-break;
-case 1:
-result = RK_SECOND_NAME_DEADLINE;
-break;
-default:
-result = ""; //future values come here
-break;
+    String result;
+    switch (i) {
+    case 0:
+        result = RK_FIRST_NAME_DEADLINE;
+        break;
+    case 1:
+        result = RK_SECOND_NAME_DEADLINE;
+        break;
+    default:
+        result = ""; //future values come here
+        break;
+    }
+    return result;
 }
-return result;
-}
+
 // Best practice: Refactor to enum
-Example...
-Bad: Confusing characters (From the book)
-int a = l;
-if ( O == l )
-a = O1;
-else
-l = 01;
-Example...
-Good: Name lengths correspond to scope
+
+```
+
+Example: Bad: Confusing characters _(From the book)_
+
+``` java
+
+    int a = l;
+    if ( O == l )
+        a = O1;
+    else
+        l = 01;
+
+```
+
+Example: Good: Name lengths correspond to scope
+
+``` java
+
 // The class is one screen long
 @Component
 public class NameDeadlineReminderMessageCollector {
-@Autowired
-private DeadlineReminderMessagePnrFilter filter; // Used only in this class
-@Autowired
-private DeadlineReminderMessageSorter sorter; // Used only in this class
-@Transactional(readOnly = true)
-public List<DeadlineReminderMessage> collectDeadlineRemindersByAgency(String
-agencyInternalId) {
-return sorter.sort(filter.filter(findDeadlines(agencyInternalId), findPnrs
-(agencyInternalId)));
+
+    @Autowired
+    private DeadlineReminderMessagePnrFilter filter; // Used only in this class
+
+    @Autowired
+    private DeadlineReminderMessageSorter sorter; // Used only in this class
+
+    @Transactional(readOnly = true)
+    public List<DeadlineReminderMessage> collectDeadlineRemindersByAgency(String agencyInternalId) {
+        return sorter.sort(filter.filter(findDeadlines(agencyInternalId), findPnrs(agencyInternalId)));
+    }
+    
+    @Transactional(readOnly = true)
+    public List<DeadlineReminderMessage> collectDeadlineRemindersByPoses(List<String> poses) {
+        return sorter.sort(filter.filter(findDeadlines(poses), findPnrs(poses)));
+    }
 }
-@Transactional(readOnly = true)
-public List<DeadlineReminderMessage> collectDeadlineRemindersByPoses(List<String> poses) {
-return sorter.sort(filter.filter(findDeadlines(poses), findPnrs(poses)));
-}
+
+```
 
 ### Types
 
-The goal of typed languages is to pull issues from run time to compile time
+> The goal of typed languages is to pull issues from run time to compile time
 
 #### Rules
 
-Use types
-Do not use String for non-textual values
-Do not use Strings for dates -it is always formatted!
-Avoid using boolean parameters -hard to read
-Create exception types instead of error codes
+* Use types
+* Do not use String for non-textual values
+* Do not use Strings for dates - _it is always formatted!_
+* Avoid using boolean parameters - _hard to read, "magic numbers"_
+* Create exception types instead of error codes
 
 #### Enums
 
-Enums are static constants
-You can static import enums to shorten the code
-Enums are created threadsafe
-Always use enums for a finit set of constants
-Use enum to map information
-Prefer enums to maps
-Prefer enums to switches
-Enums cannot have a parent class but can implement interfaces
-Example...
-Bad: Implementation with collections and procedures
+* Enums are static constants
+* You can static import enums to shorten the code
+* Enums are created threadsafe
+* Always use enums for a finit set of constants
+* Use enum to map information
+* Prefer enums to maps
+* Prefer enums to switches
+* Enums cannot have a parent class but can implement interfaces
+
+Example: Bad: Implementation with collections and procedures
+
+``` java
+
 public final class ContractFormatter implements Serializable {
-// They belong to formatFareFamily(), loose cohesion
-// Misplaced constants
-// Duplications: they are defined sever times again and again...
-private static final String FORMATTED_FIRST_CLASS_FAM = "First";
-private static final String FORMATTED_BUSINESS_FAM = "Business";
-private static final String FORMATTED_ECONOMY_FAM = "Economy";
-private static final String FIRST_FAM = "FIRST";
-private static final String BUSINESS_FAM = "BUSINESS";
-private static final String ECONOMY_FAM = "ECONOMY";
-private static final String FORMATTED_ECONOMY_SAVER_FAM = "Economy Saver";
-private static final String ECOSAVER_FAM = "ECOSAVER";
-private static final String LIGHT_FB = "LIGHT_BUNDLE";
-private static final String CLASSIC_FB = "CLASSIC_BUNDLE";
-private static final String BUSINESS_FB = "BUSINESS_BUNDLE"; //FB_TODO: chage to final name
-private static final String FORMATTED_LIGHT_FB = "Light";
-private static final String FORMATTED_CLASSIC_FB = "Classic";
-private static final String FORMATTED_BUSINESS_FB = "Business"; //FB_TODO: chage to final
-name
-// Simple property implemented as a collection
-// It belongs to isFareBundle(), loose cohesion
-private static final Set<String> fareBundleStrings = ImmutableSet.of(LIGHT_FB, CLASSIC_FB,
-BUSINESS_FB);
-public boolean isFareBundle(String famOrBundle) {
-return fareBundleStrings.contains(famOrBundle);
+    
+    // They belong to formatFareFamily(), loose cohesion
+    // Misplaced constants
+    // Duplications: they are defined sever times again and again...
+    private static final String FORMATTED_FIRST_CLASS_FAM = "First";
+    private static final String FORMATTED_BUSINESS_FAM = "Business";
+    private static final String FORMATTED_ECONOMY_FAM = "Economy";
+    private static final String FIRST_FAM = "FIRST";
+    private static final String BUSINESS_FAM = "BUSINESS";
+    private static final String ECONOMY_FAM = "ECONOMY";
+    private static final String FORMATTED_ECONOMY_SAVER_FAM = "Economy Saver";
+    private static final String ECOSAVER_FAM = "ECOSAVER";
+    private static final String LIGHT_FB = "LIGHT_BUNDLE";
+    private static final String CLASSIC_FB = "CLASSIC_BUNDLE";
+    private static final String BUSINESS_FB = "BUSINESS_BUNDLE"; //FB_TODO: chage to final name
+    private static final String FORMATTED_LIGHT_FB = "Light";
+    private static final String FORMATTED_CLASSIC_FB = "Classic";
+    private static final String FORMATTED_BUSINESS_FB = "Business"; //FB_TODO: chage to final name
+    
+    // Simple property implemented as a collection
+    // It belongs to isFareBundle(), loose cohesion
+    private static final Set<String> fareBundleStrings = ImmutableSet.of(LIGHT_FB, CLASSIC_FB, BUSINESS_FB);
+    
+    public boolean isFareBundle(String famOrBundle) {
+        return fareBundleStrings.contains(famOrBundle);
+    }
+    
+    // Simple mapping implemented as a procedure
+    public String formatFareFamily(String famOrBundle) {
+        String fareFamily = famOrBundle;
+        switch (famOrBundle) {
+        case ECOSAVER_FAM:
+            fareFamily = FORMATTED_ECONOMY_SAVER_FAM;
+            break;
+        case ECONOMY_FAM:
+            fareFamily = FORMATTED_ECONOMY_FAM;
+            break;
+        case BUSINESS_FAM:
+            fareFamily = FORMATTED_BUSINESS_FAM;
+            break;
+        case FIRST_FAM:
+            fareFamily = FORMATTED_FIRST_CLASS_FAM;
+            break;
+        case LIGHT_FB:
+            fareFamily = FORMATTED_LIGHT_FB;
+            break;
+        case CLASSIC_FB:
+            fareFamily = FORMATTED_CLASSIC_FB;
+            break;
+        case BUSINESS_FB:
+            fareFamily = FORMATTED_BUSINESS_FB;
+            break;
+        default:
+            break;
+        }
+        return fareFamily;
+    }
 }
-// Simple mapping implemented as a procedure
-public String formatFareFamily(String famOrBundle) {
-String fareFamily = famOrBundle;
-switch (famOrBundle) {
-case ECOSAVER_FAM:
-fareFamily = FORMATTED_ECONOMY_SAVER_FAM;
-break;
-case ECONOMY_FAM:
-fareFamily = FORMATTED_ECONOMY_FAM;
-break;
-case BUSINESS_FAM:
-fareFamily = FORMATTED_BUSINESS_FAM;
-break;
-case FIRST_FAM:
-fareFamily = FORMATTED_FIRST_CLASS_FAM;
-break;
-case LIGHT_FB:
-fareFamily = FORMATTED_LIGHT_FB;
-break;
-case CLASSIC_FB:
-fareFamily = FORMATTED_CLASSIC_FB;
-break;
-case BUSINESS_FB:
-fareFamily = FORMATTED_BUSINESS_FB;
-break;
-default:
-break;
-}
-return fareFamily;
-}
-}
-Good: Information and mapping as enum
+
+```
+
+Example: Good: Information and mapping as enum
+
+``` java
+
 import static com.lhsystems.sales.gst.common.domain.FareCategory.*;
+
 public enum FareCode {
-ECOSAVER(FAMILY, "Economy Saver"),
-ECONOMY(FAMILY, "Economy"),
-BUSINESS(FAMILY, "Business"),
-LIGHT_BUNDLE(BUNDLE, "Light"),
-CLASSIC_BUNDLE(BUNDLE, "Classic"),
-BUSINESS_BUNDLE(BUNDLE, "Business"),
-FIRST(CLASS, "First");
-private FareCode(FareCategory category, String displayInContract) {
-this.category = category;
-this.display = display;
+        
+    ECOSAVER(FAMILY, "Economy Saver"),
+    ECONOMY(FAMILY, "Economy"),
+    BUSINESS(FAMILY, "Business"),
+    LIGHT_BUNDLE(BUNDLE, "Light"),
+    CLASSIC_BUNDLE(BUNDLE, "Classic"),
+    BUSINESS_BUNDLE(BUNDLE, "Business"),
+    FIRST(CLASS, "First");
+
+    private FareCategory category; // Property
+    private String displayInContract; // Mapping to another information
+    
+    private FareCode(FareCategory category, String displayInContract) {
+        this.category = category;
+        this.display = display;
+    }
+    
+    public String getDisplay() {
+        return display;
+    }
+    
+    private boolean isFareBundle() {
+        return category == BUNDLE;
+    }
 }
-private FareCategory category; // Property
-private String displayInContract; // Mapping to another information
-public String getDisplay() {
-return display;
-}
-private boolean isFareBundle() {
-return category == BUNDLE;
-}
-}
+
+```
 
 #### Smells
 
-Do not pass parameters in a map
-Example...
-Bad: Parameter map
+* Do not pass parameters in a map
+
+Example: Bad: Parameter map
+
+``` java 
 // Unintentional
 // Shifts program errors to run time
+
 void someMethod() {
-Map<String, Object> parameters = new HashMap<>();
-parameters.put("contract", contract);
-parameters.put("requestNr", 1);
-parameters.put("userId", user.getId());
-otherMethod(parameters);
+    Map<String, Object> parameters = new HashMap<>();
+    parameters.put("contract", contract);
+    parameters.put("requestNr", 1);
+    parameters.put("userId", user.getId());
+    otherMethod(parameters);
 }
+
 void otherMethod(Map<String, Object> parameters) {
-Contract contract = (Contract) parameters.get("contract");
-Integer requestNr = (Integer) parameters.get("requestNr");
-Long userId = (Long) parameters.get("userId");
-...
+    Contract contract = (Contract) parameters.get("contract");
+    Integer requestNr = (Integer) parameters.get("requestNr");
+    Long userId = (Long) parameters.get("userId");
+    ...
 }
-Everything should be made as simple as possible, but not simpler.
-Albert Einstein
+
+```
+
+> Everything should be made as simple as possible, but not simpler. (Albert Einstein)
 
 10 Methods
 
 10.1 Rules
 
-"Small"
-Do only one thing -even small methods may do more things!
-One level of abstraction -See Law of Demeter later
-No unexpected behavior (side effects)
-No unexpected or not-understandable input and return values
-No or the least possible dependencies
-Avoid inline implementation -put it always in a separate method
-Set visibility modifiers precisely -For the compiler and for the reader too
-Check parameter validity at the beginning -Item 38 in Effective Java (2nd Edition, Joshua Bloch,
-2008)
-Prevent overriding non-abstract methods - Item 17 in Effective Java (2nd Edition, Joshua Bloch,
-2008)
-Example...
-Bad: Unexpected behavior
+* "Small" - _Not an exact rule_
+* Do only one thing - _even small methods may do more things!_
+* One level of abstraction - _See Law of Demeter later_
+* No unexpected behavior (side effects)
+* No unexpected or not-understandable input and return values
+* No or the least possible dependencies
+* Avoid inline implementation - _put it always in a separate method_
+* Set visibility modifiers precisely - _For the compiler and for the reader too_
+* Check parameter validity at the beginning - _Item 38 in Effective Java (2nd Edition, Joshua Bloch, 2008)_
+* Prevent overriding non-abstract methods - _Item 17 in Effective Java (2nd Edition, Joshua Bloch, 2008)_
+
+Example: Bad: Unexpected behavior
+
+``` java
+
 boolean checkPassword(String pwd) {
-if( pwd.equals(„secret”) ){
-createSession(); // Unexpected side effect
-return true;
-} else {
-return false;
+    if( pwd.equals(„secret”) ){
+        createSession(); // Unexpected side effect
+        return true;
+    } else {
+        return false;
+    }
 }
-}
-Bad: Unintentional return values
-int createProcess();
-// Which one is correct?
-errorCode = createProcess()
-processNumber = createProcess()
-processCount = createProcess()
-createdInMillis = createProcess()
-Example...
-Bad: Method doing more than one thing
+
+```
+
+Example: Bad: Unintentional return values
+
+``` java
+
+    int createProcess();
+
+    // Which one is correct?
+    errorCode = createProcess()
+    processNumber = createProcess()
+    processCount = createProcess()
+    createdInMillis = createProcess()
+
+```
+
+Example: Bad: Method doing more than one thing
+
+``` java
+
 // Are the lines in the proper order?
 public synchronized void flush() throws IOException {
-getContentBuffer().flush();
-IOUtils.copy(new StringReader(getContentBuffer().getBuffer().toString()),
-getBufferedWriter());
-getBufferedWriter().flush();
-contentBuffer = new StringWriter();
+    getContentBuffer().flush();
+    IOUtils.copy(new StringReader(getContentBuffer().getBuffer().toString()), getBufferedWriter());
+    getBufferedWriter().flush();
+    contentBuffer = new StringWriter();
 }
-Good: Methods doing one thing
+
+```
+
+Example: Good: Methods doing one thing
+
+``` java
+
 // Method complies with the contract
 @Override // This is also important, not only for the compiler
 public synchronized void flush() throws IOException {
-flushMyBuffer();
-getBufferedWriter().flush();
+    flushMyBuffer();
+    getBufferedWriter().flush();
 }
+
 private synchronized void flushMyBuffer() throws IOException {
-contentBuffer.flush();
-IOUtils.copy(new StringReader(getContentBuffer().getBuffer().toString()),
-getBufferedWriter());
-contentBuffer = new StringWriter();
+    contentBuffer.flush();
+    IOUtils.copy(new StringReader(getContentBuffer().getBuffer().toString()), getBufferedWriter());
+    contentBuffer = new StringWriter();
 }
+
 // Now it is clear that it has two buffers. Is is a good solution?
 // Clean code is not the final goal, it is a way to the goal:
 // is the code correct?
-Example...
-Bad: Method doing more than one thing (from the book)
+
+```
+
+Example: Bad: Method doing more than one thing _(from the book)_
+
+``` java
+
 // It does three things
 public void pay() {
-for (Employee e : employees) {
-if (e.isPayday()) {
-Money pay = e.calculatePay();
-e.deliverPay(pay);
+    for (Employee e : employees) {
+        if (e.isPayday()) {
+            Money pay = e.calculatePay();
+            e.deliverPay(pay);
+        }
+    }
 }
-}
-}
-Good: Methods doing one thing (from the book)
+
+```
+
+Example: Good: Methods doing one thing (from the book)
+
+``` java
+
 public void pay() {
-for (Employee e : employees) {
-payIfNecessary(e);
+    for (Employee e : employees) {
+        payIfNecessary(e);
+    }
 }
-}
+
 private void payIfNecessary(Employee e) {
-if (e.isPayday()) {
-calculateAndDeliverPay(e);
+    if (e.isPayday()) {
+        calculateAndDeliverPay(e);
+    }
 }
-}
+
 private void calculateAndDeliverPay(Employee e) {
-Money pay = e.calculatePay();
-e.deliverPay(pay);
+    Money pay = e.calculatePay();
+    e.deliverPay(pay);
 }
-Example...
-Bad: Side effect: modifying the input parameter
+
+```
+
+Example: Bad: Side effect: modifying the input parameter
+
+``` java
+
 // Incorrect name
 private SelectedDirectionDTO createSelectedOption(OptionDTO option, String fareFamily) {
-SelectedDirectionDTO so = new SelectedDirectionDTO();
-so.setId(option.getId());
-so.setOrigin(option.getOrigin());
-so.setOriginCountry(option.getOrginCountry());
-so.setDestination(option.getDestination());
-so.setDepartureDate(option.getDepartureDate());
-so.setDepartureTime(option.getDepartureTime());
-so.setArrivalDate(option.getArrivalDate());
-so.setArrivalTime(option.getArrivalTime());
-so.setMultipleOrigin(option.isMultipleOrigin());
-so.getFlights().addAll(option.getFlights());
-// Non-standard TODO comment
-// Not informative comment
-//FB_TODO: the code from here might need changes
-// Negative condition first
-if (!moreOptions) {
-// Inline implementation
-for (RoutingFareDTO cFare : option.getFares()) {
-if (routingFareMatches(fareFamily, cFare)) {
-so.setFare(cFare);
-}
-}
-} else {
-// Inline implementation
-String fam = famMoreOptionMapping.get(fareFamily);
-if (fam != null) {
-for (RoutingFareDTO fare : option.getFares()) {
-if (fam.equalsIgnoreCase(fare.getCompartment())) {
-so.setFare(fare);
-// Modifying the input parameter!
-so.getFare().setFareFamily(fareFamily);
-}
-}
-}
-}
-return so;
+
+    SelectedDirectionDTO so = new SelectedDirectionDTO();
+    so.setId(option.getId());
+    so.setOrigin(option.getOrigin());
+    so.setOriginCountry(option.getOrginCountry());
+    so.setDestination(option.getDestination());
+    so.setDepartureDate(option.getDepartureDate());
+    so.setDepartureTime(option.getDepartureTime());
+    so.setArrivalDate(option.getArrivalDate());
+    so.setArrivalTime(option.getArrivalTime());
+    so.setMultipleOrigin(option.isMultipleOrigin());
+    so.getFlights().addAll(option.getFlights());
+
+    // Non-standard TODO comment
+    // Not informative comment
+    //FB_TODO: the code from here might need changes
+    // Negative condition first: harder to understand
+    if (!moreOptions) {
+        // Inline implementation
+        for (RoutingFareDTO cFare : option.getFares()) {
+            if (routingFareMatches(fareFamily, cFare)) {
+                so.setFare(cFare);
+            }
+        }
+    } else {
+        // Inline implementation
+        String fam = famMoreOptionMapping.get(fareFamily);
+        if (fam != null) {
+            for (RoutingFareDTO fare : option.getFares()) {
+                if (fam.equalsIgnoreCase(fare.getCompartment())) {
+                    so.setFare(fare);
+                    // Modifying the input parameter!
+                    so.getFare().setFareFamily(fareFamily);
+                }
+            }
+        }
+    }
+    return so;
 }
 
-10.2 Bad Input Parameters
+```
 
-Object
-String for non-textual types
-boolean for switches -use constants or enum instead
+10.2 Avoid Bad Input Parameter Types
 
-10.3 Functional Programming
+* Object
+* String for non-textual types
+* boolean for switches - _use constants or enum instead_
+
+10.3 Program to Methods
 
 Stateless, independent methods:
-Prefer return values to modifying input variables
-Prefer methods that depend only on the input parameters -No configuration parameters or data
-mining inside
-Independent = easily testable
-At the end of the method calls there should always be a method that depend only on the input parameter
-and whose only result is the return value (or exception).
+
+* Prefer return values to modifying input variables
+* Prefer methods that depend only on the input parameters -No configuration parameters or data mining inside
+* Independent = easily testable
+
+At the end of the method calls there should always be a method that depend only on the input parameter and whose only result is the return value (or exception).
 
 10.4 Overloading
 
-Use overloading only for convenience
-For example for default values
-Do not use it for hiding differences
-They should call each other - code smell if they don't
+* Use overloading only for convenience
+* For example for default values
+* Do not use it for hiding differences
+* They should call each other - _code smell if they don't_
 
 10.5 Hiding
 
-Hide irrelevant details in a separate method
-Do not hide relevant details in a separate method
-Example...
-Bad: Overloads and Hiding
+* Hide irrelevant details in a separate method
+* Do not hide relevant details in a separate method
+
+Example: Bad: Overloads and Hiding
+
+``` java
+
 // Overloads doing different things
 // relevant details are hidden (what lists are created)
 List<Integer> scores = initScores(10, 0);
 List<Integer> scores = initScores(10);
-Good: No overloads and Hiding
+
+```
+
+Example: Good: No overloads and Hiding
+
+``` java
+
 // Method intention is expressed in their names
 // only irrelevant details are hidden (how lists are created)
 List<Integer> scores = createListWithEqualNumbers(10, 0);
 List<Integer> scores = createListWithDifferentNumbers(10);
 
+```
+
 10.6 Two types of methods
 
-"Coordinator" or "orchestrator"
-"Technical" or "Algorithm"
-Example...
-Types of methods
-// Orchestrator method - Easy to read
+* "Coordinator" or "orchestrator"
+* "Technical" or "Algorithm"
+
+Example: Good: Types of methods
+
+``` java
+
+// Orchestrator method - Easy to read - Business logic
 public void modifySomething(Something s) {
-s.setAnything( s.getThis(), s.getThat() );
-if( s.isBig() ) {
-s.setSomethingElse( DEFAULT_SOMETHING_ELSE );
+    s.setAnything( s.getThis(), s.getThat() );
+    if( s.isBig() ) {
+        s.setSomethingElse( DEFAULT_SOMETHING_ELSE );
+    }
 }
-}
+
 // Algorithm method - Easy to test
 public Anything calculateAnything(This this, That that) {
-return this.getCount() * that.getSize();
+    return this.getCount() * that.getSize();
 }
+
+```
 
 10.7 Smells
 
-Passing this to a method -it could be implemented with more, smaller and readable classes (see
-Antipatterns)
-If you can mix a method's lines and it still compiles, it probably does more things.
-Pet Zoltán :-)
+* Passing this to a method -it could be implemented with more, smaller and readable classes.
+
+> If you can mix a method's lines and it still compiles, it probably does more things. (Zoltan Peto :-)
 
 11 Nulls and Validity Checks
 
 11.1 Avoid NullPointerExceptions (NPE)
 
-Check at the beginning -Unhappy path, Happy path
-Consider using helper methods
-Check each object which is de-referenced in the method - and only these ones
-Example...
-Bad: Null check at the wrong place
+* Check at the beginning - _Unhappy path, Happy path_
+* Consider using helper methods
+* Check each object which is de-referenced in the method - and only these ones
+
+Example: Bad: Null check at the wrong place
+
+``` java
+
 void doSomething(MyClass input) {
-if(input != null) { // Unnecessary here
-doStuff(input);
+    if(input != null) { // Unnecessary here
+        doStuff(input);
+    }
 }
-}
+
 void doStuff(MyClass input) {
-input.setData(10); // Would be necessary here
+    input.setData(10); // Would be necessary here
 }
-Bad: Null check when dereferencing
+
+```
+
+Example: Good: Null check always and only when dereferencing
+
+``` java
+
 void doSomething(MyClass input) {
-doStuff(input);
+    doStuff(input);
 }
+
 void doStuff(MyClass input) {
-if(input == null) {
-return;
+    if(input == null) {
+        return;
+    }
+    input.setData(10);
 }
-input.setData(10);
-}
+
+```
 
 11.2 Defensive Programming
 
