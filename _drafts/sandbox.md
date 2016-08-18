@@ -4,6 +4,17 @@ title: "Sandbox"
 date: 2016-06-23
 ---
 
+## OOPs
+### Updates
+#### Constant Collection Classes
+##### update post
+###### new chapter : Const coll in a procedural class: SRP violation
+##### update wiki
+#### clean code outline 
+##### spaghetti code 
+##### add yegor links
+##### CC = error free + maintainability
+
 #### Code
 
 ```java
