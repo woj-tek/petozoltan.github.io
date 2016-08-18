@@ -4,6 +4,13 @@ title: "When To Avoid Inheritance?"
 date: 2016-06-18
 ---
 
+***
+
+* TOC
+{:toc}
+
+***
+
 A huge problem of software development is that the code becomes over-complicated and hard to maintain. I see that the ***overuse of class inheritance*** is one of its biggest reasons. Unfortunately developers have an affection to create class hierarchies and abstract classes.
 
 That is why I tried to collect signs and hints that can show when inheritance is not necessary. I also try to tell which clean code principles are broken in such cases. Of course all of this sentences are worth for a longer description but now I can collect only the brief list with very short explanations.
