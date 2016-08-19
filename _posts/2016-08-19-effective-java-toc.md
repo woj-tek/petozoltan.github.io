@@ -13,7 +13,7 @@ date: 2016-08-19
 
 The table of contents of the book Effective Java by Joshua Bloch (2nd edition, 2008). It is a good overview of the rules recommended by the book.
 
-## Table of Contents
+### Table of Contents
 
 Creating and Destroying Objects
 
