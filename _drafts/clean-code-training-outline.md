@@ -1693,40 +1693,38 @@ _(See in the Clean Code book.)_
 
 ## Links
 
-![]()
-
 ### Books
 
-* ![Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin, 1994)](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)
-* ![Design Patterns: Elements of Reusable Object-Oriented Software ("Gang of Four", 1994)](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/)
-* ![Refactoring: Improving the Design of Existing Code (Martin Fowler, Kent Beck, ..., 1999)](https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672/)
-* ![Effective Java (2nd Edition, Joshua Bloch, 2008)](https://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/dp/0321356683)
+* [Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin, 1994)](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)
+* [Design Patterns: Elements of Reusable Object-Oriented Software ("Gang of Four", 1994)](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/)
+* [Refactoring: Improving the Design of Existing Code (Martin Fowler, Kent Beck, ..., 1999)](https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672/)
+* [Effective Java (2nd Edition, Joshua Bloch, 2008)](https://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/dp/0321356683)
 
 ### PDF
 
-* ![Java Code Conventions (Sun, 1997)](http://www.oracle.com/technetwork/java/codeconventions-150003.pdf)
-* ![Clean Code Cheat Sheet v2.4](http://www.planetgeek.ch/wp-content/uploads/2014/11/Clean-Code-V2.4.pdf)
-* ![Uncle Bob: Principles Of OOD (SOLID)](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)
+* [Java Code Conventions (Sun, 1997)](http://www.oracle.com/technetwork/java/codeconventions-150003.pdf)
+* [Clean Code Cheat Sheet v2.4](http://www.planetgeek.ch/wp-content/uploads/2014/11/Clean-Code-V2.4.pdf)
+* [Uncle Bob: Principles Of OOD (SOLID)](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)
 
 ### Java
 
-* ![How to Write Doc Comments for the Javadoc Tool](http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html)
+* [How to Write Doc Comments for the Javadoc Tool](http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html)
 
 ### Images
 
-* ![The only valid measurement of code quality](http://www.osnews.com/story/19266/WTFs_m)
-* ![Unit Test Goals & Smells](http://xunitpatterns.com/Goals-Smells.gif)
+* [The only valid measurement of code quality](http://www.osnews.com/story/19266/WTFs_m)
+* [Unit Test Goals & Smells](http://xunitpatterns.com/Goals-Smells.gif)
 
 ### Wikipedia
 
-* ![Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)
-* ![Design Patterns (GoF)](https://en.wikipedia.org/wiki/Design_Patterns)
-* ![Software Design Pattern](https://en.wikipedia.org/wiki/Software_design_pattern)
-* ![Composition over inheritance](https://en.wikipedia.org/wiki/Composition_over_inheritance)
-* ![Cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity)
+* [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)
+* [Design Patterns (GoF)](https://en.wikipedia.org/wiki/Design_Patterns)
+* [Software Design Pattern](https://en.wikipedia.org/wiki/Software_design_pattern)
+* [Composition over inheritance](https://en.wikipedia.org/wiki/Composition_over_inheritance)
+* [Cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity)
 
 ### Articles
 
-* ![There Are Only 2 Roles of Code](https://dzone.com/articles/there-are-only-2-roles-code)
-* ![Uncle Bob: Principles Of OOD (SOLID)](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)
-* ![Essential XP: Emergent Design](http://ronjeffries.com/xprog/classics/expemergentdesign/)
+* [There Are Only 2 Roles of Code](https://dzone.com/articles/there-are-only-2-roles-code)
+* [Uncle Bob: Principles Of OOD (SOLID)](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)
+* [Essential XP: Emergent Design](http://ronjeffries.com/xprog/classics/expemergentdesign/)
