@@ -125,4 +125,5 @@ Serialization
 
 ### Related Posts
 
+* [Clean Code TOC](https://petozoltan.github.io/2016/08/19/clean-code-toc.html)
 * [Clean Code Outline](https://petozoltan.github.io/2016/08/19/clean-code-outline.html)
