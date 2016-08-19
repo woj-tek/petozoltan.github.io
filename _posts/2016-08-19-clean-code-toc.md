@@ -16,6 +16,7 @@ The table of contents of the book [Clean Code: A Handbook of Agile Software Craf
 ### Contents
 
 Clean Code
+
 * There Will Be Code
 * Bad Code
 * The Total Cost of Owning a Mess
@@ -30,7 +31,9 @@ Clean Code
 * Prequel and Principles
 * Conclusion
 * Bibliography
+
 Meaningful Names
+
 * Introduction
 * Use Intention-Revealing Names
 * Avoid Disinformation
@@ -52,7 +55,9 @@ Meaningful Names
 * Add Meaningful Context
 * Don’t Add Gratuitous Context
 * Final Words
+
 Functions
+
 * Small!
   * Blocks and Indenting
 * Do One Thing
@@ -82,7 +87,9 @@ Functions
 * Conclusion
 * SetupTeardownIncluder
 * Bibliography
+
 Comments
+
 * Comments Do Not Make Up for Bad Code
 * Explain Yourself in Code
 * Good Comments
@@ -116,7 +123,9 @@ Comments
   * Javadocs in Nonpublic Code
   * Example
 * Bibliography
+
 Formatting
+
 * The Purpose of Formatting
 * Vertical Formatting
   * The Newspaper Metaphor
@@ -131,7 +140,9 @@ Formatting
   * Dummy Scopes
 * Team Rules
 * Uncle Bob’s Formatting Rules
+
 Objects and Data Structures
+
 * Data Abstraction
 * Data/Object Anti-Symmetry
 * The Law of Demeter
@@ -142,7 +153,9 @@ Objects and Data Structures
   * Active Record
 * Conclusion
 * Bibliography
+
 Error Handling
+
 * Use Exceptions Rather Than Return Codes
 * Write Your Try-Catch-Finally Statement First
 * Use Unchecked Exceptions
@@ -153,7 +166,9 @@ Error Handling
 * Don’t Pass Null
 * Conclusion
 * Bibliography
+
 Boundaries
+
 * Using Third-Party Code
 * Exploring and Learning Boundaries
 * Learning log4j
@@ -161,7 +176,9 @@ Boundaries
 * Using Code That Does Not Yet Exist
 * Clean Boundaries
 * Bibliography
+
 Unit Tests
+
 * The Three Laws of TDD
 * Keeping Tests Clean
   * Tests Enable the -ilities
@@ -173,7 +190,9 @@ Unit Tests
 * F.I.R.S.T
 * Conclusion
 * Bibliography
+
 Classes
+
 * Class Organization
   * Encapsulation
 * Classes Should Be Small!
@@ -183,7 +202,9 @@ Classes
 * Organizing for Change
   * Isolating from Change
 * Bibliography
+
 Systems
+
 * How Would You Build a City?
 * Separate Constructing a System from Using It
   * Separation of Main
@@ -200,7 +221,9 @@ Systems
 * Systems Need Domain-Specific Languages
 * Conclusion
 * Bibliography
+
 Emergence
+
 * Getting Clean via Emergent Design
 * Simple Design Rule 1: Runs All the Tests
 * Simple Design Rules 2–4: Refactoring
@@ -209,7 +232,9 @@ Emergence
 * Minimal Classes and Methods
 * Conclusion
 * Bibliography
+
 Concurrency
+
 * Why Concurrency?
 * Myths and Misconceptions
 * Challenges
@@ -239,7 +264,9 @@ Concurrency
   * Automated
 * Conclusion
 * Bibliography
+
 Successive Refinement
+
 * Args Implementation
   * How Did I Do This?
 * Args: The Rough Draft
@@ -247,15 +274,21 @@ Successive Refinement
   * On Incrementalism
 * String Arguments
 * Conclusion
+
 JUnit Internals
+
 * The JUnit Framework
 * Conclusion
+
 Refactoring SerialDate
+
 * First, Make It Work
 * Then Make It Right
 * Conclusion
 * Bibliography
+
 Smells and Heuristics
+
 * Comments
   * Inappropriate Information
   * Obsolete Comment
@@ -331,7 +364,9 @@ Smells and Heuristics
   * Tests Should Be Fast
 * Conclusion
 * Bibliography
+
 Appendix A: Concurrency II
+
 * Client/Server Example
   * The Server
   * Adding Threading
@@ -368,10 +403,12 @@ Appendix A: Concurrency II
 * Tutorial: Full Code Examples
   * Client/Server Nonthreaded
   * Client/Server Using Threads
-Appendix B: org.jfree.date.SerialDate
-Appendix C: Cross References of Heuristics
-Epilogue
 
+Appendix B: org.jfree.date.SerialDate
+
+Appendix C: Cross References of Heuristics
+
+Epilogue
 ### Related Posts
 
 * [Effective Java TOC](https://petozoltan.github.io/2016/08/19/effective-java-toc.html)
