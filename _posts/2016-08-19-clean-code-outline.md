@@ -1699,14 +1699,14 @@ See the list of code smells from the Clean Code book:
 
 #### Books
 
-* [Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin,4)](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/2)
-* [Design Patterns: Elements of Reusable Object-Oriented Software ("Gang of Four",4)](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/2/)
-* [Refactoring: Improving the Design of Existing Code (Martin Fowler, Kent Beck, ...,9)](https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/2/)
-* [Effective Java (2nd Edition, Joshua Bloch,8)](https://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/dp/3)
+* [Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin, 1994)](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/2)
+* [Design Patterns: Elements of Reusable Object-Oriented Software ("Gang of Four", 1994)](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/2/)
+* [Refactoring: Improving the Design of Existing Code (Martin Fowler, Kent Beck, ..., 1999)](https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/2/)
+* [Effective Java (2nd Edition, Joshua Bloch, 2008)](https://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/dp/3)
 
 #### PDF
 
-* [Java Code Conventions (Sun,7)](http://www.oracle.com/technetwork/java/codeconventions-.pdf)
+* [Java Code Conventions (Sun, 1997)](http://www.oracle.com/technetwork/java/codeconventions-.pdf)
 * [Clean Code Cheat Sheet v2.4](http://www.planetgeek.ch/wp-content/uploads/4/11/Clean-Code-V2.4.pdf)
 * [Uncle Bob: Principles Of OOD (SOLID)](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)
 
@@ -1732,6 +1732,11 @@ See the list of code smells from the Clean Code book:
 * [There Are Only 2 Roles of Code](https://dzone.com/articles/there-are-only-2-roles-code)
 * [Uncle Bob: Principles Of OOD (SOLID)](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)
 * [Essential XP: Emergent Design](http://ronjeffries.com/xprog/classics/expemergentdesign/)
+
+#### Blogs
+
+* [Yegor Bugayenko](http://www.yegor256.com/)
+* [Jean Rene](https://jeanrenesite.wordpress.com/)
 
 ### Related Posts
 
