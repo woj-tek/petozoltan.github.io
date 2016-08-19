@@ -1687,35 +1687,125 @@ It can be more general:
 * Depend on Abstractions. Do not depend on concretions.
 * Dependency injection is one method of following this principle.
 
-## Code Smells
+## General Code Smells
 
-_(See in the Clean Code book.)_
+Taken from the Clean Code book. See details in the book.
+
+#### Comments
+
+* Inappropriate Information
+* Obsolete Comment
+* Redundant Comment
+* Poorly Written Comment
+* Commented-Out Code
+
+#### Environment
+
+* Build Requires More Than One Step
+* Tests Require More Than One Step
+
+#### Functions
+
+* Too Many Arguments
+* Output Arguments
+* Flag Arguments
+* Dead Function
+
+#### General
+
+* Multiple Languages in One Source File
+* Obvious Behavior Is Unimplemented
+* Incorrect Behavior at the Boundaries
+* Overridden Safeties
+* Duplication
+* Code at Wrong Level of Abstraction
+* Base Classes Depending on Their Derivatives
+* Too Much Information
+* Dead Code
+* Vertical Separation
+* Inconsistency
+* Clutter
+* Artificial Coupling
+* Feature Envy
+* Selector Arguments
+* Obscured Intent
+* Misplaced Responsibility
+* Inappropriate Static
+* Use Explanatory Variables
+* Function Names Should Say What They Do
+* Understand the Algorithm
+* Make Logical Dependencies Physical
+* Prefer Polymorphism to If/Else or Switch/Case
+* Follow Standard Conventions
+* Replace Magic Numbers with Named Constants
+* Be Precise
+* Structure over Convention
+* Encapsulate Conditionals
+* Avoid Negative Conditionals
+* Functions Should Do One Thing
+* Hidden Temporal Couplings
+* Don’t Be Arbitrary
+* Encapsulate Boundary Conditions
+* Functions Should Descend Only
+
+#### Level of Abstraction
+
+* Keep Configurable Data at High Levels
+* Avoid Transitive Navigation
+
+#### Java
+
+* Avoid Long Import Lists by Using Wildcards
+* Don’t Inherit Constants
+* Constants versus Enums
+
+#### Names
+
+* Choose Descriptive Names
+* Choose Names at the Appropriate Level of Abstraction
+* Use Standard Nomenclature Where Possible
+* Unambiguous Names
+* Use Long Names for Long Scopes
+* Avoid Encodings
+* Names Should Describe Side-Effects.
+
+#### Tests
+
+* Insufficient Tests
+* Use a Coverage Tool!
+* Don’t Skip Trivial Tests
+* An Ignored Test Is a Question about an Ambiguity
+* Test Boundary Conditions
+* Exhaustively Test Near Bugs
+* Patterns of Failure Are Revealing
+* Test Coverage Patterns Can Be Revealing
+* Tests Should Be Fast
 
 ## Links
 
-### Books
+#### Books
 
-* [Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin, 1994)](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)
-* [Design Patterns: Elements of Reusable Object-Oriented Software ("Gang of Four", 1994)](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/)
-* [Refactoring: Improving the Design of Existing Code (Martin Fowler, Kent Beck, ..., 1999)](https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672/)
-* [Effective Java (2nd Edition, Joshua Bloch, 2008)](https://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/dp/0321356683)
+* [Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin,4)](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/2)
+* [Design Patterns: Elements of Reusable Object-Oriented Software ("Gang of Four",4)](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/2/)
+* [Refactoring: Improving the Design of Existing Code (Martin Fowler, Kent Beck, ...,9)](https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/2/)
+* [Effective Java (2nd Edition, Joshua Bloch,8)](https://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/dp/3)
 
-### PDF
+#### PDF
 
-* [Java Code Conventions (Sun, 1997)](http://www.oracle.com/technetwork/java/codeconventions-150003.pdf)
-* [Clean Code Cheat Sheet v2.4](http://www.planetgeek.ch/wp-content/uploads/2014/11/Clean-Code-V2.4.pdf)
+* [Java Code Conventions (Sun,7)](http://www.oracle.com/technetwork/java/codeconventions-.pdf)
+* [Clean Code Cheat Sheet v2.4](http://www.planetgeek.ch/wp-content/uploads/4/11/Clean-Code-V2.4.pdf)
 * [Uncle Bob: Principles Of OOD (SOLID)](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)
 
-### Java
+#### Java
 
-* [How to Write Doc Comments for the Javadoc Tool](http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html)
+* [How to Write Doc Comments for the Javadoc Tool](http://www.oracle.com/technetwork/java/javase/documentation/index-.html)
 
-### Images
+#### Images
 
-* [The only valid measurement of code quality](http://www.osnews.com/story/19266/WTFs_m)
+* [The only valid measurement of code quality](http://www.osnews.com/story/66/WTFs_m)
 * [Unit Test Goals & Smells](http://xunitpatterns.com/Goals-Smells.gif)
 
-### Wikipedia
+#### Wikipedia
 
 * [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)
 * [Design Patterns (GoF)](https://en.wikipedia.org/wiki/Design_Patterns)
@@ -1723,7 +1813,7 @@ _(See in the Clean Code book.)_
 * [Composition over inheritance](https://en.wikipedia.org/wiki/Composition_over_inheritance)
 * [Cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity)
 
-### Articles
+#### Articles
 
 * [There Are Only 2 Roles of Code](https://dzone.com/articles/there-are-only-2-roles-code)
 * [Uncle Bob: Principles Of OOD (SOLID)](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)
