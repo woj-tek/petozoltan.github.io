@@ -685,7 +685,7 @@ Example: Bad: Implementation with collections and procedures
 ``` java
 public final class ContractFormatter implements Serializable {
     
-    // They belong to formatFareFamily(), loose cohesion
+    // They belong to formatFareFamily(), low cohesion
     // Misplaced constants
     // Duplications: they are defined sever times again and again...
     private static final String FORMATTED_FIRST_CLASS_FAM = "First";
@@ -704,7 +704,7 @@ public final class ContractFormatter implements Serializable {
     private static final String FORMATTED_BUSINESS_FB = "Business"; //FB_TODO: chage to final name
     
     // Simple property implemented as a collection
-    // It belongs to isFareBundle(), loose cohesion
+    // It belongs to isFareBundle(), low cohesion
     private static final Set<String> fareBundleStrings = ImmutableSet.of(LIGHT_FB, CLASSIC_FB, BUSINESS_FB);
     
     public boolean isFareBundle(String famOrBundle) {
@@ -1233,50 +1233,58 @@ public final void parse(final Config[] configs, final boolean flushAfterParse) {
 
 ### Write the least possible comments
 
-Prefer coding to commenting
-The code should document itself as most as possible
-Many and long comments are code smell
+* Prefer coding to commenting
+* The code should document itself as most as possible
+* Many and long comments are code smell
 
 ### Comments Should Be
 
-Meaningful
-Necessary
-Readable
+* Meaningful
+* Necessary
+* Readable
 
 ### Bad Comments
 
-„Commented out” code - Remove it, find it in the version control system
-Separators, markers
-Redundant
-Misleading
-Out-of-date
-Obvious
-Unnecessary
-Funny
-Closing brace comment
-Attributes - author, date, issue
-Non-English
-Too many HTML markers
-Historical
-Prone to copy-paste error
+* „Commented out” code - _Remove it, find it in the version control system_
+* Separators, markers
+* Redundant
+* Misleading
+* Out-of-date
+* Obvious
+* Unnecessary
+* Funny
+* Closing brace comment
+* Attributes - _author, date, issue number, etc._
+* Non-English
+* Too many HTML markers
+* Historical
+* Prone to copy-paste error
 
 ### Good Comments
 
-TODO comments
-Warnings -e.g. "Not threadsafe"
-Limitations -e.g. "It works only with a sorted list"
-Javadoc comment to public API -high level service methods
-Comment empty blocks
-Example...
-Bad: Comments
+* TODO comments
+* Warnings - _e.g. "Not threadsafe"_
+* Limitations - _e.g. "It works only with a sorted list"_
+* Javadoc comment to public API - _for high level service methods_
+* Comment empty blocks
+* Less is more.
+
+Example: Bad: Comments
+
+``` java
 // Redundant, obvious:
 /**
 * gets the value of Name
 */
 public String getName();
+
 // Funny, unnecessary:
 // I invented this part, but do not know why
-Good: Javadoc comment
+```
+
+Example: Good: Javadoc comment
+
+``` java
 /**
 * Returns an Image object that can then be painted on the screen.
 * The url argument must specify an absolute {@link URL}. The name
@@ -1296,55 +1304,55 @@ Good: Javadoc comment
 */
 @Deprecated
 public Image getImage(URL url, String name) {
-try {
-return getImage(new URL(url, name));
-} catch (MalformedURLException e) {
-return null;
+    try {
+        return getImage(new URL(url, name));
+    } catch (MalformedURLException e) {
+        return null;
+    }
 }
-}
-Less is more.
+```
 
 ## Dead Code
 
 ### Remove unused code
 
-You can find it in the version control system
-Check out warnings for this
-Leave the code clean from dirt
+* You can find it in the version control system
+* Check out warnings for this
+* Leave the code clean from dirt
 
 ### Comments
 
 Prone to
-being out-of-date
-copy-paste error
+* being out-of-date
+* copy-paste error
 
 ## Error Handling
 
 ### Two types of exceptions
 
-Expected or business exceptions
-Unexpected program or environment errors
-Only unexpected exceptions should be logged on error level with stack-trace.
+* Expected or business exceptions ~ _checked?_
+* Unexpected program or environment errors ~ _unchecked?_
 
 ### Good Practices
 
-Prefer exceptions to return codes -decreases pollution of clients
-Prefer exception types to exception payload
-Provide context for exception:
-add erroneous object(s)
-chain exceptions when wrapping
-Don’t return null - throw exception (e.g. IllegalArgumentException)
-Prefer runtime exceptions to checked exceptions -decreases pollution and dependency
-Wrap exceptions in module or service specific exceptions -decrease dependency
-Example...
-GST: AbstractJpaDAOTest.testFindByInternalId_NotExists() vs. ContractDaoImplTest.
-testFindByInternalId()
+* Prefer exceptions to return codes - _decreases pollution of clients_
+* Prefer exception types to exception payload - _error codes_
+* Provide context for exception:
+  * chain exceptions when wrapping
+  * add erroneous object(s)
+* Do not return null - _throw exception (e.g. IllegalArgumentException)_
+* Prefer runtime exceptions to checked exceptions - _decreases pollution and dependency_
+* Wrap exceptions in module or service specific exceptions - _decrease dependency_
+* Only unexpected exceptions should be logged on error level with stack-trace.
 
 ### Bad Practices
 
-Swallow exceptions
-Implement business logic in catch block
-Do not catch exceptions unless you handle them
+* Swallow exceptions
+* Implement business logic in catch block
+* Do not catch exceptions unless you handle them
+* `handleError()` type of methods - 
+  * _not readable what they do_
+  * _they cheat the compiler too_
 
 ## Classes
 
@@ -1353,265 +1361,300 @@ Do not catch exceptions unless you handle them
 #### Procedural
 
 Business logic or Service
-Stateless, singleton or static if possible
-Created mostly by the DI framework -Spring, Java EE, ...
-If stateful, create it from the code
+
+* Stateless, singleton or static if possible
+* Instantiated mostly by the DI framework - _Spring, Java EE_
+* If stateful, create it from the code with `new`
 
 #### Data structure
 
 Entity, DTO (Data Transfer Object)
-Only data members
-No business logic
-Always created new -by the database layer or with new from the code
-Accessors/mutators are questionable -getters/setters
+
+* Only data members
+* No business logic
+* Always instantiated as new - _by the database layer or with new from the code_
+* Accessors/mutators are questionable - _getters/setters_
 
 ### Rules
 
-One reason to exist, change
-"Small"
-No "God" class -"Sack", "Blob"
-Encapsulation (hiding, protection) decreases dependency -Other classes cannot depend on this
-Cohesion
+* One reason to exist, change
+* "Small"
+* No "God" class - _"Sack", "Blob"_
+* Encapsulation (hiding, protection) decreases dependency - _Other classes cannot depend on this_
+* Tight cohesion
 
 ### Cohesion
 
-Implements the "one thing" rule
-Contains only dependent members
-Refactor to cohesive classes
-There will be many small classes -Like a toolbox with drawers
-Reduces amount, cost and risk of changes
+* Implements the "one thing" rule
+* Contains only dependent members
+* Refactor to cohesive classes
+* There will be many small classes - _Like a toolbox with drawers_
+* Reduces amount, cost and risk of changes
 
 ### Interfaces
 
-Create interfaces for service classes -but not paranoid
-Prefer interfaces to parent classes
-Create marker interfaces
+* Create interfaces for service classes -_but not always paranoidly for everything_
+* Prefer interfaces to parent classes
+* Create marker interfaces
 
 ### Smells
 
 #### No meaningful name
 
-You cannot give a meaningful name - e.g. "Parent", "Common", "Processor", etc.
+* You cannot give a meaningful name - _e.g. "Parent", "Common", "Processor", etc._
 
-#### Unnecessary Polymorphism
+#### Unnecessary polymorphism
 
-Polymorphic class is not used as polymorphic -never declared to parent type - see later
+* Polymorphic class is not used as polymorphic - _never declared to parent type - see later_
 
-#### Does more things - Loose cohesion
+#### Does more things - Low cohesion
 
-Many methods -"God" or "Blob" class
-Methods of a class can be split into distinct call chains -they should be in separate classes
-Test coverage is not visible or cheating
-Refactor to composition + Facade pattern
-Example: GST History Comparators
-Example...
+* Many methods - _"God" or "Blob" class_
+* Methods of a class can be split into distinct call chains - _they should be in separate classes_
+* Test coverage is not visible or cheating
+* Refactor to composition + Facade pattern
+
+Example: Refactoring low cohesion
+
+![](https://petozoltan.github.io/images/clean-code-outline/refactoring-low-cohesion.png)
 
 ## Formatting
 
 ### Rules
 
-Increases readability and expressiveness
-Put close to each other what belongs together
+* Increases readability and expressiveness
+* Put close to each other what belongs together
 
 ### Vertical
 
-Member variable declarations at the top of the class
-Local variable declarations prior to their usage -or at the top of the block
-Use empty lines -but only one
-Write in order of execution and calls
-Write similar methods close to each other
+* Member variable declarations at the top of the class
+* Local variable declarations prior to their usage - _not at the top of the block_
+* Use empty lines - _but only one_
+* Write in order of execution and calls
+* Write similar methods close to each other
 
 ### Horizontal
 
-Limit line length -100-120 characters
-The reader should not scroll to the right
-Use white space
-Use correct indentation
-Do not use tabular formatting
+* Limit line length - _100-120 characters_
+* The reader should not scroll to the right
+* Use white space
+* Use correct indentation
+* Do not use tabular formatting
 
 ### Blocks
 
-Always put braces
-Always put braces for empty blocks too
+* Always put braces
+* Always put braces for empty blocks too
 
-### Practices
+### Good practices
 
-Agree on formatting in project
-Use your IDE's capabilities -default is often good
-It is worth to force formatting on long expressions -// comment
-Do not deviate too much from Java Code Conventions (Sun, 1997)
+* Agree on formatting in project
+* Use your IDE's capabilities - _default is often good_
+* Break long expressions into more lines
+* Do not deviate too much from Java Code Conventions (Sun, 1997)
 
 ## Unit Tests
 
+It is not part of this document, find only some thoughts here.
+
+> Clean Code = Testable Code
+
 ### Rules
 
-Continuously write unit tests
-Maintain unit test -keep them running
-TDD - Test Driven Development
-Tests must be clean too - they will change with the code
-Tests must obey the test patterns
-F.I.R.S.T. principles
+* Continuously write unit tests
+* Maintain unit test - _keep them running_
+* TDD - Test Driven Development
+* Tests must be clean too - _they will change with the code_
+* Tests must obey the test patterns
+* F.I.R.S.T. principles
 
 ### Benefits
 
-Enforces to write testable code - Testable code is clean code
-Makes the code flexible -changes with regression tests
+Enforces to write testable code
+Makes the code flexible - _changes with regression tests_
 
-### Code Coverage
+### Code coverage
 
-Try to reach higher levels (>90%)
-Do not write tests only for the sake of the code coverage
+* Try to reach higher levels (>90%)
+* Do not write tests only for the sake of the code coverage
 
-### Practices
+### Good practices
 
-It is allowed to use the default (package) visibility for the sake of the unit testing
-See more in JUnit Training
-Example...
+* Use the default (package) visibility for the sake of the unit testing
+
+Unit Testing briefly:
+
+![](https://petozoltan.github.io/images/clean-code-outline/test-automation-overview.png)
 
 ## Warnings
 
-Do not ignore compiler/IDE warnings
-Each warning is a potential/existing bug
-Do not suppress warnings -Find the correct solution instead
-Use the capabilities of your IDE -Turn on most of the possible warnings
-Do not add new code with warnings!
-Use code checkers -CheckStyle, FindBugs, PMD, Sonar, etc.
-Example...
-Bad: Suppressed warnings
+* Do not ignore compiler/IDE warnings
+* Each warning is a potential/existing bug
+* Do not suppress warnings - _Find the correct solution instead_
+* Use the capabilities of your IDE - _Turn on most of the possible warnings_
+* Do not add new code with warnings!
+* Use code checkers - _CheckStyle, FindBugs, PMD, Sonar, etc._
+
+Example: Bad: Suppressed warnings
+
+``` java
 // Many tricks for one unused parameter
+
 // CHECKSTYLE:OFF
 @SuppressWarnings("unused")
 private void addDescription(Type type, Contract contract, String comment) { // NOSONAR
-contract.setDescription(createDescription(contract.getType(), comment));
+    contract.setDescription(createDescription(contract.getType(), comment));
 }
 // CHECKSTYLE:ON
-Good: Corrected situation
+```
+
+Example: Good: Fixed problems
+
+``` java
 private void addDescription(Contract contract, String comment) {
-contract.setDescription(createDescription(contract.getType(), comment));
+    contract.setDescription(createDescription(contract.getType(), comment));
 }
+```
 
 ## Logging
 
-Use correct logging levels
-Log stack trace only for unexpected program errors
-Do not create (concatenate) expensive message if not logged -see SLF4J
+* Use correct logging levels
+* Log stack trace only for unexpected program errors
+* Create (concatenate) expensive message only if logged - _see SLF4J capabilities_
 
 ## Java
 
-Never use raw types -always use generics correctly
-Avoid using reflection
-Do not use instanceof and isAssignableFrom() -it adds dependency and duplication
-Know you API -use utility methods
+* Never use raw types - _always use generics correctly_
+* Avoid using reflection
+* Know you API - _use utility methods_
 
 ## Object Oriented Programming
 
 ### OOP Paradigm
 
 The original paradigm just to remember:
-Encapsulation
-Inheritance
-Polymorphism
+* Encapsulation
+* Inheritance
+* Polymorphism
 
 ### Clean OOP Principles
 
-Tight cohesion
-Loose coupling
-Encapsulation -where to write code?
+* Tight cohesion
+* Loose coupling
+* Responsibility - _where to write code?_
 
 ### Separation of concerns
 
-Creation -Dependency Injection
-Configuration
-Services, components -Business logic
-Data -Entities, DTOs
-Layers
-Logging -Framework or Aspect Oriented Programming
+* Creation - _Dependency Injection_
+* Configuration
+* Services, components - _Business logic_
+* Data - _Entities, DTOs_
+* Layers
+* Logging - _Framework or AOP_
 
 ### Dependency Injection
 
 #### Dependency Inversion
 
-A.k.a. Inversion of Control, IoC
-Always depend from the abstraction
-The more abstract, the more robust
-Example...
+* The paradigm
+* A.k.a. Inversion of Control, IoC
+* Always depend from the abstraction
+* The more abstract, the more robust
+
+Example: What is inverted in DI?
+
+![](https://petozoltan.github.io/images/clean-code-outline/uml-dependency-inversion.png)
 
 #### Dependency Injection
 
-Implementation of the Dependency Inversion
-Mostly done by a DI framework -Spring, Java EE, ...
-Easy to test -using mocks, test doubles
-Examples
-GST: TestComparators.java
-Example...
-Bad: Without dependency injection
-public class FileHistoryService implements IFileHistoryService {
-// Factory - Hard to replace implementation, hard to test
-private IFileHistoryDao fileHistoryDao = DaoFactory.getFileHistory();
-// Instantiation - Depends on implementation, may be complex
-private FileHistoryToFileHistoryDtoAssembler fileHistoryAssembler = new
-FileHistoryToFileHistoryDtoAssembler();
-private FileHistory createFileHistory() {
-...
-// Static methods - Depends on implementation, not polymorphic
-HttpHistoryAuthorHelperTAFile.fillAuthorFromHttpRequest(fileHistory);
-...
+* Implementation of the Dependency Inversion
+* Mostly done by a DI framework -Spring, Java EE, ...
+* Easy to test -using mocks, test doubles
+
+Example: Bad: Without dependency injection
+
+``` java
+public class FileHistoryService {
+
+    // Factory - Hard to replace implementation, hard to test
+    private IFileHistoryDao fileHistoryDao = DaoFactory.getFileHistory();
+
+    // Instantiation - Depends on implementation, may be more complex
+    private FileHistoryToFileHistoryDtoAssembler fileHistoryAssembler = new FileHistoryToFileHistoryDtoAssembler();
+
+    // Static methods - Depends on implementation, not polymorphic
+    private FileHistory createFileHistory() {
+        HttpHistoryAuthorHelperTAFile.fillAuthorFromHttpRequest(fileHistory);
+    }
 }
-Good: Dependency injection by a DI framework
+```
+
+Example: Good: Dependency injection by a DI framework
+
+``` java
 @Component
-public class FileHistoryService implements IFileHistoryService {
-@Autowired
-private IFileHistoryDao fileHistoryDao;
-@Autowired
-private FileHistoryToFileHistoryDtoAssembler fileHistoryAssembler;
-@Autowired
-private HttpHistoryAuthorHelperTAFile authorHelper;
+public class FileHistoryService {
+
+    @Autowired
+    private IFileHistoryDao fileHistoryDao;
+    @Autowired
+    private FileHistoryToFileHistoryDtoAssembler fileHistoryAssembler;
+    @Autowired
+    private HttpHistoryAuthorHelperTAFile authorHelper;
+}
+```
 
 ### Inheritance over instanceof
 
 Do not use instanceof and isAssignableFrom()
-adds dependency
-adds duplication
-refactor to polymorphism or patterns
+
+* it adds dependency
+* it adds duplication
+* refactor to polymorphism or patterns
 
 ### Composition over inheritance
 
 #### Problems with inheritance
 
-Too strict
-Hard to develop -one child changes a certain way the other one does not
-Do not use inheritance only for a "common" code
-Parent and children are be changed together -spaghetti code
-Item 16 in Effective Java (2nd Edition, Joshua Bloch, 2008)
+* Too strict
+* Hard to develop - _one child changes a certain way the other one does not_
+* Do not use inheritance only for a "common" code
+* Parent and children are be changed together - _spaghetti code_
+* Favor composition to inheritance - _Item 16 in Effective Java (2nd Edition, Joshua Bloch, 2008)_
+* Overridden methods are unreadable and fragile - _Item 17 in Effective Java (2nd Edition, Joshua Bloch, 2008)_
 
 #### Code Smells
 
-Parent must be changed when children change, abstract methods should be added
-The parent's name is "Common..." -a class should have an intentional business name
+* Parent must be changed when children change, abstract methods should be added
+* The parent's name is "Common..." - _a class should have an intentional business name_
 
 #### Use inheritance only for
 
-Real polymorphism
-Polymorphic usage - declared as a "parent" type
-Design patterns
+* Real polymorphism
+* Polymorphic usage - _declared as a "parent" type_
+* Design patterns
 
 ### Law of Demeter
 
-"Only talk to immediate friends"
-Do not depend on the implementation details other classes
-Use only one level of abstraction
-"Wallet" rule
-"Count of dots" rule - But not simply a dot counting law
-It depends on that the used class is procedural or a data structure (see Classes)
-Example...
-Bad:
+* "Only talk to immediate friends"
+* Do not depend on the implementation details other classes
+* Use only one level of abstraction
+* "Wallet" rule
+* "Count of dots" rule - _But not simply a dot counting law_
+* It depends on that the used class is procedural or a data structure (see Classes)
+
+Example: Bad:
+
+``` java
 // Depends on implementation of neighbors of neighbors...
 String outputDir = ctxt.getOptions().getScratchDir().getAbsolutePath();
-Bad: More levels of abstraction
+
+// More levels of abstraction, reaches through layers
 public boolean checkPassword(String name, String pwd) {
-userService.checkPassword(pwd); // It uses UserDao
-User user = userDao.findUser(name); // It should not
+    userService.checkPassword(pwd); // It already uses UserDao
+    User user = userDao.findUser(name); // It should not
 }
+```
 
 ### S.O.L.I.D.
 
@@ -1619,79 +1662,71 @@ Not in the book but also Uncle Bob.
 
 #### Single Responsibility
 
-a class should have only a single responsibility
-(i.e. only one potential change in the software's specification should be able to affect the specification of the
-class)
+* A class should have only one reason to change
+* Only a change in the specification should affect the implementation of the class
 
 #### Open/Closed
 
-software entities should be open for extension, but closed for modification
+* Software entities should be open for extension, but closed for modification
+
+It can be more general:
+* Software entities should NOT be open for extension
+* Any class should be closed for modification - _not only parent classes_
 
 #### Liskov Substitution
 
-Objects should be replaceable with instances of their subtypes without altering the correctness of that
-program.
-” See also design by contract.
+* Objects should be replaceable with instances of their subtypes without altering the correctness of that program.
+* See also design by contract
 
 #### Interface Segregation
 
-many client-specific interfaces are better than one general-purpose interface
+* Many client-specific interfaces are better than one general-purpose interface.
 
 #### Dependency Inversion
 
-Depend on Abstractions. Do not depend on concretions.
-Dependency injection is one method of following this principle
+* Depend on Abstractions. Do not depend on concretions.
+* Dependency injection is one method of following this principle.
 
 ## Code Smells
 
-### Futher reading
+_(See in the Clean Code book.)_
 
-See in the book
-Bad Practices
-Antipatterns
-Software engineering antipatterns
+## Links
 
-## Clean Code Training Links
+![]()
 
 ### Books
 
-Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin, 1994)
-Design Patterns: Elements of Reusable Object-Oriented Software ("Gang of Four", 1994)
-Refactoring: Improving the Design of Existing Code (Martin Fowler, Kent Beck, ..., 1999)
-Effective Java (2nd Edition, Joshua Bloch, 2008)
+* ![Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin, 1994)](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)
+* ![Design Patterns: Elements of Reusable Object-Oriented Software ("Gang of Four", 1994)](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/)
+* ![Refactoring: Improving the Design of Existing Code (Martin Fowler, Kent Beck, ..., 1999)](https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672/)
+* ![Effective Java (2nd Edition, Joshua Bloch, 2008)](https://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/dp/0321356683)
 
 ### PDF
 
-Java Code Conventions (Sun, 1997)
-Clean Code Cheat Sheet v2.4
-Design Principles and Design Patterns (Robert C. Martin, 2000)
-Uncle Bob: Principles Of OOD (SOLID)
+* ![Java Code Conventions (Sun, 1997)](http://www.oracle.com/technetwork/java/codeconventions-150003.pdf)
+* ![Clean Code Cheat Sheet v2.4](http://www.planetgeek.ch/wp-content/uploads/2014/11/Clean-Code-V2.4.pdf)
+* ![Uncle Bob: Principles Of OOD (SOLID)](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)
 
 ### Java
 
-How to Write Doc Comments for the Javadoc Tool
+* ![How to Write Doc Comments for the Javadoc Tool](http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html)
 
 ### Images
 
-The only valid measurement of code quality
-Unit Test Goals & Smells
+* ![The only valid measurement of code quality](http://www.osnews.com/story/19266/WTFs_m)
+* ![Unit Test Goals & Smells](http://xunitpatterns.com/Goals-Smells.gif)
 
 ### Wikipedia
 
-Dependency Injection
-Design Patterns (GoF)
-Software Design Pattern
-Composition over inheritance
-Cyclomatic complexity
+* ![Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)
+* ![Design Patterns (GoF)](https://en.wikipedia.org/wiki/Design_Patterns)
+* ![Software Design Pattern](https://en.wikipedia.org/wiki/Software_design_pattern)
+* ![Composition over inheritance](https://en.wikipedia.org/wiki/Composition_over_inheritance)
+* ![Cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity)
 
 ### Articles
 
-There Are Only 2 Roles of Code
-Uncle Bob: Principles Of OOD (SOLID)
-Essential XP: Emergent Design
-
-### docSpace
-
-Clean Code Thoughts
-Software Development
-JUnit Training Material
+* ![There Are Only 2 Roles of Code](https://dzone.com/articles/there-are-only-2-roles-code)
+* ![Uncle Bob: Principles Of OOD (SOLID)](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)
+* ![Essential XP: Emergent Design](http://ronjeffries.com/xprog/classics/expemergentdesign/)
