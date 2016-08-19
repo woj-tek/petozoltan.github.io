@@ -409,6 +409,7 @@ Appendix B: org.jfree.date.SerialDate
 Appendix C: Cross References of Heuristics
 
 Epilogue
+
 ### Related Posts
 
 * [Effective Java TOC](https://petozoltan.github.io/2016/08/19/effective-java-toc.html)
