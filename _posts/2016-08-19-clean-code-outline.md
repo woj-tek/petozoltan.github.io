@@ -1689,7 +1689,9 @@ It can be more general:
 
 ## General Code Smells
 
-Taken from the Clean Code book. See details in the book.
+See the list of code smells from the Clean Code book:
+
+* (Clean Code TOC, Smells and Heuristics)[https://petozoltan.github.io/2016/08/19/clean-code-toc.html#smells]
 
 #### Comments
 
@@ -1783,6 +1785,8 @@ Taken from the Clean Code book. See details in the book.
 
 ## Links
 
+### External Links
+
 #### Books
 
 * [Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin,4)](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/2)
@@ -1818,3 +1822,8 @@ Taken from the Clean Code book. See details in the book.
 * [There Are Only 2 Roles of Code](https://dzone.com/articles/there-are-only-2-roles-code)
 * [Uncle Bob: Principles Of OOD (SOLID)](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)
 * [Essential XP: Emergent Design](http://ronjeffries.com/xprog/classics/expemergentdesign/)
+
+### Related Posts
+
+* [Clean Code TOC](https://petozoltan.github.io/2016/08/19/clean-code-toc.html)
+* [Effective Java TOC](https://petozoltan.github.io/2016/08/19/effective-java-toc.html)
