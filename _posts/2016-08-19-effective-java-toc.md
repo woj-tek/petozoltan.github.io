@@ -11,9 +11,9 @@ date: 2016-08-19
 
 ***
 
-The table of contents of the book Effective Java by Joshua Bloch (2nd edition, 2008). It is a good overview of the rules recommended by the book.
+The table of contents of the book [Effective Java by Joshua Bloch (2nd edition, 2008)](https://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/dp/3). It is a good overview of the rules recommended by the book.
 
-### Table of Contents
+### Contents
 
 Creating and Destroying Objects
 
@@ -123,6 +123,6 @@ Serialization
 * For instance control, prefer enum types to readResolve 
 * Consider serialization proxies instead of serialized instances 
 
-### Related topics
+### Related Posts
 
 * [Clean Code Outline](https://petozoltan.github.io/2016/08/19/clean-code-outline.html)
