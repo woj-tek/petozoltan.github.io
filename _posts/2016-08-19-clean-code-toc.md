@@ -288,6 +288,7 @@ Refactoring SerialDate
 * Bibliography
 
 Smells and Heuristics
+{: #smells}
 
 * Comments
   * Inappropriate Information
