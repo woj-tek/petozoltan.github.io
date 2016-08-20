@@ -63,7 +63,7 @@ Videos
 * [Clean Code by Robert C. Martin](https://www.youtube.com/watch?v=SXkgYZw0evs&index=22&list=PLcr1-V2ySv4Tf_xSLj2MbQZr78fUVQAua)
 * [All Uncle Bob Videos](https://www.youtube.com/playlist?list=PLcr1-V2ySv4Tf_xSLj2MbQZr78fUVQAua)
 
-Related Posts
+### Related Posts
 
 * [Clean Code Outline](https://petozoltan.github.io/2016/08/19/clean-code-outline.html)
 * [Clean Code TOC](https://petozoltan.github.io/2016/08/19/clean-code-toc.html)
