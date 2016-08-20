@@ -1687,58 +1687,9 @@ It can be more general:
 * Depend on Abstractions. Do not depend on concretions.
 * Dependency injection is one method of following this principle.
 
-## General Code Smells
+## Related Posts
 
-See the list of code smells from the Clean Code book:
-
-* [Clean Code TOC, Smells and Heuristics](https://petozoltan.github.io/2016/08/19/clean-code-toc.html#smells)
-
-## Links
-
-### External Links
-
-#### Books
-
-* [Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin, 1994)](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/2)
-* [Design Patterns: Elements of Reusable Object-Oriented Software ("Gang of Four", 1994)](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/2/)
-* [Refactoring: Improving the Design of Existing Code (Martin Fowler, Kent Beck, ..., 1999)](https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/2/)
-* [Effective Java (2nd Edition, Joshua Bloch, 2008)](https://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/dp/3)
-
-#### PDF
-
-* [Java Code Conventions (Sun, 1997)](http://www.oracle.com/technetwork/java/codeconventions-.pdf)
-* [Clean Code Cheat Sheet v2.4](http://www.planetgeek.ch/wp-content/uploads/4/11/Clean-Code-V2.4.pdf)
-* [Uncle Bob: Principles Of OOD (SOLID)](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)
-
-#### Java
-
-* [How to Write Doc Comments for the Javadoc Tool](http://www.oracle.com/technetwork/java/javase/documentation/index-.html)
-
-#### Images
-
-* [The only valid measurement of code quality](http://www.osnews.com/story/66/WTFs_m)
-* [Unit Test Goals & Smells](http://xunitpatterns.com/Goals-Smells.gif)
-
-#### Wikipedia
-
-* [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)
-* [Design Patterns (GoF)](https://en.wikipedia.org/wiki/Design_Patterns)
-* [Software Design Pattern](https://en.wikipedia.org/wiki/Software_design_pattern)
-* [Composition over inheritance](https://en.wikipedia.org/wiki/Composition_over_inheritance)
-* [Cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity)
-
-#### Articles
-
-* [There Are Only 2 Roles of Code](https://dzone.com/articles/there-are-only-2-roles-code)
-* [Uncle Bob: Principles Of OOD (SOLID)](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)
-* [Essential XP: Emergent Design](http://ronjeffries.com/xprog/classics/expemergentdesign/)
-
-#### Blogs
-
-* [Yegor Bugayenko](http://www.yegor256.com/)
-* [Jean Rene](https://jeanrenesite.wordpress.com/)
-
-### Related Posts
-
+* [Clean Code Smells TOC](https://petozoltan.github.io/2016/08/19/clean-code-toc.html#smells)
 * [Clean Code TOC](https://petozoltan.github.io/2016/08/19/clean-code-toc.html)
+* [Clean Code Links](https://petozoltan.github.io/2016/08/20/clean-code-links.html)
 * [Effective Java TOC](https://petozoltan.github.io/2016/08/19/effective-java-toc.html)
