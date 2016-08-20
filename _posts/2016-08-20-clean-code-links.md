@@ -21,6 +21,8 @@ Books
 * [Design Patterns: Elements of Reusable Object-Oriented Software ("Gang of Four", 1994)](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/2/)
 * [Refactoring: Improving the Design of Existing Code (Martin Fowler, Kent Beck, ..., 1999)](https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/2/)
 * [Effective Java (2nd Edition, Joshua Bloch, 2008)](https://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/dp/3)
+* [The Clean Coder: A Code of Conduct for Professional Programmers (Robert C. Martin, 2011)](https://www.amazon.com/Clean-Coder-Conduct-Professional-Programmers/dp/0137081073)
+* [Code Complete: A Practical Handbook of Software Construction (Steve McConnell, 2nd, 2004](https://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670)
 
 PDF
 
@@ -57,6 +59,7 @@ Blogs
 
 * [Yegor Bugayenko](http://www.yegor256.com/)
 * [Jean Rene](https://jeanrenesite.wordpress.com/)
+* [8th Light - Blog of Robert C. Martin and others](https://8thlight.com/blog/uncle-bob/)
 
 Videos
 
