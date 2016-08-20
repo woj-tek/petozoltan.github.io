@@ -43,6 +43,8 @@ It is not enough to learn a programming language. We have to develop enterprise 
 * Result of "quick & dirty" coding
 * Poorly written code is a technical debt - _"Should be written better"_
 
+> The total cost of owning a mess. (Robert C. Martin)
+
 ![](https://petozoltan.github.io/images/clean-code-outline/velocity-graph.png)
 
 > Technical debt is the biggest risk of the development
@@ -160,6 +162,8 @@ Author: _Kent Beck_
 * Contains no duplication
 * Expresses the intent of the programmer
 * Minimizes the number of classes and methods
+
+> Perfection is achieved, not when there is nothing left to add, but when there is nothing left to remove. (Antoine de Saint-Exupery)
 
 ### Pseudo code
 
@@ -479,8 +483,6 @@ private void setCountryForSegments(AirportCityCodeItem country) {
 
 (Not part of this training. See links.)
 
-> Perfection is achieved, not when there is nothing left to add, but when there is nothing left to remove. (Antoine de Saint-Exupery)
-
 ## Conventions
 
 * Language conventions - _Java Code Conventions (Sun, 1997)_
@@ -777,7 +779,7 @@ public enum FareCode {
 }
 ```
 
-### Smells
+### Type Smells
 
 * Do not pass parameters in a map
 
@@ -1114,7 +1116,7 @@ private List<DeadlineReminderMessageDTO> loadDeadlineReminderMessages(UriCompone
 }
 ```
 
-### Smells
+### Method Smells
 
 * Passing this to a method -it could be implemented with more, smaller and readable classes.
 
@@ -1397,7 +1399,7 @@ Entity, DTO (Data Transfer Object)
 * Prefer interfaces to parent classes
 * Create marker interfaces
 
-### Smells
+### Class Smells
 
 #### No meaningful name
 
