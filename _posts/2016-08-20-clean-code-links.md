@@ -39,6 +39,13 @@ Images
 * [The only valid measurement of code quality](http://www.osnews.com/story/66/WTFs_m)
 * [Unit Test Goals & Smells](http://xunitpatterns.com/Goals-Smells.gif)
 
+Slideshows
+
+* [Clean Code](http://www.slideshare.net/arturoherrero/clean-code-8036914)
+* [Clean Code and Code Smells](http://www.slideshare.net/mariosangiorgio/clean-code-and-code-smells)
+
+...and more on the above site.
+
 Wikipedia
 
 * [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)
