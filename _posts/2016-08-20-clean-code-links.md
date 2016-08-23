@@ -17,26 +17,26 @@ It is impossible to list the ever growing number of books, articles, blog posts 
 
 Books
 
-* [Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin, 1994)](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/2)
-* [Design Patterns: Elements of Reusable Object-Oriented Software ("Gang of Four", 1994)](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/2/)
-* [Refactoring: Improving the Design of Existing Code (Martin Fowler, Kent Beck, ..., 1999)](https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/2/)
-* [Effective Java (2nd Edition, Joshua Bloch, 2008)](https://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/dp/3)
+* [Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin, 1994)](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)
+* [Design Patterns: Elements of Reusable Object-Oriented Software ("Gang of Four", 1994)](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/)
+* [Refactoring: Improving the Design of Existing Code (Martin Fowler, Kent Beck, ..., 1999)](https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672/)
+* [Effective Java (2nd Edition, Joshua Bloch, 2008)](https://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/dp/0321356683)
 * [The Clean Coder: A Code of Conduct for Professional Programmers (Robert C. Martin, 2011)](https://www.amazon.com/Clean-Coder-Conduct-Professional-Programmers/dp/0137081073)
 * [Code Complete: A Practical Handbook of Software Construction (Steve McConnell, 2nd, 2004](https://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670)
 
 PDF
 
-* [Java Code Conventions (Sun, 1997)](http://www.oracle.com/technetwork/java/codeconventions-.pdf)
-* [Clean Code Cheat Sheet v2.4](http://www.planetgeek.ch/wp-content/uploads/4/11/Clean-Code-V2.4.pdf)
+* [Java Code Conventions (Sun, 1997)](http://www.oracle.com/technetwork/java/codeconventions-150003.pdf)
+* [Clean Code Cheat Sheet v2.4](http://www.planetgeek.ch/wp-content/uploads/2014/11/Clean-Code-V2.4.pdf)
 * [Uncle Bob: Principles Of OOD (SOLID)](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)
 
 Java
 
-* [How to Write Doc Comments for the Javadoc Tool](http://www.oracle.com/technetwork/java/javase/documentation/index-.html)
+* [How to Write Doc Comments for the Javadoc Tool](http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html)
 
 Images
 
-* [The only valid measurement of code quality](http://www.osnews.com/story/66/WTFs_m)
+* [The only valid measurement of code quality](http://www.osnews.com/story/19266/WTFs_m)
 * [Unit Test Goals & Smells](http://xunitpatterns.com/Goals-Smells.gif)
 
 Slideshows
@@ -70,11 +70,5 @@ Blogs
 
 Videos
 
-* [Clean Code by Robert C. Martin](https://www.youtube.com/watch?v=SXkgYZw0evs&index=22&list=PLcr1-V2ySv4Tf_xSLj2MbQZr78fUVQAua)
+* [Clean Code Episode 1](https://cleancoders.com/episode/clean-code-episode-1/view)
 * [All Uncle Bob Videos](https://www.youtube.com/playlist?list=PLcr1-V2ySv4Tf_xSLj2MbQZr78fUVQAua)
-
-### Related Posts
-
-* [Clean Code Outline](https://petozoltan.github.io/2016/08/19/clean-code-outline.html)
-* [Clean Code TOC](https://petozoltan.github.io/2016/08/19/clean-code-toc.html)
-* [Effective Java TOC](https://petozoltan.github.io/2016/08/19/effective-java-toc.html)
