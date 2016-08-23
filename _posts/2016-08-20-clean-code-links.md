@@ -65,3 +65,9 @@ Videos
 
 * [Clean Code Episode 1](https://cleancoders.com/episode/clean-code-episode-1/view)
 * [All Uncle Bob Videos](https://www.youtube.com/playlist?list=PLcr1-V2ySv4Tf_xSLj2MbQZr78fUVQAua)
+
+Related posts on this blog
+
+* [Clean Code Outline](https://petozoltan.github.io/2016/08/19/clean-code-outline.html)
+* [Clean Code TOC](https://petozoltan.github.io/2016/08/19/clean-code-toc.html)
+* [Effective Java TOC](https://petozoltan.github.io/2016/08/19/effective-java-toc.html)
