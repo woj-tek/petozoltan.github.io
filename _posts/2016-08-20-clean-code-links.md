@@ -4,16 +4,7 @@ title: "Clean Code Links"
 date: 2016-08-20
 ---
 
-***
-
-* TOC
-{:toc}
-
-***
-
 It is impossible to list the ever growing number of books, articles, blog posts and videos about clean code you can find on the internet. Here you find some basic documents to the topic, which are worth to read or use as a reference.
-
-### Links
 
 Books
 
