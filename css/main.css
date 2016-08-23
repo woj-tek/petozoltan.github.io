@@ -11,7 +11,7 @@ body {
 .default_content {
 	margin: 1em auto;
 	width: 100%;
-	--max-width: 640px;
+	max-width: 800px;
 
 	border-radius: 3px 3px 3px 3px;
 	border-width: 1px;
