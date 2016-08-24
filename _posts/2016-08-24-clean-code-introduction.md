@@ -4,21 +4,21 @@ title: "Clean Code Introduction"
 date: 2016-08-24
 ---
 
+This introduction does not go through the basics of the clean code. Instead of that it collects thoughts and advices for practicing  software developers.
+
 ***
 
 * TOC
 {:toc}
 
-***
-
 ## Origin & Overview
 
-#### Uncle Bob & The Book
+### Uncle Bob & The Book
 
   - [Clean Code book cover](https://petozoltan.github.io/images/clean-code-outline/clean-code-book-cover.png)
   - [Uncle Bobb, Robert C. Martin](https://d26o5k45lnmm4v.cloudfront.net/authors-robert-martin-v0.jpg)
 
-#### Named principles
+### Named principles
 
 - In the book: SRP, OCP, DIP, (IoC), DI, DRY, LOD, BSR, F.I.R.S.T.
 - Not in the book: LSP, ISP, YAGNI, KISS, S.O.L.I.D.
@@ -43,12 +43,12 @@ Testing
     
   * **F.I.R.S.T.** Fast, Independent, Repeatable, Self-validating, Timely
 
-#### Why clean code?
+### Why clean code?
 
 - [The total cost of owning a mess](https://petozoltan.github.io/images/clean-code-outline/velocity-graph.png)
 - [The real measure of code quality](https://petozoltan.github.io/images/clean-code-outline/code-quality-wtfs.png)
 
-#### What is bad code like?
+### What is bad code like?
 
 Readability
 
@@ -78,7 +78,7 @@ Programmer style
 - Lazy
 - Quick and dirty
 
-#### What is clean code like?
+### What is clean code like?
 
 - Elegant
 - Simple
@@ -102,7 +102,7 @@ Programmer style
 
 ## Advanced Thoughts
 
-#### What is clean code and what is it not?
+### What is clean code and what is it not?
 
 Not code beautifying
 
@@ -148,7 +148,7 @@ Not easy
   - easy to see other's bad code but not easy to recognize when we do them
 - Long practice
 
-#### The ultimate goals of clean code
+### The ultimate goals of clean code
 
 Real: The software product should be...
 
@@ -161,7 +161,7 @@ Technical: We realize the goals through...
 - Expressiveness
 - Granularity
 
-#### When is the code good?
+### When is the code good?
 
 Broken into units
 
@@ -175,7 +175,7 @@ Decidable whether it is good
   - Specification vs. implementation
   - Names vs. code blocks {}
 
-#### Single Responsibility Principle
+### Single Responsibility Principle
 
 > SRP is the core rule of clean code.
     
@@ -183,7 +183,7 @@ Decidable whether it is good
 - [Spaghetti code](https://petozoltan.github.io/images/clean-code-outline/single-responsibility-principle-2-spec.png)
 - [Unwanted dependencies](https://petozoltan.github.io/images/clean-code-outline/single-responsibility-principle-3-impl.png)
 
-#### Reading the code with clean code view
+### Reading the code with clean code view
 
 I see independent, named code blocks { }:
 
@@ -206,7 +206,7 @@ I see independent, named code blocks { }:
   - Methods: No inline implementation
   - Classes: No low cohesive classes
 
-#### Modifying the code with clean code view
+### Modifying the code with clean code view
 
 Before modification
 
@@ -221,7 +221,7 @@ Do modification
 
 ## Typical Issues
 
-#### Refactoring
+### Refactoring
 
 > "Refactor a little, code a little"
 
@@ -241,25 +241,25 @@ getCustomers() {
 }
 ```
 
-#### Readability
+### Readability
 
 - It should be readable like "English prose".
 - [It should be pseudo code.](https://petozoltan.github.io/2016/08/19/clean-code-outline.html#pseudo-code)
 
-#### Names
+### Names
 
-##### Give names!
+**Give names!**
 
 - Methods instead of inline implementation
 - Classes instead of low cohesive classes
 
-##### Naming struggle is a code smell!
+**Naming struggle is a code smell!**
 
 - If you cannot give a good name.
 
-#### Duplication
+### Duplication
 
-##### When general contains special
+**When general contains special**
 
 Example: Bad: 'Almost the same' methods
 
@@ -325,26 +325,26 @@ public ResultBean saveSomething(InputBean input) {
 
 [How to refactor](https://petozoltan.github.io/images/clean-code-outline/refactoring-inline-implementation.png)
 
-#### Enums
+### Enums
 
 - Use enums for constants
 - Static information mapping
 - [More...](https://petozoltan.github.io/2016/08/19/clean-code-outline.html#enums)
 
-#### Classes
+### Classes
 
-##### Tight cohesion
+**Tight cohesion**
 
 - Single Responsibility Principle
 - Members should use each-other
   https://petozoltan.github.io/images/clean-code-outline/refactoring-low-cohesion.png
 
-##### Loose coupling
+**Loose coupling**
 
 - Dependency inversion
   https://petozoltan.github.io/images/clean-code-outline/uml-dependency-inversion.png
 
-##### Class types
+**Class types**
 
 Service
 
@@ -358,7 +358,7 @@ Data
 - No procedures
 - New / ORM
 
-##### Inheritance
+**Inheritance**
 
 Problems
 
@@ -388,9 +388,9 @@ Links
 
 - [When to avoid inheritance?](https://petozoltan.github.io/2016/06/18/when-to-avoid-inheritance.html)
 
-#### Methods
+### Methods
 
-##### Avoid inline implementation
+**Avoid inline implementation**
 
 - Methods do more than one thing.
 - This is unnamed functionality.
@@ -430,21 +430,21 @@ private void calculateAndDeliverPay(Employee e) {
 }
 ```
  
-##### Do not return null!
+**Do not return null!**
 
-##### Do not explicitly pass null!
+**Do not explicitly pass null!**
 
-##### Overload methods only if they do the same
+**Overload methods only if they do the same**
 
 - They physically call the same method
 - Only for convenience methods with different parameters
 
-##### Do not mix two types of methods
+**Do not mix two types of methods**
 
 - Coordinator, "logic"
 - Technical
 
-##### Avoid never-ending method chain
+**Avoid never-ending method chain**
 
 ``` java
 save() {
@@ -471,14 +471,14 @@ doReallyTheSave() {
 // etc.
 ```
 
-##### No side effects
+**No side effects**
 
 Take care of invisible side effects
 
 - Transactions
 - Concurrency
 
-#### Programmers 
+### Programmers 
 
 - Always ask whether the code does what it should do by the names
 - Read back your code
@@ -486,7 +486,7 @@ Take care of invisible side effects
 - Avoid workaround programming - against our own code
 - Stop & think if too complicated
 
-#### Unit test
+### Unit test
 
 - Strictly belongs to clean code.
   - Helps to finish the code units.
@@ -495,7 +495,7 @@ Take care of invisible side effects
 - Helps to write testable code.
   - Methods with clear and direct input and output.
 
-#### Warnings
+### Warnings
 
 - Do not commit warnings!
 - Do not hide IDE warnings!
