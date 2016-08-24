@@ -352,8 +352,7 @@ public ResultBean saveSomething(InputBean input) {
 
 **Loose coupling**
 
-- Dependency inversion
-  https://petozoltan.github.io/images/clean-code-outline/uml-dependency-inversion.png
+- [Dependency inversion](https://petozoltan.github.io/images/clean-code-outline/uml-dependency-inversion.png)
 
 **Class types**
 
@@ -441,9 +440,21 @@ private void calculateAndDeliverPay(Employee e) {
 }
 ```
  
-**Do not return null!**
+**Do not return null**
 
-**Do not explicitly pass null!**
+**Do not explicitly pass null**
+
+**Do not write 'handleError()' methods**
+
+- They does not express the program flow (exception?)
+- They cheat the compiler too (unreachable code)
+- Instead create a method with return value 
+ 
+``` java
+    } catch(Exception e {
+        throw createServiceException(e, ...);
+    }
+```
 
 **Overload methods only if they do the same**
 
@@ -454,6 +465,13 @@ private void calculateAndDeliverPay(Employee e) {
 
 - Coordinator, "logic"
 - Technical
+
+**No side effects**
+
+Take care of invisible side effects
+
+- Transactions
+- Concurrency
 
 **Avoid never-ending method chain**
 
@@ -481,13 +499,6 @@ doReallyTheSave() {
 
 // etc.
 ```
-
-**No side effects**
-
-Take care of invisible side effects
-
-- Transactions
-- Concurrency
 
 ### Programmers 
 
