@@ -402,7 +402,7 @@ Links
 
 **Avoid inline implementation**
 
-- Methods do more than one thing.
+- Methods doing more than one thing.
 - This is unnamed functionality.
 
 Bad: Method doing more than one thing (from the book)
@@ -443,18 +443,6 @@ private void calculateAndDeliverPay(Employee e) {
 **Do not return null**
 
 **Do not explicitly pass null**
-
-**Do not write 'handleError()' methods**
-
-- They does not express the program flow (exception?)
-- They cheat the compiler too (unreachable code)
-- Instead create a method with return value 
- 
-``` java
-    } catch(Exception e {
-        throw createServiceException(e, ...);
-    }
-```
 
 **Overload methods only if they do the same**
 
@@ -522,3 +510,17 @@ doReallyTheSave() {
 - Do not commit warnings!
 - Do not hide IDE warnings!
 - Do not suppress warnings!
+
+### Other antipatterns
+
+**Do not write 'handleError()' methods**
+
+- They does not express the program flow (exception?)
+- They cheat the compiler too (unreachable code)
+- Instead create a method with return value 
+ 
+``` java
+    } catch(Exception e {
+        throw createServiceException(e, ...);
+    }
+```
