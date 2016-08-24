@@ -217,7 +217,7 @@ Do modification
 
 > "Refactor a little, code a little"
 
-Before it is good:
+Before it was good:
 
 ``` java
 getCustomers() {
@@ -225,11 +225,27 @@ getCustomers() {
 }
 ```
 
-After it is bad: Functionality changed, name not changed.
+After it is bad: Functionality changed, name not changed
 
 ``` java
 getCustomers() {
     return dao.getCustomers(Status.ACTIVE);
+}
+```
+
+Good: Name changed
+
+``` java
+getActiveCustomers() {
+    return dao.getCustomers(Status.ACTIVE);
+}
+```
+
+Good alternative: Declaration changed
+
+``` java
+getCustomers(Status status) {
+    return dao.getCustomers(status);
 }
 ```
 
@@ -248,6 +264,7 @@ getCustomers() {
 **Naming struggle is a code smell!**
 
 - If you cannot give a good name.
+- Names like 'Abstract', 'Common', 'Base', etc. are not good.
 
 ### Duplication
 
