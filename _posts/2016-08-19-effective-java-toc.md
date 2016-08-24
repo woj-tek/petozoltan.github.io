@@ -4,13 +4,6 @@ title: "Effective Java TOC"
 date: 2016-08-19
 ---
 
-***
-
-* TOC
-{:toc}
-
-***
-
 The table of contents of the book [Effective Java by Joshua Bloch (2nd edition, 2008)](https://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/dp/3). It is a good overview of the rules recommended by the book.
 
 ### Contents
@@ -121,10 +114,4 @@ Serialization
 * Consider using a custom serialized form 
 * Write readObject methods defensively 
 * For instance control, prefer enum types to readResolve 
-* Consider serialization proxies instead of serialized instances 
-
-### Related Posts
-
-* [Clean Code Outline](https://petozoltan.github.io/2016/08/19/clean-code-outline.html)
-* [Clean Code Links](https://petozoltan.github.io/2016/08/20/clean-code-links.html)
-* [Clean Code TOC](https://petozoltan.github.io/2016/08/19/clean-code-toc.html)
+* Consider serialization proxies instead of serialized instances
