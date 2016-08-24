@@ -8,7 +8,6 @@ date: 2016-08-19
 
 * TOC
 {:toc}
-
 ***
 
 ![](https://petozoltan.github.io/images/clean-code-outline/clean-code-book-cover.png)
