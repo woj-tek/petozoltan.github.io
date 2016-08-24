@@ -526,7 +526,7 @@ doReallyTheSave() {
 Bad: What will happen? What does it do? What information is used?
 
 ``` java
-    } catch(Exception e {
+    } catch(Exception e) {
         handleException(e);
     }
 ```
@@ -534,7 +534,7 @@ Bad: What will happen? What does it do? What information is used?
 Good: It is clear
 
 ``` java
-    } catch(Exception e {
+    } catch(Exception e) {
         throw createServiceException(e, ...);
     }
 ```
