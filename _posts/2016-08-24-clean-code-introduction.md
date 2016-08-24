@@ -5,6 +5,7 @@ date: 2016-08-24
 ---
 
 This introduction does not go through the basics of the clean code. Instead of that it collects thoughts and advices for practicing  software developers.
+
 &nbsp;
 
 ***
