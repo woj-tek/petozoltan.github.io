@@ -174,8 +174,8 @@ If it is *decidable* whether it is good.
 
 ### Single Responsibility Principle
 
-> SRP is the core rule of clean code.
-    
+SRP is the core rule of clean code.
+
 - [Good as it should be](https://petozoltan.github.io/images/clean-code-outline/single-responsibility-principle-1-ok.png)
 - [Spaghetti code](https://petozoltan.github.io/images/clean-code-outline/single-responsibility-principle-2-spec.png)
 - [Unwanted dependencies](https://petozoltan.github.io/images/clean-code-outline/single-responsibility-principle-3-impl.png)
