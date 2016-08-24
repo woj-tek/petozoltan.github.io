@@ -11,8 +11,6 @@ This introduction does not go through the basics of the clean code. Instead of t
 * TOC
 {:toc}
 
-***
-
 ## Origin & Overview
 
 ### Uncle Bob & The Book
@@ -26,7 +24,7 @@ This introduction does not go through the basics of the clean code. Instead of t
 - Not in the book: LSP, ISP, YAGNI, KISS, S.O.L.I.D.
 
 Coding
-    
+
   * **SRP** Single Responsibility Principle
   * **OCP** Open Closed Principle
   * **DIP** Dependency Inversion Principle
@@ -40,9 +38,9 @@ Coding
   * **YAGNI** You Ain't Gonna Need It
   * **KISS** Keep It Simple Stupid
   * **S.O.L.I.D** SRP + OPC + LSP + ISP + DIP
-    
+
 Testing
-    
+
   * **F.I.R.S.T.** Fast, Independent, Repeatable, Self-validating, Timely
 
 ### Why clean code?
@@ -92,8 +90,6 @@ Programmer style
 - Bugs cannot hide
 - Art
 
-[See the beginning of this presentation](http://www.slideshare.net/arturoherrero/clean-code-8036914)
-
 ## Further Reading
 
 - [Clean Code book, table of content](https://petozoltan.github.io/2016/08/19/clean-code-toc.html)
@@ -119,7 +115,7 @@ Not a set of mechanic rules
 - Terms
 - Violations are only 'code smells'
 
-Not numeric rules
+No numeric rules
 
 - Only the 'single' rule
 - Simplicity
@@ -139,8 +135,7 @@ Not matter of taste
 Not waste of time
 
 - Aims to finish the code
-Refactoring is not evil
-
+- Refactoring is not evil
 - Technical debt is evil
 
 Not easy
@@ -152,13 +147,13 @@ Not easy
 
 ### The ultimate goals of clean code
 
-Real: The software product should be...
+The software product should be...
 
 - Error free
 - Finished
 - Maintainable
 
-Technical: We realize the goals through...
+We realize the goals through...
 
 - Expressiveness
 - Granularity
