@@ -10,6 +10,7 @@ This introduction does not go through the basics of the clean code. Instead of t
 
 * TOC
 {:toc}
+***
 
 ## Origin & Overview
 
