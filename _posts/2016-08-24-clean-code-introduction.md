@@ -16,7 +16,7 @@ This introduction does not go through the basics of the clean code. Instead of t
 ### Uncle Bob & The Book
 
   - [Clean Code book cover](https://petozoltan.github.io/images/clean-code-outline/clean-code-book-cover.png)
-  - [Uncle Bobb, Robert C. Martin](https://d26o5k45lnmm4v.cloudfront.net/authors-robert-martin-v0.jpg)
+  - [Uncle Bob, Robert C. Martin](https://d26o5k45lnmm4v.cloudfront.net/authors-robert-martin-v0.jpg)
 
 ### Named principles
 
