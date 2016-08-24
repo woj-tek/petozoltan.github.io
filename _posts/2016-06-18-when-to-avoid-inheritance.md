@@ -85,7 +85,7 @@ If its members can be split into groups that use each other but only in the same
 
 Cohesion is basically a synonym of the *Single Responsibility Principle*, which should not be violated.
 
-#### Prefer composition to inheritance
+#### Favor composition over inheritance
 
 See Effective Java book.
 
@@ -135,7 +135,7 @@ Test cases must be simple and *independent*.
 
 #### Make methods final
 
-"Make implementation mandatory or prohibit it." (Effective Java book)
+"Design and document for inheritance or else prohibit it" (Effective Java book)
 
 Overriding an implemented method is a nonsense and it is also a dangerous. You must not override an existing implementation of a method. The parent class is closed, complete and tested. If you change only a portion of it, it can be broken.
 
