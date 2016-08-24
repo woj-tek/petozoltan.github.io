@@ -258,8 +258,10 @@ getCustomers(Status status) {
 
 **Give names!**
 
-- Methods instead of inline implementation
-- Classes instead of low cohesive classes
+- Method level: 
+  - Methods instead of [inline implementations](https://petozoltan.github.io/2016/08/19/clean-code-outline.html#avoid-inline-implementation).
+- Class level: 
+  - More, small classes instead of big, [low cohesive classes](https://petozoltan.github.io/2016/08/19/clean-code-outline.html#does-more-things---low-cohesion).
 
 **Naming struggle is a code smell!**
 
@@ -346,7 +348,7 @@ public ResultBean saveSomething(InputBean input) {
 
 - Single Responsibility Principle
 - Members should use each-other
-  https://petozoltan.github.io/images/clean-code-outline/refactoring-low-cohesion.png
+- [How to refactor](https://petozoltan.github.io/images/clean-code-outline/refactoring-low-cohesion.png)
 
 **Loose coupling**
 
