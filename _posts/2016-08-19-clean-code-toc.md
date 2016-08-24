@@ -4,13 +4,6 @@ title: "Clean Code TOC"
 date: 2016-08-19
 ---
 
-***
-
-* TOC
-{:toc}
-
-***
-
 The table of contents of the book [Clean Code: A Handbook of Agile Software Craftsmanship (Robert C. Martin, 1994)](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/2). It is a good overview of the rules recommended by the book.
 
 ### Contents
@@ -410,9 +403,3 @@ Appendix B: org.jfree.date.SerialDate
 Appendix C: Cross References of Heuristics
 
 Epilogue
-
-### Related Posts
-
-* [Clean Code Outline](https://petozoltan.github.io/2016/08/19/clean-code-outline.html)
-* [Clean Code Links](https://petozoltan.github.io/2016/08/20/clean-code-links.html)
-* [Effective Java TOC](https://petozoltan.github.io/2016/08/19/effective-java-toc.html)
