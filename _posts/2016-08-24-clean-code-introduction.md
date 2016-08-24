@@ -117,8 +117,8 @@ Not a set of mechanic rules
 
 No numeric rules
 
-- Only the 'single' rule
-- Simplicity
+- Only one numeric rule: it does 1 thing.
+- 'Simple' instead of 'small'.
 
 No boilerplate code templates
 
@@ -522,7 +522,17 @@ doReallyTheSave() {
 - They does not express the program flow (exception?)
 - They cheat the compiler too (unreachable code)
 - Instead create a method with return value 
- 
+
+Bad: What will happen? What does it do? What information is used?
+
+``` java
+    } catch(Exception e {
+        handleException(e);
+    }
+```
+
+Good: It is clear
+
 ``` java
     } catch(Exception e {
         throw createServiceException(e, ...);
