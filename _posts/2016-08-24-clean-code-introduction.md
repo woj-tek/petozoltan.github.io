@@ -375,11 +375,13 @@ Problems
 - Hard to read, "mind mapping"
 - The strongest dependency
 - Misunderstanding of polymorphism
-  - "A extends B" reads "A is a B"
-  - "A extends AbstractA" reads "A is an AbstractA"
+  - _A extends B_ reads _A is a B_
+  - _A extends AbstractA_ reads _A is an AbstractA_
   - Names smell
 
-Favor composition to inheritance 
+Favor composition over inheritance 
+
+_From the Effective Java book_
 
 - Use inheritance only for real polymorphism
 - Do not put common code into parent classes
@@ -389,7 +391,9 @@ Favor composition to inheritance
   - Methods are the simplest abstraction
 - Turn on warnings
 
-Make it final or abstract
+Make methods final
+
+_From the Effective Java book: Design and document for inheritance or else prohibit it_
 
 - Overriding of implemented methods is forbidden
 - Fragile code
