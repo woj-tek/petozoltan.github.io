@@ -68,6 +68,7 @@ Videos
 
 Related posts on this blog
 
+* [Clean Code Introduction](https://petozoltan.github.io/2016/08/24/clean-code-introduction.html)
 * [Clean Code Outline](https://petozoltan.github.io/2016/08/19/clean-code-outline.html)
 * [Clean Code TOC](https://petozoltan.github.io/2016/08/19/clean-code-toc.html)
 * [Effective Java TOC](https://petozoltan.github.io/2016/08/19/effective-java-toc.html)
