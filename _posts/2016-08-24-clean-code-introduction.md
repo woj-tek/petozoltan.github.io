@@ -10,6 +10,7 @@ This introduction does not go through the basics of the clean code. Instead of t
 
 * TOC
 {:toc}
+
 ***
 
 ## Origin & Overview
@@ -164,16 +165,11 @@ Technical: We realize the goals through...
 
 ### When is the code good?
 
-Broken into units
-
-- Single Responsibility Principle
-- Finished
-- Tested
-
-Decidable whether it is good
+If it is *decidable* whether it is good.
 
 - It is a comparison
   - Specification vs. implementation
+  - Declaration vs. definition
   - Names vs. code blocks {}
 
 ### Single Responsibility Principle
