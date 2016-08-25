@@ -64,7 +64,8 @@ Blogs
 Videos
 
 * [Clean Code Episode 1](https://cleancoders.com/episode/clean-code-episode-1/view)
-* [All Uncle Bob Videos](https://www.youtube.com/playlist?list=PLcr1-V2ySv4Tf_xSLj2MbQZr78fUVQAua)
+* [Clean Code videos](https://cleancoders.com/videos) - They are not free but there are some free ones.
+* [All free Uncle Bob videos](https://www.youtube.com/playlist?list=PLcr1-V2ySv4Tf_xSLj2MbQZr78fUVQAua)
 
 Related posts on this blog
 
