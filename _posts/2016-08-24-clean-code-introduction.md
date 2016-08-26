@@ -295,7 +295,7 @@ public ResultBean saveSomething(InputBean input) {
         logger.error("Unexpected error", e);
         throw e;
     } finally {
-        listeners.sendEvent(SAVE_CUSTOMER_FINISHED);
+        listeners.sendEvent(SAVE_FINISHED);
         progress.close();
     }
 
@@ -325,7 +325,7 @@ public ResultBean saveSomething(InputBean input) {
         logger.error("Unexpected error", e);
         throw e;
     } finally {
-        listeners.sendEvent(SAVE_CUSTOMER_FINISHED);
+        listeners.sendEvent(SAVE_FINISHED);
         progress.close();
     }
 
