@@ -1,4 +1,6 @@
-Hard to spread CC. The deeper reasons.
+# Why is it hard to convince programmers about clean code?
+
+The deeper reasons.
 
 ## Two Types of Programmers
 
@@ -29,3 +31,23 @@ While CCs expect something like:
  The reason is that the above question may be simply *ambiguous*. Lets' replace it with the question:
  
  > Why is this code doing what it does?
+
+## When is the code 'good'?
+
+* NCCs may say good = working
+* CCs may say good = working + something more
+
+Working really means that it is working *now*.
+
+> Good = Works + Time 
+
+Good = It works and will work in a constantly changing code basis. 
+
+It is like writing code on a moving paper or painting on the surface of a river.
+
+And when will it work in time? That's the root of clean code:
+* simple
+* readable
+* non-ambiguous
+* granulated
+* tested
