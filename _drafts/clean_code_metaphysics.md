@@ -34,10 +34,10 @@ While CCs expect something like:
 
 ## When is the code 'good'?
 
-* NCCs may say good = working
-* CCs may say good = working + something more
+* NCCs may say: *good = working*
+* CCs may say: *good = working + something more*
 
-Working really means that it is working *now*.
+The misunderstanding is the 'working' really means that it is 'working *now*'. The reality is:
 
 > Good = Works + Time 
 
